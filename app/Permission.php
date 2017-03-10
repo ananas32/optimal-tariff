@@ -6,6 +6,7 @@ use Zizaco\Entrust\EntrustPermission;
 
 class Permission extends EntrustPermission
 {
+    //test
     public $table = 'permissions';
 
     public function roles()
