@@ -19,3 +19,13 @@ Auth::routes();
 Route::post('ulogin', 'UloginController@login');
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('/', 'HomeController@index');
+
+Route::get('/select-tariff', 'SelectTariffController@index');
+
+Route::get('/tariffs', 'TariffController@index');
+
+Route::get('/guest-book', 'GuestBookController@index');
+
+//Route::post('gbook', 'GbookController@create');

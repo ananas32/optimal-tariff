@@ -1,6 +1,19 @@
 @extends('layouts.app')
 
-@section('content')
+@section('body')
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="content-block">
+                    <h3><span>Cброс пароля</span></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -32,7 +45,7 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-warning">
                                     Send Password Reset Link
                                 </button>
                             </div>

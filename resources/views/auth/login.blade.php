@@ -1,6 +1,19 @@
 @extends('layouts.app')
 
-@section('content')
+@section('body')
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="content-block">
+                        <h3><span>Авторизация</span></h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     <div class="container">
     <div class="row">
@@ -23,6 +36,7 @@
                                     </span>
                                 @endif
                             </div>
+
                         </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
@@ -37,6 +51,7 @@
                                     </span>
                                 @endif
                             </div>
+
                         </div>
 
                         <div class="form-group">
@@ -51,17 +66,16 @@
 
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-warning">
                                     Login
                                 </button>
 
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password? kurwa
+                                    Forgot Your Password?
                                 </a>
                             </div>
                         </div>
                         @include('auth.social')
-
                     </form>
                 </div>
             </div>
