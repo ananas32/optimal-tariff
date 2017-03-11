@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Vitalik
- * Date: 02.10.2016
- * Time: 19:40
- */
+
 use Illuminate\Pagination\PaginationServiceProvider;
 use SleepingOwl\Admin\Model\ModelConfiguration;
 use App\Role;

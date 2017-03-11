@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Slider;
 
 class HomeController extends Controller
 {
@@ -21,8 +22,14 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Slider $slider)
     {
-        return view('pages.index');
+        $sliderImageList = $slider->getSliderImage();
+
+        $data = [
+            'sliderImageList' => $sliderImageList
+        ];
+
+        return view('pages.index', $data);
     }
 }
