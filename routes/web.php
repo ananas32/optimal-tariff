@@ -27,5 +27,6 @@ Route::get('/select-tariff', 'SelectTariffController@index');
 Route::get('/tariffs', 'TariffController@index');
 
 Route::get('/guest-book', 'GuestBookController@index');
+Route::post('/guest-book-message', 'GuestBookController@create');
 
 //Route::post('gbook', 'GbookController@create');

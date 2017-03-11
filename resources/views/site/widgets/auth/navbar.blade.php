@@ -205,12 +205,14 @@
         </a>
         <ul class="dropdown-menu">
             <!-- User image -->
-            <li class="user-header">
+            <li class="user-header" style="background: #F39C12">
                 <img src="http://images.iimg.in/c/569f476ec55d32a44c8b45dd-4-501-0-1453279087/google/user-icons-download-free-premium-icons-on-iconfinder.img?crop=1" class="img-circle" />
 
                 <p>
                     {{ $user->name }}
-                    <small>@lang('sleeping_owl::lang.auth.since', ['date' => $user->created_at->format('d.m.Y')])</small>
+                    <small>
+                        @lang('sleeping_owl::lang.auth.since', ['date' => $user->created_at->format('d.m.Y')])
+                    </small>
                 </p>
             </li>
             <!-- Menu Footer-->
