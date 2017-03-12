@@ -48,6 +48,18 @@ return [
                 ->setPriority(200)
         ]
     ],
+    [
+        'title' => "News",
+        'icon' => 'fa fa-newspaper-o',
+        'pages' => [
+            (new Page(\App\News::class))
+                ->setIcon('fa fa-newspaper-o')
+                ->setPriority(99),
+            (new Page(\App\TypeNews::class))
+                ->setIcon('fa fa-unsorted')
+                ->setPriority(100)
+        ]
+    ],
     // Examples
     // [
     //    'title' => 'Content',
