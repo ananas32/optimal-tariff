@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Slider;
 use App\GuestBook;
 use App\TextHeader;
+use App\HomeContent;
 
 class HomeController extends Controller
 {
@@ -23,14 +24,15 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(TextHeader $textHeader, GuestBook $guestBook, Slider $slider)
+    public function index(TextHeader $textHeader, GuestBook $guestBook, Slider $slider, HomeContent $homeContent)
     {
         $sliderImageList = $slider->getSliderImage();
 //        dd($textHeader->getHeaderText());
         $data = [
             'countMessage' => $guestBook->getCountGuestBookMessage(),
             'headerText' => $textHeader->getHeaderText(),
-            'sliderImageList' => $sliderImageList
+            'sliderImageList' => $sliderImageList,
+            'blockContent' => $homeContent->getBlockContent()
         ];
 
         return view('pages.index', $data);
