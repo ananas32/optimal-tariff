@@ -14,4 +14,9 @@ class GuestBook extends Model
             ->orderBy('id', 'DESC')
             ->paginate(10);
     }
+
+    public function getCountGuestBookMessage()
+    {
+        return GuestBook::count();
+    }
 }

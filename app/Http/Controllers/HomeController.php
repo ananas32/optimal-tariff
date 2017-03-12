@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Slider;
+use App\GuestBook;
+use App\TextHeader;
 
 class HomeController extends Controller
 {
@@ -22,11 +23,13 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Slider $slider)
+    public function index(TextHeader $textHeader, GuestBook $guestBook, Slider $slider)
     {
         $sliderImageList = $slider->getSliderImage();
-
+//        dd($textHeader->getHeaderText());
         $data = [
+            'countMessage' => $guestBook->getCountGuestBookMessage(),
+            'headerText' => $textHeader->getHeaderText(),
             'sliderImageList' => $sliderImageList
         ];
 

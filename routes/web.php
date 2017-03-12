@@ -29,4 +29,14 @@ Route::get('/tariffs', 'TariffController@index');
 Route::get('/guest-book', 'GuestBookController@index');
 Route::post('/guest-book-message', 'GuestBookController@create');
 
+#Locale
+Route::get('/locale/{code}', 'LocaleController@setLocale');
+//Route::get('/locale/{locale}', function ($locale) {
+//    echo $locale;
+//    Session::put('setLocale', $locale);
+//    App::setLocale($locale);
+//
+//    return back();
+//
+//});
 //Route::post('gbook', 'GbookController@create');

@@ -1,4 +1,21 @@
 @if ($user)
+    @if(!empty($codeLanguage))
+        {{--<div class="navbar-custom-menu">--}}
+            {{--<ul class="nav navbar-nav">--}}
+                @foreach($codeLanguage as $code)
+                    {{--<a style="color: white" href="/locale/{{ $code }}">{{ $code }}</a>--}}
+                    <li class="dropdown notifications-menu">
+                        <!-- Menu toggle button -->
+                        <a href="/locale/{{ $code }}" class="dropdown-toggle" title="{{ $code }}">
+                            <b style="color:{{ (App::getLocale() == $code) ? '#222D32' : '' }}">{{ $code }}</b>
+
+                            <span class="label label-warning"></span>
+                        </a>
+                    </li>
+                @endforeach
+            {{--</ul>--}}
+        {{--</div>--}}
+    @endif
     <!-- Messages: style can be found in dropdown.less-->
     <li class="dropdown messages-menu">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -76,6 +93,7 @@
             <li class="footer"><a href="#">See All Messages</a></li>
         </ul>
     </li>
+
     <!-- Notifications: style can be found in dropdown.less -->
     <li class="dropdown notifications-menu">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -194,7 +212,8 @@
     </li>
 
     <li>
-        <a href="/" target="_blank">
+        {{--target="_blank"--}}
+        <a href="/">
             <i class="fa fa-btn fa-globe"></i> @lang('sleeping_owl::lang.links.index_page')
         </a>
     </li>
