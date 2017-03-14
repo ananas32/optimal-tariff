@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Locale;
+use App\TextHeader;
 use Session;
 
 class AppServiceProvider extends ServiceProvider
@@ -18,7 +19,7 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot(Locale $locale)
+    public function boot(TextHeader $textHeader, Locale $locale)
     {
         $widgetsRegistry = $this->app[\SleepingOwl\Admin\Contracts\Widgets\WidgetsRegistryInterface::class];
         foreach ($this->widgets as $widget) {
@@ -27,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
 
         $data = [
             'codeLanguage' => $locale->getCodes(),
+            'headerText' => $textHeader->getHeaderText(),
         ];
 
         view()->share($data);

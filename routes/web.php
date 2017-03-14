@@ -31,12 +31,8 @@ Route::post('/guest-book-message', 'GuestBookController@create');
 
 #Locale
 Route::get('/locale/{code}', 'LocaleController@setLocale');
-//Route::get('/locale/{locale}', function ($locale) {
-//    echo $locale;
-//    Session::put('setLocale', $locale);
-//    App::setLocale($locale);
-//
-//    return back();
-//
-//});
-//Route::post('gbook', 'GbookController@create');
+
+# News
+Route::get('/news', 'NewsController@index');
+Route::get('/news/{slug?}', 'NewsController@oneNews');
+Route::get('/filter-news/{typeNews}', 'NewsController@filterNews');

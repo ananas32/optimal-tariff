@@ -106,24 +106,6 @@ function sendFormGuestBook(result_id, form_id, url) {
             {
                 $("#"+form_id).trigger("reset");
                 location.reload();
-                // alert('ошибок нет');
-                // var login = $("input[name='login']").val();
-                // var server = $("input[name='server']").val();
-                // var html = "<tr>" +
-                //     "<td>"+login+"</td>" +
-                //     "<td>********</td>" +
-                //     "<td>"+server+"</td>" +
-                //     "<td><img src='images/site-bg/no.png'></td>" +
-                //     "</tr>";
-                //
-                // $("#your_table_account > tbody:last").append(html);
-                //
-                // $("#"+result_id).show();
-                // document.getElementById(result_id).innerHTML = result;
-                // // $("form#"+form_id).remove();
-                // $("form#"+form_id)[0].reset();
-                // // $(".form-accoun-input").val("");
-                // setTimeout(function(){$("#"+result_id).fadeOut('fast')},3000)
             }
         },
         error: function(response) { //Если ошибка
@@ -131,6 +113,28 @@ function sendFormGuestBook(result_id, form_id, url) {
         }
     });
 }
+
+// скрип для увеличение картинки
+$(function(){
+    $('.minimized').click(function(event) {
+        var i_path = $(this).attr('src');
+        $('body').append('<div id="overlay"></div><div id="magnify"><img src="'+i_path+'"><div id="close-popup"><i></i></div></div>');
+        $('#magnify').css({
+            left: ($(document).width() - $('#magnify').outerWidth())/2,
+            // top: ($(document).height() - $('#magnify').outerHeight())/2 upd: 24.10.2016
+            top: ($(window).height() - $('#magnify').outerHeight())/2
+        });
+        $('#overlay, #magnify').fadeIn('fast');
+    });
+
+    $('body').on('click', '#close-popup, #overlay', function(event) {
+        event.preventDefault();
+
+        $('#overlay, #magnify').fadeOut('fast', function() {
+            $('#close-popup, #magnify, #overlay').remove();
+        });
+    });
+});
 
 // is object?
 function is_object(mixed_var){
