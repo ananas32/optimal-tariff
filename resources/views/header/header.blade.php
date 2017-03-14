@@ -51,7 +51,7 @@
     <!--<div class="col-xs-12">-->
     <nav class="main-nav" id="main-nav">
         <ul>
-            <li><a href="/">{{ trans('menu.news') }}</a></li>
+            <li><a href="/news">{{ trans('menu.news') }}</a></li>
             <li><a href="/select-tariff">{{ trans('menu.search') }}</a></li>
             <li><a href="/tariffs">{{ trans('menu.tariff') }}</a></li>
             <li><a href="#">Тарифні пакети</a></li>
@@ -96,12 +96,12 @@
                 </ul>
             </li>
             <li class="languages">
-                <a href="#" class="set-language"><img src="assets/img/icons/{{ Session::get('locale') }}.png" alt=""></a>
+                <a href="#" class="set-language"><img src="{{ asset("assets/img/icons/".Session::get('locale').".png") }}" alt=""></a>
                 <div class="languages-hidden">
                     @if(isset($codeLanguage))
                         @foreach($codeLanguage as $item)
                             @if($item != Session::get('locale'))
-                                <a href="/locale/{!! $item !!}"><img src="assets/img/icons/{!! $item !!}.png" alt=""></a>
+                                <a href="/locale/{!! $item !!}"><img src="{{ asset("assets/img/icons/".$item.".png") }}" alt=""></a>
                             @endif
                         @endforeach
                     @endif

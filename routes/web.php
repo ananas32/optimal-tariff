@@ -23,6 +23,7 @@ Route::get('/home', 'HomeController@index');
 Route::get('/', 'HomeController@index');
 
 Route::get('/select-tariff', 'SelectTariffController@index');
+Route::post('/select-value', 'SelectTariffController@getSubcat');
 
 Route::get('/tariffs', 'TariffController@index');
 
