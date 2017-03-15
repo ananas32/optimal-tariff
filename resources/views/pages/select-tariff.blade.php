@@ -75,13 +75,13 @@
 <div class="row">
 <div class="col-xs-12 col-md-offset-2 col-md-8">
     <div class="row">
-        <div class="col-xs-12 col-xsm-4 col-sm-3 " style="text-align: center">
+        <div class="col-xs-12 col-xsm-4 col-sm-3" style="text-align: center">
             <div class="title">Оператор 1</div>
         </div>
         <div class="col-xs-12 col-xsm-8 col-sm-3">
             <div class="form-group">
                 <!--<label for="exampleInputName2" class="visible">Виберіть оператора 1</label>-->
-                <select name="operator1" id="exampleInputName2" class="form-control input-sm">
+                <select name="list_operator" id="list_operator" class="form-control input-sm">
                     <option value=""></option>
                     @if(!empty($operatorList))
                         @foreach($operatorList as $item)
@@ -97,7 +97,7 @@
         <div class="col-xs-12 col-xsm-8 col-sm-3">
             <div class="form-group">
                 <!--<label for="exampleInputName1" class="visible">Виберіть оператора 2</label>-->
-                <select id="exampleInputName1" class="form-control input-sm">
+                <select id="list_operator_2" name="list_operator_2" class="form-control input-sm" disabled="disabled">
                     <option value=""></option>
                     <option>Lifecell</option>
                     <option>MTS</option>

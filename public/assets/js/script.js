@@ -136,6 +136,28 @@ $(function(){
     });
 });
 
+// смена списка операторов
+$('#list_operator').on('change', function(e){
+    var list_operator = e.target.value;
+
+    if(list_operator == "")
+        $('#list_operator_2').empty().attr('disabled', 'disabled');
+    else
+    {
+        $('#list_operator_2').removeAttr('disabled');
+        //ajax
+        $.get('/select-value?list_operator=' + list_operator, function(data){
+            //success data
+            $('#list_operator_2').empty();
+            $('select#list_operator_2').append('Please choose one');
+            $.each(data, function(index, operatorObj){
+                $('#list_operator_2').append('<option value="'+ operatorObj.id +'">'
+                    + operatorObj.operator_name + '</option>');
+            });
+        });
+    }
+});
+
 // is object?
 function is_object(mixed_var){
     if(mixed_var instanceof Array) {

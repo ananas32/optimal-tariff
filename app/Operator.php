@@ -14,4 +14,12 @@ class Operator extends Model
             ->where('visible', true)
             ->get();
     }
+
+    public function getSelectListOperator($id)
+    {
+        return Operator::select('id', 'operator_name')
+            ->where('visible', true)
+            ->where('id', '!=', $id)
+            ->get();
+    }
 }
