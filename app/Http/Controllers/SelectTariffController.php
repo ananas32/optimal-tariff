@@ -6,7 +6,7 @@ use App\Operator;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class SelectTariffController extends Controller
 {
@@ -26,5 +26,28 @@ class SelectTariffController extends Controller
         $selectList = $operator->getSelectListOperator($id);
 
         return Response::json($selectList);
+    }
+
+    public function getSearchTariffSelectOption(Request $request)
+    {
+        $validator = Validator::make($request->all(),
+            array(
+                'list_operator' => 'required|numeric',
+                'list_operator_2' => 'numeric',
+                'costs' => 'required|numeric'
+            )
+        );
+        if($validator->fails())
+        {
+            return response()->json([
+                'message' => $validator->messages()
+            ]);
+        }
+        else
+        {
+            return response()->json([
+                'message' => "Message is create)"
+            ]);
+        }
     }
 }

@@ -6,7 +6,14 @@ $.ajaxSetup({
     headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
 });
 // Отправка форми AJAX
-function AjaxFormRequestSelectTariff(result_id, error_id, form_id,url) {
+$("#sendFormSearchTariffSelectOption").on('click',
+    function(){
+        sendFormSearchTariffSelectOption('resultPostTariffForm', 'formSearchTariffSelectOption', '/search-tariff-select-option' );
+        return false;
+    }
+);
+
+function sendFormSearchTariffSelectOption(result_id, form_id, url) {
     jQuery.ajax({
         url:     url, //Адрес подгружаемой страницы
         type:     "POST", //Тип запроса
@@ -14,16 +21,53 @@ function AjaxFormRequestSelectTariff(result_id, error_id, form_id,url) {
         data: jQuery("#"+form_id).serialize(),
         success: function(response) { //Если все нормально
             var res = jQuery.parseJSON(response);
-            if(res.error==0){
-                document.getElementById(result_id).innerHTML = res.message;
-                $('.popuporderform').remove();
-            } else {
-                document.getElementById(error_id).innerHTML = res.message;
+            var listOperator="", listOperator2 = "", costs = "";
+            $("div#list_operator_div").removeClass("has-error").find("span").html("<strong></strong>");
+            $("div#list_operator_div_2").removeClass("has-error").find("span").html("<strong></strong>");
+            $("div#costs-div").removeClass("has-error").find("span").html("<strong></strong>");
+
+            // $("div#message-div").removeClass("has-error").find("span").html("<strong></strong>");
+
+            if(is_object(res.message))
+            {
+                var key, obj = res.message;
+                for (key in obj)
+                {
+                    switch (key)
+                    {
+                        case 'list_operator':
+                            listOperator += obj[key];
+                            $("#list_operator_div")
+                                .addClass("has-error")
+                                .find("span")
+                                .html("<strong>"+listOperator+"</strong>");
+                            break;
+                        case 'list_operator_2':
+                            listOperator2 += obj[key];
+                            $("#list_operator_div_2")
+                                .addClass("has-error")
+                                .find("span")
+                                .html("<strong>"+listOperator2+"</strong>");
+                            break;
+                        case 'costs':
+                            costs += obj[key];
+                            $("#costs-div")
+                                .addClass("has-error")
+                                .find("span")
+                                .html("<strong>"+costs+"</strong>");
+                            break;
+                    }
+                }
+            }
+            else
+            {
+                console.log('AJAX is success ne object');
             }
 
         },
         error: function(response) { //Если ошибка
-            document.getElementById(result_id).innerHTML = "Ошибка при отправке формы";
+            console.log('error AJAX');
+            // document.getElementById(result_id).innerHTML = "Ошибка при отправке формы";
         }
     });
 }
@@ -53,7 +97,6 @@ function showOperators(str) {
 
 $("#send-form-guest-book").on('click',
     function(){
-    // console.log('here');
         sendFormGuestBook('resultSendForm', 'guest-book-form', '/guest-book-message' );
         return false;
     }

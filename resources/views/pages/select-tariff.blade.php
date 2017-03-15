@@ -68,10 +68,10 @@
 {{--</div>--}}
 
 {{-- результат обработки AJAX--}}
-<div id="resultpost"></div>
-<div id="resulterrorpost"></div>
+<div id="resultPostTariffForm"></div>
 {{-- !результат обработки AJAX--}}
-{!! Form::open(array('id' => 'CalcTariff')) !!}
+{!! Form::open(array('id' => 'formSearchTariffSelectOption')) !!}
+{{ csrf_field() }}
 <div class="row">
 <div class="col-xs-12 col-md-offset-2 col-md-8">
     <div class="row">
@@ -79,7 +79,7 @@
             <div class="title">Оператор 1</div>
         </div>
         <div class="col-xs-12 col-xsm-8 col-sm-3">
-            <div class="form-group">
+            <div class="form-group" id="list_operator_div">
                 <!--<label for="exampleInputName2" class="visible">Виберіть оператора 1</label>-->
                 <select name="list_operator" id="list_operator" class="form-control input-sm">
                     <option value=""></option>
@@ -89,19 +89,21 @@
                         @endforeach
                     @endif
                 </select>
+                <span class="help-block"></span>
             </div>
         </div>
         <div class="col-xs-12 col-xsm-4 col-sm-3" style="text-align: center">
             <div class="title">Оператор 2</div>
         </div>
         <div class="col-xs-12 col-xsm-8 col-sm-3">
-            <div class="form-group">
+            <div class="form-group" id="list_operator_div_2">
                 <!--<label for="exampleInputName1" class="visible">Виберіть оператора 2</label>-->
                 <select id="list_operator_2" name="list_operator_2" class="form-control input-sm" disabled="disabled">
                     <option value=""></option>
                     <option>Lifecell</option>
                     <option>MTS</option>
                 </select>
+                <span class="help-block"></span>
             </div>
         </div>
     </div>
@@ -406,16 +408,17 @@
             <div class="title">Ваші витрати (в сер.)?</div>
         </div>
         <div class="col-xs-12 col-xsm-4 col-sm-9">
-            <div class="form-group">
-                <input type="text" class="form-control input-sm" id="exampleInputName22"
+            <div class="form-group" id="costs-div">
+                <input type="text" name="costs" class="form-control input-sm" id="exampleInputName22"
                        placeholder="22.50">
+                <span class="help-block"></span>
             </div>
         </div>
     </div>
 </div>
 <div class="col-xs-12 col-md-offset-2 col-md-8" style="text-align: right">
     <button type="reset" class="btn btn-default btn-sm">Відміна</button>
-    <button type="button" onclick="AjaxFormRequestSelectTariff('resultpost', 'resulterrorpost', 'CalcTariff', '/calctariffs' )" class="btn btn-default btn-sm">Знайти</button>
+    <button type="button" id="sendFormSearchTariffSelectOption" class="btn btn-default btn-sm">Знайти</button>
 </div>
 </div>
 {!! Form::close() !!}
