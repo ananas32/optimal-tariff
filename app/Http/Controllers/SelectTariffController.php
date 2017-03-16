@@ -34,7 +34,10 @@ class SelectTariffController extends Controller
             array(
                 'list_operator' => 'required|numeric',
                 'list_operator_2' => 'numeric',
-                'costs' => 'required|numeric'
+                'costs' => 'required|numeric',
+                'select_1_1' => 'required_without_all:select_2_1,',
+                'select_1_2' => 'required_unless:select_1_1,',
+                'select_1_3' => 'required_unless:select_1_2,',
             )
         );
         if($validator->fails())

@@ -16,15 +16,21 @@ $("#sendFormSearchTariffSelectOption").on('click',
 function sendFormSearchTariffSelectOption(result_id, form_id, url) {
     jQuery.ajax({
         url:     url, //Адрес подгружаемой страницы
-        type:     "POST", //Тип запроса
+        type:     "GET", //Тип запроса
         dataType: "html", //Тип данных
         data: jQuery("#"+form_id).serialize(),
         success: function(response) { //Если все нормально
             var res = jQuery.parseJSON(response);
             var listOperator="", listOperator2 = "", costs = "";
+            var select_1_1 = "", select_1_2 = "", select_1_3 = "";
             $("div#list_operator_div").removeClass("has-error").find("span").html("<strong></strong>");
             $("div#list_operator_div_2").removeClass("has-error").find("span").html("<strong></strong>");
             $("div#costs-div").removeClass("has-error").find("span").html("<strong></strong>");
+
+            $("div#select_1_1").removeClass("has-error").find("span").html("<strong></strong>");
+            $("div#select_1_2").removeClass("has-error").find("span").html("<strong></strong>");
+            $("div#select_1_3").removeClass("has-error").find("span").html("<strong></strong>");
+
 
             // $("div#message-div").removeClass("has-error").find("span").html("<strong></strong>");
 
@@ -55,6 +61,28 @@ function sendFormSearchTariffSelectOption(result_id, form_id, url) {
                                 .addClass("has-error")
                                 .find("span")
                                 .html("<strong>"+costs+"</strong>");
+                            break;
+
+                        case 'select_1_1':
+                            select_1_1 += obj[key];
+                            $("#select_1_1")
+                                .addClass("has-error")
+                                .find("span")
+                                .html("<strong>"+select_1_1+"</strong>");
+                            break;
+                        case 'select_1_2':
+                            select_1_2 += obj[key];
+                            $("#select_1_2")
+                                .addClass("has-error")
+                                .find("span")
+                                .html("<strong>"+select_1_2+"</strong>");
+                            break;
+                        case 'select_1_3':
+                            select_1_3 += obj[key];
+                            $("#select_1_3")
+                                .addClass("has-error")
+                                .find("span")
+                                .html("<strong>"+select_1_3+"</strong>");
                             break;
                     }
                 }

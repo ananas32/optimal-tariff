@@ -24,7 +24,7 @@ Route::get('/', 'HomeController@index');
 
 Route::get('/select-tariff', 'SelectTariffController@index');
 Route::get('/select-value', 'SelectTariffController@getOperatorList');
-Route::post('/search-tariff-select-option', 'SelectTariffController@getSearchTariffSelectOption');
+Route::get('/search-tariff-select-option', 'SelectTariffController@getSearchTariffSelectOption');
 
 Route::get('/tariffs', 'TariffController@index');
 

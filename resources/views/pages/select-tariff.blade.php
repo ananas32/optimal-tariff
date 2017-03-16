@@ -100,8 +100,6 @@
                 <!--<label for="exampleInputName1" class="visible">Виберіть оператора 2</label>-->
                 <select id="list_operator_2" name="list_operator_2" class="form-control input-sm" disabled="disabled">
                     <option value=""></option>
-                    <option>Lifecell</option>
-                    <option>MTS</option>
                 </select>
                 <span class="help-block"></span>
             </div>
@@ -129,39 +127,47 @@
             <div class="title kyivstar">kurwaSTAR</div>
         </div>
         <div class="col-xs-12 col-xsm-4 col-sm-3">
-            <div class="form-group">
+            <div class="form-group" id="select_1_1">
                 <label for="exampleInputName3">Кількість дзвінків на день (в сер.)</label>
-                <select id="exampleInputName3" class="form-control input-sm">
+                <select id="exampleInputName3" name="select_1_1" class="form-control input-sm">
+                    <option value=""></option>
+                    <option value="1">test</option>
                     @if(isset($CountCall))
                         @foreach($CountCall as $count_call)
                             <option>{{ $count_call->text_option }}</option>
                         @endforeach
                     @endif
                 </select>
+                <span class="help-block"></span>
             </div>
         </div>
         <div class="col-xs-12 col-xsm-4 col-sm-3">
-            <div class="form-group">
+            <div class="form-group" id="select_1_2">
                 <label for="exampleInputName4">Довжина дзвінків (в сер.)</label>
-                <select id="exampleInputName4" class="form-control input-sm">
+                <select id="exampleInputName4" name="select_1_2" class="form-control input-sm">
+                    <option value=""></option>
+                    <option value="1">test 1_2</option>
                     @if(isset($LengthCall))
                         @foreach($LengthCall as $length_call)
                             <option>{{ $length_call->text_option }}</option>
                         @endforeach
                     @endif
                 </select>
+                <span class="help-block"></span>
             </div>
         </div>
         <div class="col-xs-12 col-xsm-4 col-sm-3">
-            <div class="form-group">
+            <div class="form-group" id="select_1_3">
                 <label for="exampleInputName5">Часто використання в місяць (в сер.)</label>
-                <select id="exampleInputName5" class="form-control input-sm">
+                <select id="exampleInputName5" name="select_1_3" class="form-control input-sm">
+                    <option value=""></option>
                     @if(isset($FreUse))
                         @foreach($FreUse as $fre_use)
                             <option>{{ $fre_use->text_option }}</option>
                         @endforeach
                     @endif
                 </select>
+                <span class="help-block"></span>
             </div>
         </div>
     </div>
@@ -173,39 +179,44 @@
             <div class="title lifecell">Lifecell</div>
         </div>
         <div class="col-xs-12 col-xsm-4 col-sm-3">
-            <div class="form-group">
+            <div class="form-group" id="select_2_1">
                 <label for="exampleInputName3">Кількість дзвінків на день (в сер.)</label>
-                <select id="exampleInputName6" class="form-control input-sm">
+                <select id="exampleInputName6" name="select_2_1" class="form-control input-sm">
+                    <option value=""></option>
+                    <option value="select_2_1">select_2_1</option>
                     @if(isset($CountCall))
                         @foreach($CountCall as $count_call)
                             <option>{{ $count_call->text_option }}</option>
                         @endforeach
                     @endif
                 </select>
+                <span class="help-block"></span>
             </div>
         </div>
         <div class="col-xs-12 col-xsm-4 col-sm-3">
-            <div class="form-group">
+            <div class="form-group" id="select_2_2">
                 <label for="exampleInputName4">Довжина дзвінків (в сер.)</label>
-                <select id="exampleInputName7" class="form-control input-sm">
+                <select id="exampleInputName7" name="select_2_2" class="form-control input-sm">
                     @if(isset($LengthCall))
                         @foreach($LengthCall as $length_call)
                             <option>{{ $length_call->text_option }}</option>
                         @endforeach
                     @endif
                 </select>
+                <span class="help-block"></span>
             </div>
         </div>
         <div class="col-xs-12 col-xsm-4 col-sm-3">
-            <div class="form-group">
+            <div class="form-group" id="select_2_3">
                 <label for="exampleInputName5">Часто використання в місяць (в сер.)</label>
-                <select id="exampleInputName8" class="form-control input-sm">
+                <select id="exampleInputName8" name="select_2_3" class="form-control input-sm">
                     @if(isset($FreUse))
                         @foreach($FreUse as $fre_use)
                             <option>{{ $fre_use->text_option }}</option>
                         @endforeach
                     @endif
                 </select>
+                <span class="help-block"></span>
             </div>
         </div>
     </div>
@@ -226,6 +237,7 @@
                         @endforeach
                     @endif
                 </select>
+                <span class="help-block"></span>
             </div>
         </div>
         <div class="col-xs-12 col-xsm-4 col-sm-3">
@@ -238,6 +250,7 @@
                         @endforeach
                     @endif
                 </select>
+                <span class="help-block"></span>
             </div>
         </div>
         <div class="col-xs-12 col-xsm-4 col-sm-3">
@@ -250,6 +263,7 @@
                         @endforeach
                     @endif
                 </select>
+                <span class="help-block"></span>
             </div>
         </div>
     </div>
@@ -270,6 +284,7 @@
                         @endforeach
                     @endif
                 </select>
+                <span class="help-block"></span>
             </div>
         </div>
         <div class="col-xs-12 col-xsm-4 col-sm-3">
@@ -282,6 +297,7 @@
                         @endforeach
                     @endif
                 </select>
+                <span class="help-block"></span>
             </div>
         </div>
         <div class="col-xs-12 col-xsm-4 col-sm-3">
@@ -294,6 +310,7 @@
                         @endforeach
                     @endif
                 </select>
+                <span class="help-block"></span>
             </div>
         </div>
     </div>
@@ -324,6 +341,7 @@
                         @endforeach
                     @endif
                 </select>
+                <span class="help-block"></span>
             </div>
         </div>
         <div class="col-xs-12 col-xsm-4 col-sm-3">
@@ -336,6 +354,7 @@
                         @endforeach
                     @endif
                 </select>
+                <span class="help-block"></span>
             </div>
         </div>
     </div>
@@ -355,6 +374,7 @@
                         @endforeach
                     @endif
                 </select>
+                <span class="help-block"></span>
             </div>
         </div>
         <div class="col-xs-12 col-xsm-4 col-sm-3">
@@ -367,6 +387,7 @@
                         @endforeach
                     @endif
                 </select>
+                <span class="help-block"></span>
             </div>
         </div>
     </div>
@@ -386,6 +407,7 @@
                         @endforeach
                     @endif
                 </select>
+                <span class="help-block"></span>
             </div>
         </div>
         <div class="col-xs-12 col-xsm-4 col-sm-3">
@@ -398,6 +420,7 @@
                         @endforeach
                     @endif
                 </select>
+                <span class="help-block"></span>
             </div>
         </div>
     </div>
