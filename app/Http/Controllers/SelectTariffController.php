@@ -38,6 +38,27 @@ class SelectTariffController extends Controller
                 'select_1_1' => 'required_without_all:select_2_1,',
                 'select_1_2' => 'required_unless:select_1_1,',
                 'select_1_3' => 'required_unless:select_1_2,',
+
+                'select_2_1' => '',
+                'select_2_2' => 'required_unless:select_2_1,',
+                'select_2_3' => 'required_unless:select_2_2,',
+
+                'select_3_1' => '',
+                'select_3_2' => 'required_unless:select_3_1,',
+                'select_3_3' => 'required_unless:select_3_2,',
+
+                'select_4_1' => '',
+                'select_4_2' => 'required_unless:select_4_1,',
+                'select_4_3' => 'required_unless:select_4_2,',
+
+                'select_5_1' => '',
+                'select_5_2' => 'required_unless:select_5_1,',
+
+                'select_6_1' => '',
+                'select_6_2' => 'required_unless:select_6_1,',
+
+                'select_7_1' => '',
+                'select_7_2' => 'required_unless:select_7_1,'
             )
         );
         if($validator->fails())
@@ -49,7 +70,7 @@ class SelectTariffController extends Controller
         else
         {
             return response()->json([
-                'message' => "Message is create)"
+                'message' => "From validation is complete)"
             ]);
         }
     }

@@ -23,6 +23,13 @@ function sendFormSearchTariffSelectOption(result_id, form_id, url) {
             var res = jQuery.parseJSON(response);
             var listOperator="", listOperator2 = "", costs = "";
             var select_1_1 = "", select_1_2 = "", select_1_3 = "";
+            var select_2_1 = "", select_2_2 = "", select_2_3 = "";
+            var select_3_1 = "", select_3_2 = "", select_3_3 = "";
+            var select_4_1 = "", select_4_2 = "", select_4_3 = "";
+            var select_5_1 = "", select_5_2 = "";
+            var select_6_1 = "", select_6_2 = "";
+            var select_7_1 = "", select_7_2 = "";
+
             $("div#list_operator_div").removeClass("has-error").find("span").html("<strong></strong>");
             $("div#list_operator_div_2").removeClass("has-error").find("span").html("<strong></strong>");
             $("div#costs-div").removeClass("has-error").find("span").html("<strong></strong>");
@@ -30,6 +37,27 @@ function sendFormSearchTariffSelectOption(result_id, form_id, url) {
             $("div#select_1_1").removeClass("has-error").find("span").html("<strong></strong>");
             $("div#select_1_2").removeClass("has-error").find("span").html("<strong></strong>");
             $("div#select_1_3").removeClass("has-error").find("span").html("<strong></strong>");
+
+            $("div#select_2_1").removeClass("has-error").find("span").html("<strong></strong>");
+            $("div#select_2_2").removeClass("has-error").find("span").html("<strong></strong>");
+            $("div#select_2_3").removeClass("has-error").find("span").html("<strong></strong>");
+
+            $("div#select_3_1").removeClass("has-error").find("span").html("<strong></strong>");
+            $("div#select_3_2").removeClass("has-error").find("span").html("<strong></strong>");
+            $("div#select_3_3").removeClass("has-error").find("span").html("<strong></strong>");
+
+            $("div#select_4_1").removeClass("has-error").find("span").html("<strong></strong>");
+            $("div#select_4_2").removeClass("has-error").find("span").html("<strong></strong>");
+            $("div#select_4_3").removeClass("has-error").find("span").html("<strong></strong>");
+
+            $("div#select_5_1").removeClass("has-error").find("span").html("<strong></strong>");
+            $("div#select_5_2").removeClass("has-error").find("span").html("<strong></strong>");
+
+            $("div#select_6_1").removeClass("has-error").find("span").html("<strong></strong>");
+            $("div#select_6_2").removeClass("has-error").find("span").html("<strong></strong>");
+
+            $("div#select_7_1").removeClass("has-error").find("span").html("<strong></strong>");
+            $("div#select_7_2").removeClass("has-error").find("span").html("<strong></strong>");
 
 
             // $("div#message-div").removeClass("has-error").find("span").html("<strong></strong>");
@@ -43,46 +71,95 @@ function sendFormSearchTariffSelectOption(result_id, form_id, url) {
                     {
                         case 'list_operator':
                             listOperator += obj[key];
-                            $("#list_operator_div")
-                                .addClass("has-error")
-                                .find("span")
-                                .html("<strong>"+listOperator+"</strong>");
+                            $("#list_operator_div").addClass("has-error").find("span").html("<strong>"+listOperator+"</strong>");
                             break;
                         case 'list_operator_2':
                             listOperator2 += obj[key];
-                            $("#list_operator_div_2")
-                                .addClass("has-error")
-                                .find("span")
-                                .html("<strong>"+listOperator2+"</strong>");
+                            $("#list_operator_div_2").addClass("has-error").find("span").html("<strong>"+listOperator2+"</strong>");
                             break;
                         case 'costs':
                             costs += obj[key];
-                            $("#costs-div")
-                                .addClass("has-error")
-                                .find("span")
-                                .html("<strong>"+costs+"</strong>");
+                            $("#costs-div").addClass("has-error").find("span").html("<strong>"+costs+"</strong>");
                             break;
 
                         case 'select_1_1':
                             select_1_1 += obj[key];
-                            $("#select_1_1")
-                                .addClass("has-error")
-                                .find("span")
-                                .html("<strong>"+select_1_1+"</strong>");
+                            $("#select_1_1").addClass("has-error").find("span").html("<strong>"+select_1_1+"</strong>");
                             break;
                         case 'select_1_2':
                             select_1_2 += obj[key];
-                            $("#select_1_2")
-                                .addClass("has-error")
-                                .find("span")
-                                .html("<strong>"+select_1_2+"</strong>");
+                            $("#select_1_2").addClass("has-error").find("span").html("<strong>"+select_1_2+"</strong>");
                             break;
                         case 'select_1_3':
                             select_1_3 += obj[key];
-                            $("#select_1_3")
-                                .addClass("has-error")
-                                .find("span")
-                                .html("<strong>"+select_1_3+"</strong>");
+                            $("#select_1_3").addClass("has-error").find("span").html("<strong>"+select_1_3+"</strong>");
+                            break;
+
+                        case 'select_2_1':
+                            select_2_1 += obj[key];
+                            $("#select_2_1").addClass("has-error").find("span").html("<strong>"+select_2_1+"</strong>");
+                            break;
+                        case 'select_2_2':
+                            select_2_2 += obj[key];
+                            $("#select_2_2").addClass("has-error").find("span").html("<strong>"+select_2_2+"</strong>");
+                            break;
+                        case 'select_2_3':
+                            select_2_3 += obj[key];
+                            $("#select_2_3").addClass("has-error").find("span").html("<strong>"+select_2_3+"</strong>");
+                            break;
+                        // select-option row 3
+                        case 'select_3_1':
+                            select_3_1 += obj[key];
+                            $("#select_3_1").addClass("has-error").find("span").html("<strong>"+select_3_1+"</strong>");
+                            break;
+                        case 'select_3_2':
+                            select_3_2 += obj[key];
+                            $("#select_3_2").addClass("has-error").find("span").html("<strong>"+select_3_2+"</strong>");
+                            break;
+                        case 'select_3_3':
+                            select_3_3 += obj[key];
+                            $("#select_3_3").addClass("has-error").find("span").html("<strong>"+select_3_3+"</strong>");
+                            break;
+                        // select-option row 4
+                        case 'select_4_1':
+                            select_4_1 += obj[key];
+                            $("#select_4_1").addClass("has-error").find("span").html("<strong>"+select_4_1+"</strong>");
+                            break;
+                        case 'select_4_2':
+                            select_4_2 += obj[key];
+                            $("#select_4_2").addClass("has-error").find("span").html("<strong>"+select_4_2+"</strong>");
+                            break;
+                        case 'select_4_3':
+                            select_4_3 += obj[key];
+                            $("#select_4_3").addClass("has-error").find("span").html("<strong>"+select_4_3+"</strong>");
+                            break;
+
+                        // select-option row 5
+                        case 'select_5_1':
+                            select_5_1 += obj[key];
+                            $("#select_5_1").addClass("has-error").find("span").html("<strong>"+select_5_1+"</strong>");
+                            break;
+                        case 'select_5_2':
+                            select_5_2 += obj[key];
+                            $("#select_5_2").addClass("has-error").find("span").html("<strong>"+select_5_2+"</strong>");
+                            break;
+                        // select-option row 6
+                        case 'select_6_1':
+                            select_6_1 += obj[key];
+                            $("#select_6_1").addClass("has-error").find("span").html("<strong>"+select_6_1+"</strong>");
+                            break;
+                        case 'select_6_2':
+                            select_6_2 += obj[key];
+                            $("#select_6_2").addClass("has-error").find("span").html("<strong>"+select_6_2+"</strong>");
+                            break;
+                        // select-option row 7
+                        case 'select_7_1':
+                            select_7_1 += obj[key];
+                            $("#select_7_1").addClass("has-error").find("span").html("<strong>"+select_7_1+"</strong>");
+                            break;
+                        case 'select_7_2':
+                            select_7_2 += obj[key];
+                            $("#select_7_2").addClass("has-error").find("span").html("<strong>"+select_7_2+"</strong>");
                             break;
                     }
                 }

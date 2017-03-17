@@ -161,6 +161,7 @@
                 <label for="exampleInputName5">Часто використання в місяць (в сер.)</label>
                 <select id="exampleInputName5" name="select_1_3" class="form-control input-sm">
                     <option value=""></option>
+                    <option value="kurwa">sdfsd</option>
                     @if(isset($FreUse))
                         @foreach($FreUse as $fre_use)
                             <option>{{ $fre_use->text_option }}</option>
@@ -228,9 +229,11 @@
             <div class="title mts">MTS</div>
         </div>
         <div class="col-xs-12 col-xsm-4 col-sm-3">
-            <div class="form-group">
+            <div class="form-group" id="select_3_1">
                 <label for="exampleInputName3">Кількість дзвінків на день (в сер.)</label>
-                <select id="exampleInputName9" class="form-control input-sm">
+                <select id="exampleInputName9" name="select_3_1" class="form-control input-sm">
+                    <option value=""></option>
+                    <option value="">kurwa</option>
                     @if(isset($CountCall))
                         @foreach($CountCall as $count_call)
                             <option>{{ $count_call->text_option }}</option>
@@ -241,9 +244,9 @@
             </div>
         </div>
         <div class="col-xs-12 col-xsm-4 col-sm-3">
-            <div class="form-group">
+            <div class="form-group" id="select_3_2">
                 <label for="exampleInputName4">Довжина дзвінків (в сер.)</label>
-                <select id="exampleInputName10" class="form-control input-sm">
+                <select id="exampleInputName10" name="select_3_2" class="form-control input-sm">
                     @if(isset($LengthCall))
                         @foreach($LengthCall as $length_call)
                             <option>{{ $length_call->text_option }}</option>
@@ -254,9 +257,9 @@
             </div>
         </div>
         <div class="col-xs-12 col-xsm-4 col-sm-3">
-            <div class="form-group">
+            <div class="form-group" id="select_3_3">
                 <label for="exampleInputName5">Часто використання в місяць (в сер.)</label>
-                <select id="exampleInputName11" class="form-control input-sm">
+                <select id="exampleInputName11" name="select_3_3" class="form-control input-sm">
                     @if(isset($FreUse))
                         @foreach($FreUse as $fre_use)
                             <option>{{ $fre_use->text_option }}</option>
@@ -275,9 +278,11 @@
             <div class="title">Fixit number</div>
         </div>
         <div class="col-xs-12 col-xsm-4 col-sm-3">
-            <div class="form-group">
+            <div class="form-group" id="select_4_1">
                 <label for="exampleInputName3">Кількість дзвінків на день (в сер.)</label>
-                <select id="exampleInputName12" class="form-control input-sm">
+                <select id="exampleInputName12" name="select_4_1" class="form-control input-sm">
+                    <option value=""></option>
+                    <option value="ass">select_4_1</option>
                     @if(isset($CountCall))
                         @foreach($CountCall as $count_call)
                             <option>{{ $count_call->text_option }}</option>
@@ -288,9 +293,9 @@
             </div>
         </div>
         <div class="col-xs-12 col-xsm-4 col-sm-3">
-            <div class="form-group">
+            <div class="form-group" id="select_4_2">
                 <label for="exampleInputName4">Довжина дзвінків (в сер.)</label>
-                <select id="exampleInputName13" class="form-control input-sm">
+                <select id="exampleInputName13" name="select_4_2" class="form-control input-sm">
                     @if(isset($LengthCall))
                         @foreach($LengthCall as $length_call)
                             <option>{{ $length_call->text_option }}</option>
@@ -301,9 +306,11 @@
             </div>
         </div>
         <div class="col-xs-12 col-xsm-4 col-sm-3">
-            <div class="form-group">
+            <div class="form-group" id="select_4_3">
                 <label for="exampleInputName5">Часто використання в місяць (в сер.)</label>
-                <select id="exampleInputName14" class="form-control input-sm">
+                <select id="exampleInputName14" name="select_4_3" class="form-control input-sm">
+                    <option value=""></option>
+                    <option value="">select_4_3</option>
                     @if(isset($FreUse))
                         @foreach($FreUse as $fre_use)
                             <option>{{ $fre_use->text_option }}</option>
@@ -332,9 +339,11 @@
             <div class="title">Мегабайт</div>
         </div>
         <div class="col-xs-12 col-xsm-8 col-sm-6">
-            <div class="form-group">
+            <div class="form-group" id="select_5_1">
                 <label for="exampleInputName15">В середньому на день</label>
-                <select id="exampleInputName15" class="form-control input-sm">
+                <select id="exampleInputName15" name="select_5_1" class="form-control input-sm">
+                    <option value=""></option>
+                    <option value="">select_5_1</option>
                     @if(isset($RefPacket))
                         @foreach($RefPacket as $ref_packet)
                             <option>{{ $ref_packet->text_option }}</option>
@@ -345,9 +354,11 @@
             </div>
         </div>
         <div class="col-xs-12 col-xsm-4 col-sm-3">
-            <div class="form-group">
+            <div class="form-group" id="select_5_2">
                 <label for="exampleInputName17">Частота використання в місяць</label>
-                <select id="exampleInputName17" class="form-control input-sm">
+                <select id="exampleInputName17" name="select_5_2" class="form-control input-sm">
+                    <option value=""></option>
+                    <option value="">select_5_2</option>
                     @if(isset($FreUse))
                         @foreach($FreUse as $fre_use)
                             <option>{{ $fre_use->text_option }}</option>
@@ -365,9 +376,10 @@
             <div class="title">Смс-повідомлення</div>
         </div>
         <div class="col-xs-12 col-xsm-8 col-sm-6">
-            <div class="form-group">
+            <div class="form-group" id="select_6_1">
                 <label for="exampleInputName18">В середньому на день</label>
-                <select id="exampleInputName18" class="form-control input-sm">
+                <select id="exampleInputName18" name="select_6_1" class="form-control input-sm">
+                    <option value="">select_6_1</option>
                     @if(isset($RefPacket))
                         @foreach($RefPacket as $ref_packet)
                             <option>{{ $ref_packet->text_option }}</option>
@@ -378,9 +390,9 @@
             </div>
         </div>
         <div class="col-xs-12 col-xsm-4 col-sm-3">
-            <div class="form-group">
+            <div class="form-group" id="select_6_2">
                 <label for="exampleInputName17">Частота використання в місяць</label>
-                <select id="exampleInputName19" class="form-control input-sm">
+                <select id="exampleInputName19" name="select_6_2" class="form-control input-sm">
                     @if(isset($FreUse))
                         @foreach($FreUse as $fre_use)
                             <option>{{ $fre_use->text_option }}</option>
@@ -398,9 +410,10 @@
             <div class="title">MMS-повідомлення</div>
         </div>
         <div class="col-xs-12 col-xsm-8 col-sm-6">
-            <div class="form-group">
+            <div class="form-group" id="select_7_1">
                 <label for="exampleInputName20">В середньому на день</label>
-                <select id="exampleInputName20" class="form-control input-sm">
+                <select id="exampleInputName20" name="select_7_1" class="form-control input-sm">
+                    <option value="">select_7_1</option>
                     @if(isset($RefPacket))
                         @foreach($RefPacket as $ref_packet)
                             <option>{{ $ref_packet->text_option }}</option>
@@ -411,9 +424,9 @@
             </div>
         </div>
         <div class="col-xs-12 col-xsm-4 col-sm-3">
-            <div class="form-group">
+            <div class="form-group" id="select_7_2">
                 <label for="exampleInputName17">Частота використання в місяць</label>
-                <select id="exampleInputName21" class="form-control input-sm">
+                <select id="exampleInputName21" name="select_7_2" class="form-control input-sm">
                     @if(isset($FreUse))
                         @foreach($FreUse as $fre_use)
                             <option>{{ $fre_use->text_option }}</option>
