@@ -12,8 +12,12 @@
     {{ trans('pages.line') }}
 </div>
 
+@if(!$user_manual)
+<div>
+    manual is visible
+</div>
+@endif
 {{-- результат обработки AJAX--}}
-{{--<div id="resultPostTariffForm"></div>--}}
 <div class="row" id="resultPostTariffForm" style="display: none;">
     {{--<div class="col-xs-12 col-xsm-6 col-sm-3">--}}
         {{--<div class="result">--}}

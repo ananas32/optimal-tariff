@@ -25,8 +25,10 @@ Route::get('/', 'HomeController@index');
 Route::get('/select-tariff', 'SelectTariffController@index');
 Route::get('/select-value', 'SelectTariffController@getOperatorList');
 Route::get('/search-tariff-select-option', 'SelectTariffController@getSearchTariffSelectOption');
+Route::get('/skip-user-manual', 'SelectTariffController@skipUserManual');
 
 Route::get('/tariffs', 'TariffController@index');
+Route::get('/tariffs/{operator}', 'TariffController@operatorTariffs');
 
 Route::get('/guest-book', 'GuestBookController@index');
 Route::post('/guest-book-message', 'GuestBookController@create');

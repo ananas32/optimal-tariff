@@ -214,29 +214,6 @@ function sendFormSearchTariffSelectOption(result_id, form_id, url) {
     });
 }
 
-// AJAX обработка випадного списка с тарифами
-function showOperators(str) {
-    if (str == "") {
-        document.getElementById("txtHint").innerHTML = "";
-        return;
-    } else {
-        if (window.XMLHttpRequest) {
-            // code for IE7+, Firefox, Chrome, Opera, Safari
-            xmlhttp = new XMLHttpRequest();
-        } else {
-            // code for IE6, IE5
-            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-        }
-        xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                document.getElementById("txtHint").innerHTML = xmlhttp.responseText;
-            }
-        };
-        xmlhttp.open("GET","operators/"+str,true);
-        xmlhttp.send();
-    }
-}
-
 $("#send-form-guest-book").on('click',
     function(){
         sendFormGuestBook('resultSendForm', 'guest-book-form', '/guest-book-message' );
@@ -298,6 +275,12 @@ function sendFormGuestBook(result_id, form_id, url) {
         }
     });
 }
+
+// тарифы по оператору
+$('#show-operator-tariffs').on('change', function(e){
+    location.href = 'http://'+location.hostname +'/tariffs/'+e.target.value;
+    // alert(e.target.value);
+});
 
 // скрип для увеличение картинки
 $(function(){

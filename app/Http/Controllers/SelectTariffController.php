@@ -10,14 +10,25 @@ use Illuminate\Support\Facades\Validator;
 
 class SelectTariffController extends Controller
 {
-    public function index(Operator $operator)
+    public function index(Operator $operator, Request $request)
     {
-
         $data = [
             'operatorList' => $operator->getListOperator()
         ];
 
+        if($request->cookie('user_manual'))
+        {
+            $data['user_manual'] = $request->cookie('user_manual');
+        }else $data['user_manual'] = 0;
+
         return view('pages.select-tariff', $data);
+    }
+
+    public function skipUserManual()
+    {
+        return response('Delete visible manual')->cookie(
+            'user_manual', true, 1
+        );
     }
 
     public function getOperatorList(Operator $operator)
