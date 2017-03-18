@@ -12,7 +12,9 @@
     {{ trans('pages.line') }}
 </div>
 
-{{--<div class="row">--}}
+{{-- результат обработки AJAX--}}
+{{--<div id="resultPostTariffForm"></div>--}}
+<div class="row" id="resultPostTariffForm" style="display: none;">
     {{--<div class="col-xs-12 col-xsm-6 col-sm-3">--}}
         {{--<div class="result">--}}
             {{--<div class="content">--}}
@@ -65,11 +67,9 @@
             {{--</div>--}}
         {{--</div>--}}
     {{--</div>--}}
-{{--</div>--}}
-
-{{-- результат обработки AJAX--}}
-<div id="resultPostTariffForm"></div>
+</div>
 {{-- !результат обработки AJAX--}}
+
 {!! Form::open(array('id' => 'formSearchTariffSelectOption')) !!}
 {{ csrf_field() }}
 <div class="row">
