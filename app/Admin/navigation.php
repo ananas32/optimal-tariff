@@ -60,6 +60,18 @@ return [
                 ->setPriority(100)
         ]
     ],
+    [
+        'title' => "Tariff options",
+        'icon' => 'fa fa-cogs',
+        'pages' => [
+            (new Page(\App\CallInNetwork::class))
+                ->setIcon('fa fa-phone')
+                ->setPriority(99),
+//            (new Page(\App\TypeNews::class))
+//                ->setIcon('fa fa-unsorted')
+//                ->setPriority(100)
+        ]
+    ],
     // Examples
     // [
     //    'title' => 'Content',
