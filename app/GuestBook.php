@@ -17,6 +17,6 @@ class GuestBook extends Model
 
     public function getCountGuestBookMessage()
     {
-        return GuestBook::count();
+        return GuestBook::where('unread', 1)->count();
     }
 }

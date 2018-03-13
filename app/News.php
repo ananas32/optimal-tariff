@@ -20,17 +20,9 @@ class News extends Eloquent
 
     public function getBlockContent($typeNews)
     {
-        return News::join('news_translations', 'news_translations.news_id', '=', 'news.id')
-            ->where('news_translations.locale', app()->getLocale())
-            ->where('news.type_news_id', $typeNews)
-            ->where('news.visible', true)
-            ->select(
-                'news.slug',
-                'news_translations.title_news as title',
-                'news_translations.short_news as news'
-            )->orderBy('news.id', 'DESC')
-            ->take(1)
-            ->get();
+        return News::where('news.type_news_id', $typeNews)
+            ->where('news.visible', true)->orderBy('news.id', 'DESC')
+            ->first();
     }
 
     public function listNews()

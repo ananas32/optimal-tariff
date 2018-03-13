@@ -7,21 +7,19 @@
             <div class="row">
                 <div class="hidden-xs hidden-xsm col-sm-5 col-md-3">
                     @if(!empty($siteNews))
-                        @foreach($siteNews as $item)
-                            <a href="/news/{{ $item->slug }}" class="slider-item">
-                                <div class="last-news">
-                                    <img src="http://static1.squarespace.com/static/554892b3e4b0f2df4ca923d2/t/5699093d69492ecf0c813291/1452869950191/News_765x350px.jpg" alt="">
-                                    <div class="content">
-                                        <div class="title"><p>{!! $item->title !!}</p></div>
-                                        <div class="text">
-                                            <p>
-                                            {!! $item->news !!}
-                                            </p>
-                                        </div>
+                        <a href="/news/{{ $siteNews->slug }}" class="slider-item">
+                            <div class="last-news">
+                                <img src="http://static1.squarespace.com/static/554892b3e4b0f2df4ca923d2/t/5699093d69492ecf0c813291/1452869950191/News_765x350px.jpg" alt="{!! $siteNews->title_news !!}">
+                                <div class="content">
+                                    <div class="title"><p>{!! $siteNews->title_news !!}</p></div>
+                                    <div class="text">
+                                        <p>
+                                        {!! $siteNews->short_news !!}
+                                        </p>
                                     </div>
                                 </div>
-                            </a>
-                        @endforeach
+                            </div>
+                        </a>
                     @endif
                 </div>
                 <div class="col-xs-12 col-xsm-12 col-sm-7 col-md-6">
@@ -49,19 +47,17 @@
                 </div>
                 <div class="hidden-xs hidden-xsm hidden-sm col-md-3">
                     @if(!empty($operatorNews))
-                        @foreach($operatorNews as $item)
-                            <a href="/news/{{ $item->slug }}" class="slider-item">
-                                <div class="last-news">
-                                    <img src="https://www.rbc.ua/static/img/4/9/4995f6d2ee091c43438320daa649ec62_650x410.jpg" alt="">
-                                    <div class="content">
-                                        <div class="title">{!! $item->title !!}</div>
-                                        <div class="text">
-                                            {!! $item->news !!}
-                                        </div>
+                        <a href="/news/{{ $operatorNews->slug }}" class="slider-item">
+                            <div class="last-news">
+                                <img src="https://www.rbc.ua/static/img/4/9/4995f6d2ee091c43438320daa649ec62_650x410.jpg" alt="{!! $operatorNews->title !!}">
+                                <div class="content">
+                                    <div class="title">{!! $operatorNews->title_news !!}</div>
+                                    <div class="text">
+                                        {!! $operatorNews->short_news !!}
                                     </div>
                                 </div>
-                            </a>
-                        @endforeach
+                            </div>
+                        </a>
                     @endif
                 </div>
             </div>

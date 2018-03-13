@@ -169,41 +169,9 @@ function sendFormSearchTariffSelectOption(result_id, form_id, url) {
                 console.log('AJAX is success! form is valid');
             }
 
-            if(is_object(res.result))
-            {
-
+            if (res.html) {
                 $("#"+result_id).fadeOut();
-                var arr = res.result, htmlForPage = "";
-                jQuery.each(arr, function(elem, value) {
-                    htmlForPage = htmlForPage +
-                        // "Mine is " + elem + " "+ value +".";
-                    '<div class="col-xs-12 col-xsm-6 col-sm-3">' +
-                    '<div class="result">' +
-                        '<div class="content">' +
-                        '<div class="recommendation">' +
-                        '<span class="label label-success">' + value + '</span>' +
-                    '</div>' +
-                    '<div class="kyivstar">Kyivstar: Смартфон 3G Український</div>' +
-                    '<div class="mts">MTS: Київстар онлайн екстра</div>' +
-                    '<div class="price">Ціна в місяць: 114</div>' +
-                    '<a href="#">Детальна інформація</a>' +
-                    '</div>' +
-                    '</div>' +
-                    '</div>';
-                    // return (this != "three"); // Выйти из цикла после "three"
-                });
-                $("div#"+result_id).html(htmlForPage).fadeIn(1000);
-                // $("div#"+result_id).fadeIn(1000);
-                // $('li').each(function(i,elem) {
-                //     if ($(this).hasClass("stop")) {
-                //         alert("Остановлено на " + i + "-м пункте списка.");
-                //         return false;
-                //     } else {
-                //         alert(i + ': ' + $(elem).text());
-                //     }
-                // });
-
-                console.log('in result');
+                $("div#"+result_id).html(res.html).fadeIn(1000);
             }
 
         },

@@ -10,7 +10,7 @@ return [
     |
     */
 
-    'title' => 'Sleeping Owl administrator',
+    'title' => 'Optimal Tariff',
 
     /*
     |--------------------------------------------------------------------------

@@ -72,23 +72,27 @@ class SelectTariffController extends Controller
                 'select_7_2' => 'required_unless:select_7_1,'
             )
         );
-        if($validator->fails())
-        {
+        if ($validator->fails()) {
             return response()->json([
                 'message' => $validator->messages()
             ]);
-        }
-        else
-        {
-            $data = [
+        } else {
+            $tariffInfo = [
                 'one' => 'Найкращий тариф',
                 'two' => 'Нічо так тариф',
                 'tru' => 'Тож нічо такий тариф',
                 'four' => 'Хєроватінький тариф'
             ];
 
+            $html = view('layouts.includes.result-search')
+                ->with([
+                    'tariffInfo' => $tariffInfo,
+                    'costs' => $request->costs
+                ])
+                ->render();
+
             return response()->json([
-                'result' => $data
+                'html' => $html
             ]);
         }
     }
