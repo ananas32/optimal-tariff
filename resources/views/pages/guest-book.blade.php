@@ -33,9 +33,10 @@
                                 {{ trans('pages.you_can_leave_your_review_first') }}
                             </div>
                         @endif
-
                         <div class="row">
                             <div class="col-sm-offset-2 col-sm-8 col-md-offset-3 col-md-6">
+                                <div id="alert">
+                                </div>
                                 <div id="resultSendForm"></div>
                                 <form class="write-to-us" role="form" method="POST" id="guest-book-form">
                                     {{ csrf_field() }}
@@ -59,9 +60,13 @@
                                                 autofocus placeholder="{{ trans('pages.textarea_message') }}"></textarea>
                                         <span class="help-block"></span>
                                     </div>
+                                    <div class="form-group" id="g-recaptcha-response-div">
+                                        {!! NoCaptcha::display() !!}
+                                        <span class="help-block"></span>
+                                    </div>
+                                    <script src='https://www.google.com/recaptcha/api.js'></script>
                                     <button class="btn btn-warning" type="submit" id="send-form-guest-book">{{ trans('pages.send') }}</button>
                                 </form>
-                                captcha
                             </div>
                         </div>
                     </div>

@@ -10,7 +10,7 @@ class GuestBook extends Model
 
     public function getListGuestBook()
     {
-        return GuestBook::select('username', 'email', 'message', 'answer', 'created_at')
+        return GuestBook::where('unread', 1)
             ->orderBy('id', 'DESC')
             ->paginate(10);
     }

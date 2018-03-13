@@ -87,7 +87,7 @@
                             <div class="hidden-xs col-xsm-4 col-sm-3 col-lg-2">
                                 <div class="info-item">
                                     <i class="fa fa-area-chart" aria-hidden="true"></i>
-                                    {{ trans('pages.search_favorable_tariffs') }}
+                                    {{ trans('pages.count_search_tariffs') }}
                                     <div class="count">228 {{ trans('pages.users') }}</div>
                                 </div>
                             </div>

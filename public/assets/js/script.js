@@ -196,7 +196,7 @@ function sendFormGuestBook(result_id, form_id, url) {
         data: jQuery("#"+form_id).serialize(),
         success: function(response) { //Если все нормально
             var res = jQuery.parseJSON(response);
-            var nameError="", emailError = "", messageError="";
+            var nameError="", emailError = "", messageError="", captchaError="";
             $("div#username-div").removeClass("has-error").find("span").html("<strong></strong>");
             $("div#email-div").removeClass("has-error").find("span").html("<strong></strong>");
             $("div#message-div").removeClass("has-error").find("span").html("<strong></strong>");
@@ -229,13 +229,20 @@ function sendFormGuestBook(result_id, form_id, url) {
                                 .find("span")
                                 .html("<strong>"+messageError+"</strong>");
                             break;
+                        case 'g-recaptcha-response':
+                            captchaError += obj[key];
+                            $("#g-recaptcha-response-div")
+                                .addClass("has-error")
+                                .find("span")
+                                .html("<strong>"+captchaError+"</strong>");
+                            break;
                     }
                 }
             }
             else
             {
                 $("#"+form_id).trigger("reset");
-                location.reload();
+                $("#alert").append(res.success);
             }
         },
         error: function(response) { //Если ошибка

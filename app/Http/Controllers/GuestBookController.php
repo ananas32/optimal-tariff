@@ -30,7 +30,8 @@ class GuestBookController extends Controller
             array(
                 'username' => 'required|alpha|max:255',
                 'email' => 'required|email|max:255|min:4',
-                'message' => 'required|min:20|max:4000'
+                'message' => 'required|min:20|max:4000',
+                'g-recaptcha-response' => 'required|captcha'
             )
         );
         if($validator->fails())
@@ -48,7 +49,9 @@ class GuestBookController extends Controller
             $guestBook->ip_address = $request->ip();
             $guestBook->save();
             return response()->json([
-                'message' => "Message is create)"
+                'success' => "<div class=\"alert alert-success\">
+                      Форма успешно отправлена. Ваше сообщение будет опубликовано на сайте позже.
+                </div>"
             ]);
         }
     }
