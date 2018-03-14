@@ -34,7 +34,7 @@ return [
         'url'   => route('admin.information'),
     ],
     [
-        'title' => "Users",
+        'title' => "Пользователи",
         'icon' => 'fa fa-credit-card',
         'pages' => [
             (new Page(\App\Permission::class))
@@ -49,7 +49,7 @@ return [
         ]
     ],
     [
-        'title' => "News",
+        'title' => "Новости",
         'icon' => 'fa fa-newspaper-o',
         'pages' => [
             (new Page(\App\News::class))
@@ -61,15 +61,18 @@ return [
         ]
     ],
     [
-        'title' => "Tariff options",
+        'title' => "Тарифная информация",
         'icon' => 'fa fa-cogs',
         'pages' => [
-            (new Page(\App\CallInNetwork::class))
+            (new Page(\App\Call::class))
                 ->setIcon('fa fa-phone')
                 ->setPriority(99),
-//            (new Page(\App\TypeNews::class))
-//                ->setIcon('fa fa-unsorted')
-//                ->setPriority(100)
+            (new Page(\App\InternetPackage::class))
+                ->setIcon('fa fa-briefcase')
+                ->setPriority(100),
+            (new Page(\App\Message::class))
+                ->setIcon('fa fa-comment')
+                ->setPriority(101)
         ]
     ],
     // Examples
