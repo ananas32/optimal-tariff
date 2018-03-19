@@ -22,11 +22,11 @@ AdminSection::registerModel(User::class, function (ModelConfiguration $model) {
     });
     // Create And Edit
     $model->onCreateAndEdit(function() {
-        return $form = AdminForm::panel()->addBody(
+        $form = AdminForm::panel()->addBody(
             AdminFormElement::text('name', 'Name User')->required(),
             AdminFormElement::text('surname', 'surname')->required(),
             AdminFormElement::text('email', 'Email')->required()->unique(),
-            AdminFormElement::text('phone', 'Phone')->required(),
+//            AdminFormElement::text('phone', 'Phone')->required(),
             AdminFormElement::multiselect('theroles', 'Роли')->setModelForOptions('App\Role')->setDisplay('name')
         );
         return $form;

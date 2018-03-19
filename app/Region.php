@@ -11,7 +11,7 @@ class Region extends Eloquent
 
     public $translationModel = '\App\RegionTranslation';
     public $translatedAttributes = ['name_region'];
-    public $table = 'regions';
+    protected $with = ['translations'];
 
     public function getRegion()
     {
