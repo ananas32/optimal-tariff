@@ -72,7 +72,16 @@ return [
                 ->setPriority(100),
             (new Page(\App\Message::class))
                 ->setIcon('fa fa-comment')
-                ->setPriority(101)
+                ->setPriority(101),
+            (new Page(\App\TariffName::class))
+                ->setIcon('fa fa-adn')
+                ->setPriority(102),
+            (new Page(\App\RegularPayment::class))
+                ->setIcon('fa fa-cc-paypal')
+                ->setPriority(103),
+            (new Page(\App\Tariff::class))
+                ->setIcon('fa fa-contao')
+                ->setPriority(106)
         ]
     ],
     // Examples
