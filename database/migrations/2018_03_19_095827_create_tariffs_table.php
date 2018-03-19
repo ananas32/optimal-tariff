@@ -1,0 +1,54 @@
+<?php
+
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateTariffsTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('tariffs', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('call_id')->unsigned();
+            $table->integer('message_id')->unsigned();
+            $table->integer('internet_package_id')->unsigned();
+            $table->integer('tariff_name_id')->unsigned();
+            $table->string('link', 255);
+            $table->integer('operator_id')->unsigned();
+            $table->integer('regular_payment_id')->unsigned();
+            $table->integer('price');
+            $table->boolean('active')->default(false);
+            $table->softDeletes();
+            $table->timestamps();
+        });
+
+        Schema::create('tariff_region', function (Blueprint $table) {
+            $table->integer('tariff_id')->unsigned();
+            $table->integer('region_id')->unsigned();
+
+            $table->foreign('tariff_id')->references('id')->on('tariffs')
+                ->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('region_id')->references('id')->on('regions')
+                ->onUpdate('cascade')->onDelete('cascade');
+
+            $table->primary(['tariff_id', 'region_id']);
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::drop('tariff_region');
+        Schema::drop('tariffs');
+    }
+}
