@@ -9,21 +9,21 @@ AdminSection::registerModel(HomeContent::class, function (ModelConfiguration $mo
 //     Запрет на удаление
     $model->disableDeleting();
     $model->disableCreating();
-    $model->setTitle('Home content');
+    $model->setTitle('Контетн главной');
 
     $model->onDisplay(function () {
         $display = AdminDisplay::table();
 
         $display->setColumns([
-            AdminColumn::text('title')->setLabel('Title block')
+            AdminColumn::text('title')->setLabel('Название блока')
         ]);
         return $display;
     });
     // Create And Edit
     $model->onCreateAndEdit(function() {
         return $form = AdminForm::panel()->addBody(
-            AdminFormElement::text('title', 'Title block')->required(),
-            AdminFormElement::ckeditor('content', 'Content block')->required()
+            AdminFormElement::text('title', 'Название блока')->required(),
+            AdminFormElement::ckeditor('content', 'Контент блока')->required()
         );
     });
 

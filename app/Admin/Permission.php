@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Vitalik
- * Date: 02.10.2016
- * Time: 19:59
- */
 
 use SleepingOwl\Admin\Model\ModelConfiguration;
 use App\Permission;
@@ -13,26 +7,24 @@ AdminSection::registerModel(Permission::class, function (ModelConfiguration $mod
 
 //    $model->enableAccessCheck();
 
-    $model->setTitle('Permissions');
+    $model->setTitle('Права доступа');
 
     $model->onDisplay(function () {
         $display = AdminDisplay::datatables()->setColumns([
-            AdminColumn::text('name')->setLabel('Name'),
-            AdminColumn::text('display_name')->setLabel('Display name'),
-            AdminColumn::text('description')->setLabel('Description name'),
+            AdminColumn::text('name')->setLabel('Псевдоним'),
+            AdminColumn::text('display_name')->setLabel('Название'),
+            AdminColumn::text('description')->setLabel('Описание'),
         ]);
         return $display;
     });
     // Create And Edit
     $model->onCreateAndEdit(function() {
-        return $form = AdminForm::panel()->addBody(
-            AdminFormElement::text('name', 'Name')->required(),
-            AdminFormElement::text('display_name', 'Display name')->required(),
-            AdminFormElement::textarea('description', 'Description name')->required()
+        $form = AdminForm::panel()->addBody(
+            AdminFormElement::text('name', 'Псевдоним')->required(),
+            AdminFormElement::text('display_name', 'Название')->required(),
+            AdminFormElement::textarea('description', 'Описание')->required()
         );
         return $form;
     });
 
 });
-//    ->addMenuPage(Permission::class, 0)
-//    ->setIcon('fa fa-key');

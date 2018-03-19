@@ -7,29 +7,29 @@ AdminSection::registerModel(GuestBook::class, function (ModelConfiguration $mode
 
 //    $model->enableAccessCheck();
 
-	$model->setTitle('Guest book');
+	$model->setTitle('Гостевая книга');
 
 	$model->onDisplay(function () {
 		$display = AdminDisplay::table();
 
 		$display->setColumns([
-			AdminColumn::custom()->setLabel('Visible')->setCallback(function ($instance) {
+			AdminColumn::custom()->setLabel('Активность')->setCallback(function ($instance) {
 				return $instance->unread ? '<i class="fa fa-check bg-success"></i>' : '<i class="fa fa-minus text-danger bg-danger"></i>';
 			})->setWidth('50px')->setHtmlAttribute('class', 'text-center'),
-			AdminColumn::email('email')->setLabel('User email'),
-			AdminColumn::text('username')->setLabel('User name')
+			AdminColumn::email('email')->setLabel('email'),
+			AdminColumn::text('username')->setLabel('Имя')
 		]);
 		return $display;
 	});
 	// Create And Edit
 	$model->onCreateAndEdit(function() {
 		return $form = AdminForm::panel()->addBody(
-			AdminFormElement::checkbox('unread', 'Visible'),
-			AdminFormElement::text('username', 'User name')->setReadonly(true),
+			AdminFormElement::checkbox('unread', 'Активность'),
+			AdminFormElement::text('username', 'Имя')->setReadonly(true),
 			AdminFormElement::text('email', 'email')->setReadonly(true),
-			AdminFormElement::textarea('message', 'Message')->setReadonly(true),
-			AdminFormElement::textarea('answer', 'Answer'),
-			AdminFormElement::text('ip_address', 'Ip address')->required()
+			AdminFormElement::textarea('message', 'Сообщение')->setReadonly(true),
+			AdminFormElement::textarea('answer', 'Ответ'),
+			AdminFormElement::text('ip_address', 'IР адресс')->required()
 		);
 	});
 

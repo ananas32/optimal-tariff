@@ -8,24 +8,24 @@ AdminSection::registerModel(Role::class, function (ModelConfiguration $model) {
 
 //    $model->enableAccessCheck();
 
-    $model->setTitle('Roles');
+    $model->setTitle('Роли');
 
     $model->onDisplay(function () {
         $display = AdminDisplay::table()->setColumns([
-            AdminColumn::text('name')->setLabel('Name'),
-            AdminColumn::text('display_name')->setLabel('Display name'),
-            AdminColumn::text('description')->setLabel('Description name'),
+            AdminColumn::text('name')->setLabel('Псевдоним'),
+            AdminColumn::text('display_name')->setLabel('Название'),
+            AdminColumn::text('description')->setLabel('Описание'),
         ]);
-        $display->paginate(10);
+        $display->paginate(30);
         return $display;
     });
     // Create And Edit
     $model->onCreateAndEdit(function() {
-        return $form = AdminForm::panel()->addBody(
+        $form = AdminForm::panel()->addBody(
             AdminFormElement::multiselect('thepermits', 'Права доступа')->setModelForOptions('App\Permission')->setDisplay('display_name'),
-            AdminFormElement::text('name', 'Name')->required(),
-            AdminFormElement::text('display_name', 'Display name')->required(),
-            AdminFormElement::textarea('description', 'Description name')->required()
+            AdminFormElement::text('name', 'Псевдоним')->required(),
+            AdminFormElement::text('display_name', 'Название')->required(),
+            AdminFormElement::textarea('description', 'Описание')->required()
         );
         return $form;
     });
