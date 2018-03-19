@@ -9,7 +9,7 @@
                     @if(!empty($siteNews))
                         <a href="/news/{{ $siteNews->slug }}" class="slider-item">
                             <div class="last-news">
-                                <img src="http://static1.squarespace.com/static/554892b3e4b0f2df4ca923d2/t/5699093d69492ecf0c813291/1452869950191/News_765x350px.jpg" alt="{!! $siteNews->title_news !!}">
+                                <img src="{{ $siteNews->image }}" alt="{!! $siteNews->title_news !!}">
                                 <div class="content">
                                     <div class="title"><p>{!! $siteNews->title_news !!}</p></div>
                                     <div class="text">
@@ -49,7 +49,7 @@
                     @if(!empty($operatorNews))
                         <a href="/news/{{ $operatorNews->slug }}" class="slider-item">
                             <div class="last-news">
-                                <img src="https://www.rbc.ua/static/img/4/9/4995f6d2ee091c43438320daa649ec62_650x410.jpg" alt="{!! $operatorNews->title !!}">
+                                <img src="{{ $operatorNews->image }}" alt="{!! $operatorNews->title !!}">
                                 <div class="content">
                                     <div class="title">{!! $operatorNews->title_news !!}</div>
                                     <div class="text">

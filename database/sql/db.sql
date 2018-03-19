@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.21, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.23, for Win64 (x86_64)
 --
--- Host: localhost    Database: optimal_tariff
+-- Host: 127.0.0.1    Database: optimal_tariff
 -- ------------------------------------------------------
--- Server version	5.7.21-0ubuntu0.16.04.1
+-- Server version	5.7.20
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -32,7 +32,7 @@ CREATE TABLE `calls` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `calls` (
 
 LOCK TABLES `calls` WRITE;
 /*!40000 ALTER TABLE `calls` DISABLE KEYS */;
-INSERT INTO `calls` VALUES (1,'Безлим',1,'0','0','0','2018-03-19 10:34:55','2018-03-19 10:34:55');
+INSERT INTO `calls` VALUES (1,'Безлим',1,'0','0','0','2018-03-19 10:34:55','2018-03-19 10:34:55'),(2,'Звонки на другие сети 50 минут, после использования 50 минут  0,60 грн/мин',0,'50','0.6','1','2018-03-19 22:00:12','2018-03-19 22:01:01');
 /*!40000 ALTER TABLE `calls` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -269,7 +269,7 @@ CREATE TABLE `news` (
 
 LOCK TABLES `news` WRITE;
 /*!40000 ALTER TABLE `news` DISABLE KEYS */;
-INSERT INTO `news` VALUES (1,'sotsseti-bez-ogranicheniy',1,1,3,'images/uploads/0a6c78c934198b1b3d0c5c392b9d5e2f.jpg','2018-03-12 11:22:21','2018-03-13 13:01:30'),(2,'test',2,1,2,'images/uploads/df606ca740e986b9a119353d60fc84e0.png','2018-03-12 12:54:19','2018-03-13 14:02:46');
+INSERT INTO `news` VALUES (1,'4g-svyaz-v-ukraine-chto-eto-takoe-i-kogda-zarabotaet',1,1,3,'images/uploads/02d7d2f2da257ef6f9ce7373c2b424e0.jpg','2018-03-12 11:22:21','2018-03-19 21:45:19'),(2,'fiskalnaya-sluzhba-prokommentirovala-obyski-v-kievstare',2,1,2,'images/uploads/24850cf445db2ad87caf322e6025047b.jpg','2018-03-12 12:54:19','2018-03-19 21:53:06');
 /*!40000 ALTER TABLE `news` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -300,7 +300,7 @@ CREATE TABLE `news_translations` (
 
 LOCK TABLES `news_translations` WRITE;
 /*!40000 ALTER TABLE `news_translations` DISABLE KEYS */;
-INSERT INTO `news_translations` VALUES (1,1,'ru','Соцсети без ограничений','Общайтесь с друзьями сколько угодно. Самые популярные соцсети и мессенджеры мира включены.','<p>фывавыф</p>'),(2,2,'ru','Ололоха звичайний','дуже короткий опис дуже короткий опис дуже короткий опис','<p>фвыа фывафвыа фыва фвыа фывафыва вфыа вфы</p>');
+INSERT INTO `news_translations` VALUES (1,1,'ru','4G-связь в Украине. Что это такое и когда заработает','На заседании 4 июля Кабинет Министров Украины одобрил условия введения связи четвертого поколения (4G)','<p>Мобильная связь третьего поколения &ndash; 3G &ndash; в Украине&nbsp;<a href=\"http://gordonua.com/news/society/Operatory-mobilnoy-svyazi-Letom-v-Ukraine-budet-polnocennyy-3G-internet-72774.html\">начала работать в 2015 году</a>&nbsp;(с 2007 филиал &quot;Укртелекома&quot; Utel предоставлял услуги беспроводного 3G-интернета). Лицензии на предоставление услуг в этом стандарте получили три оператора: lifecell, &quot;Vodafone Украина&quot; и &quot;Киевстар&quot;. Сейчас услуга доступна примерно половине населения страны.</p>\r\n\r\n<p>Главное отличие 4G от 3G в скорости передачи данных. Так, в соответствии со спецификацией Международного союза электросвязи, минимальная скорость передачи данных в сети четвертого поколения должна составлять 1 Гбит/с для стационарных объектов и пользователей, перемещающихся с низкой скоростью, и 100 Мбит/с для пользователей, перемещающихся с высокой скоростью (для сетей третьего поколения это 2 Мбит/с и 348 кбит/с соответственно). К примеру, на скорости 100&ndash;150 Мбит/с сайты открываются почти мгновенно, загрузка фильма в HD-качестве занимает до 10 минут. Сейчас это обычная скорость &quot;стационарного&quot; интернета.</p>\r\n\r\n<p>Кроме того, 4G-сети (стандарт LTE) предоставляют абонентам широкополосный доступ к интернету &ndash; это значит, что пользоваться сетью без &quot;проседания&quot; скорости доступа сможет больше людей. Например, на стадионе во время матча из-за большого количества подключений 3G-сеть работает или очень медленно, или вовсе отключается. 4G-сеть должна справляться с такими нагрузками.</p>\r\n\r\n<p>Наверное, единственный недостаток &ndash; не все смартфоны, которые работают с 3G, поддерживают стандарт LTE, поэтому чтобы воспользоваться новой сетью, придется сменить мобильное устройство.</p>\r\n\r\n<p>Указ о внедрении в Украине &quot;подвижной (мобильной) связи четвертого поколения&quot; президент Петр Порошенко&nbsp;<a href=\"http://www.president.gov.ua/documents/4452015-19277\" target=\"_blank\">подписал</a>&nbsp;летом 2015 года. В документе говорилось, что связь 4G должна заработать в 2017 году.</p>\r\n\r\n<p>Председатель Национальной комиссии Украины по регулированию связи и информатизации (НКРСИ) Александр Животовский в мае 2015-го&nbsp;<a href=\"http://gordonua.com/news/money/glava-nackomissii-po-regulirovaniyu-svyazi-v-ukraine-4g-poyavitsya-v-techenie-goda-dvuh-82515.html\" target=\"_blank\">объяснял</a>, что на внедрение нового стандарта нужно до двух лет. За это время нужно &quot;провести инвентаризацию радиочастотного ресурса&quot;, а затем найти и выделить новые радиочастоты и внедрить &quot;технологическую нейтральность&quot;.</p>\r\n\r\n<p>Под технологической нейтральностью подразумевается право оператора связи разворачивать в своем частотном ресурсе такой стандарт связи, который он посчитает необходимым, тогда как по действующему украинскому законодательству, телеком-операторы получают лицензии на частоты в привязке к технологии. Например, сейчас в Украине используются четыре диапазона &ndash; 850, 900, 1800 и 2100: в первом работает CDMA-оператор, второй и третий отведены под GSM и последний &ndash; под 3G, то есть развивать 4G в этих диапазонах по нынешним нормам операторы не имеют права.</p>\r\n\r\n<p>В Верховной Раде законопроект, который вводит принцип технейтральности, был&nbsp;<a href=\"http://w1.c1.rada.gov.ua/pls/zweb2/webproc4_1?pf3511=59907\" target=\"_blank\">зарегистрирован</a>&nbsp;еще в августе 2016 года, в апреле 2017-го документ&nbsp;<a href=\"http://w1.c1.rada.gov.ua/pls/zweb2/webproc4_1?pf3511=61601\" target=\"_blank\">одобрил</a>&nbsp;профильный комитет парламента, но в сессионном зале его пока не рассматривали.</p>\r\n\r\n<p>Портал&nbsp;<a href=\"https://ain.ua/2017/05/19/chto-nuzhno-dlya-polnocennogo-zapuska-3g-i-4g-v-ukraine\" target=\"_blank\">AIN</a>, специализирующийся на новостях об IT, отмечал, что принцип технологической нейтральности позволил бы национальным операторам в кратчайшие сроки внедрить связь четвертого поколения по всей стране, потому что им не пришлось бы менять существующее оборудование. Без технейтральности операторы будут вынуждены ставить новые вышки, работающие в новом диапазоне, а значит, покрытие будет не стопроцентным и сеть будет работать хорошо, скорее всего, только в крупных городах.</p>\r\n\r\n<p>При этом в компании &quot;Vodafone Украина&quot; изданию &quot;ГОРДОН&quot; отметили, что &quot;4G &ndash; это технология для передачи больших объемов данных, поэтому никто в мире сплошного покрытия 4G не строит&quot;.</p>\r\n\r\n<p>&quot;4G &ndash; это технология для &quot;интернета вещей&quot;, для обслуживания огромного количества подключенных устройств, которые генерируют много трафика. Поэтому 4G-сети будут строиться там, где будет сконцентрирован трафик, в больших городах, густонаселенных территориях. На остальных территориях будет вполне достаточно емкости 3G&quot;, &ndash; отметила PR-директор &quot;Vodafone Украина&quot; Виктория Рубан.</p>\r\n\r\n<hr />\r\n<p>К внедрению 4G телеком-операторы начали готовиться в 2016 году. В частности, &quot;Киевстар&quot;, Vodafone и lifecell договорились о рефарминге &ndash; обмене частотами диапазона 1800 МГц (это должно ускорить внедрение нового стандарта и улучшить покрытие), а также&nbsp;<a href=\"https://www.epravda.com.ua/rus/publications/2016/08/1/600969/\" target=\"_blank\">провели тестирование</a>&nbsp;4G-сети, модернизировали базовые станции и&nbsp;<a href=\"https://www.vodafone.ua/uk/news/190-vodafone-ukrayina-perejshla-na-usim-karti-z-pidtrimkoyu-4g\" target=\"_blank\">сим-карты</a>.</p>\r\n\r\n<p>По итогам сегодняшнего заседания пресс-служба правительства сообщила, что Кабмин одобрил &quot;требования к работе операторов, условия проведения тендеров на продажу лицензий и стоимость лицензий&quot;. Начальная стоимость лицензий 4G составит около 6,3 млрд грн: 2,3 млрд &ndash; за диапазон 2600 МГц и 4 млрд &ndash; за диапазон 1800 МГц. Когда именно пройдут тендеры по продаже частот, пока неизвестно. В случае с 3G&nbsp;<a href=\"http://gordonua.com/news/money/Kabmin-utverdil-usloviya-prodazhi-licenziy-na-vnedrenie-3G-49986.html\">от момента утверждения условий тендера</a>&nbsp;до&nbsp;<a href=\"http://gordonua.com/infographics/3G-internet-v-Ukraine-INFOGRAFIKA-74800.html\">начала работы связи нового поколения</a>&nbsp;прошло около полугода.</p>\r\n\r\n<p>В пресс-службе &quot;Киевстара&quot; изданию &quot;ГОРДОН&quot; заявили, что сроки запуска 4G &quot;зависят от того, на каких частотах будет внедряться новая технология&quot;.</p>\r\n\r\n<p>&quot;На сегодня НКРСИ предлагает два варианта: диапазон 2600 МГц и диапазон 1800 МГц. В первом случае телеком-операторам понадобится строить новые сети, что требует времени. Во втором &ndash; сроки могут быть максимально сокращены и покрытие будет во много раз больше&quot;, &ndash; добавили в компании.</p>\r\n\r\n<p>Осенью прошлого года директор по корпоративному управлению и контролю &quot;Vodafone Украина&quot; Олег Проживальский&nbsp;<a href=\"https://www.epravda.com.ua/rus/publications/2016/10/3/607202/\" target=\"_blank\">говорил</a>, что оператор начнет разворачивать сеть LTE в 2018 году. Сейчас в компании отмечают, что технически уже готовы к внедрению 4G.</p>\r\n\r\n<p>&quot;Сейчас, при строительстве 3G-сети, мы устанавливаем базовые станции нового поколения. Это так называемое 4G-ready-оборудование, которое поддерживает стандарт 4G. Однако далеко не все зависит от технических вопросов. Есть экономические факторы, такие как покупательная способность людей, готовность платить за более технологически продвинутые, а значит, и более дорогие услуги, процент смартфонов, которые в состоянии поддерживать 4G&quot;, &ndash; отметила PR-директор &quot;Vodafone Украина&quot; Виктория Рубан.</p>\r\n\r\n<p>По ее данным, сейчас смартфоны с поддержкой LTE есть лишь у 10% украинцев. Портал&nbsp;<a href=\"https://ain.ua/2017/05/19/chto-nuzhno-dlya-polnocennogo-zapuska-3g-i-4g-v-ukraine\" target=\"_blank\">AIN</a>&nbsp;писал, что критической массой пользователей, которая нужна для запуска новой технологии, является барьер в 7%, и три крупнейших телеком-оператора этот барьер уже преодолели.</p>'),(2,2,'ru','Фискальная служба прокомментировала обыски в \"Киевстаре\"','Обыски в главном офисе компании \"Киевстар\" проводили в рамках расследования дела о неуплате налогов.','<p>Во время проведения обыска велась видеозапись Обыски в главном офисе компании &quot;Киевстар&quot; проводили в рамках расследования дела о неуплате налогов в размере около 2,4 млрд грн налогов. Об этом сообщила пресс-секретарь Государственной фискальной службы Наталья Непряхина в Facebook. &quot;Сотрудниками налоговой милиции Офиса крупных налогоплательщиков ДФС в рамках расследования уголовного производства по факту неуплаты около 2,4 млрд грн налогов, 4 января 2018 по фактическому месту расположения офисных помещений ЧАО &quot;Киевстар&quot; с целью отыскания и изъятия документов, имеющих&nbsp;объективное значение в уголовном производстве, проведен обыск&quot;, - сообщила Непряхина. Она добавила, что обыск проведен в&nbsp;исполнение постановления следственного судьи от 3 января 2018 года и соответствующее ходатайство следователя было согласовано процессуальным руководителем - прокурором Генеральной прокуратуры Украины. &quot;Во время проведения обыска в соответствии с изменениями в Уголовно-процессуальном кодексе велась видеозапись&quot;, - отметила чиновница.<br />\r\n&nbsp;</p>');
 /*!40000 ALTER TABLE `news_translations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -320,7 +320,7 @@ CREATE TABLE `operators` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -329,7 +329,7 @@ CREATE TABLE `operators` (
 
 LOCK TABLES `operators` WRITE;
 /*!40000 ALTER TABLE `operators` DISABLE KEYS */;
-INSERT INTO `operators` VALUES (1,'Киевстар','images/uploads/80808c1c0c232763172948d0d1a4f933.jpg','#6899D3',1,'2018-03-13 12:12:58','2018-03-19 14:28:35');
+INSERT INTO `operators` VALUES (1,'Киевстар','images/uploads/ae91989a48bff4190460c55256f971f7.jpg','#00A0FF',1,'2018-03-13 12:12:58','2018-03-19 21:26:26'),(2,'lifecell','images/uploads/78fc9511231a7245a7418ef94483a283.jpg','#FFCB05',1,'2018-03-19 21:27:18','2018-03-19 21:27:18'),(3,'vodafone','images/uploads/1218b871f5fa45fd08a5313deacebd5e.png','#F0001F',1,'2018-03-19 21:36:53','2018-03-19 21:36:53');
 /*!40000 ALTER TABLE `operators` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -428,7 +428,7 @@ CREATE TABLE `region_translations` (
   UNIQUE KEY `region_translations_region_id_locale_unique` (`region_id`,`locale`),
   KEY `region_translations_locale_index` (`locale`),
   CONSTRAINT `region_translations_region_id_foreign` FOREIGN KEY (`region_id`) REFERENCES `regions` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -437,7 +437,7 @@ CREATE TABLE `region_translations` (
 
 LOCK TABLES `region_translations` WRITE;
 /*!40000 ALTER TABLE `region_translations` DISABLE KEYS */;
-INSERT INTO `region_translations` VALUES (1,1,'ru','Киевская'),(2,2,'ru','Хмельницкая');
+INSERT INTO `region_translations` VALUES (1,1,'ru','Киевская'),(2,2,'ru','Хмельницкая'),(3,3,'ru','Тернопольская');
 /*!40000 ALTER TABLE `region_translations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -454,7 +454,7 @@ CREATE TABLE `regions` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -463,7 +463,7 @@ CREATE TABLE `regions` (
 
 LOCK TABLES `regions` WRITE;
 /*!40000 ALTER TABLE `regions` DISABLE KEYS */;
-INSERT INTO `regions` VALUES (1,1,'2018-03-19 11:01:49','2018-03-19 11:01:49'),(2,1,'2018-03-19 11:02:04','2018-03-19 11:02:04');
+INSERT INTO `regions` VALUES (1,1,'2018-03-19 11:01:49','2018-03-19 11:01:49'),(2,1,'2018-03-19 11:02:04','2018-03-19 21:39:23'),(3,1,'2018-03-19 21:39:41','2018-03-19 21:39:41');
 /*!40000 ALTER TABLE `regions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -483,7 +483,7 @@ CREATE TABLE `regular_payment_translations` (
   UNIQUE KEY `regular_payment_translations_regular_payment_id_locale_unique` (`regular_payment_id`,`locale`),
   KEY `regular_payment_translations_locale_index` (`locale`),
   CONSTRAINT `regular_payment_translations_regular_payment_id_foreign` FOREIGN KEY (`regular_payment_id`) REFERENCES `regular_payments` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -492,7 +492,7 @@ CREATE TABLE `regular_payment_translations` (
 
 LOCK TABLES `regular_payment_translations` WRITE;
 /*!40000 ALTER TABLE `regular_payment_translations` DISABLE KEYS */;
-INSERT INTO `regular_payment_translations` VALUES (1,1,'ru','Месячный платёж');
+INSERT INTO `regular_payment_translations` VALUES (1,1,'ru','Месячный платёж'),(2,2,'ru','Годовой платёж'),(3,3,'ru','Дневной платёж');
 /*!40000 ALTER TABLE `regular_payment_translations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -509,7 +509,7 @@ CREATE TABLE `regular_payments` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -518,7 +518,7 @@ CREATE TABLE `regular_payments` (
 
 LOCK TABLES `regular_payments` WRITE;
 /*!40000 ALTER TABLE `regular_payments` DISABLE KEYS */;
-INSERT INTO `regular_payments` VALUES (1,1,'2018-03-19 13:07:25','2018-03-19 13:07:25');
+INSERT INTO `regular_payments` VALUES (1,1,'2018-03-19 13:07:25','2018-03-19 13:07:25'),(2,1,'2018-03-19 21:57:07','2018-03-19 21:57:07'),(3,1,'2018-03-19 21:57:22','2018-03-19 21:57:22');
 /*!40000 ALTER TABLE `regular_payments` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -674,7 +674,7 @@ CREATE TABLE `tariff_name_translations` (
   UNIQUE KEY `tariff_name_translations_tariff_name_id_locale_unique` (`tariff_name_id`,`locale`),
   KEY `tariff_name_translations_locale_index` (`locale`),
   CONSTRAINT `tariff_name_translations_tariff_name_id_foreign` FOREIGN KEY (`tariff_name_id`) REFERENCES `tariff_names` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -683,7 +683,7 @@ CREATE TABLE `tariff_name_translations` (
 
 LOCK TABLES `tariff_name_translations` WRITE;
 /*!40000 ALTER TABLE `tariff_name_translations` DISABLE KEYS */;
-INSERT INTO `tariff_name_translations` VALUES (1,1,'ru','для простих члоловіків');
+INSERT INTO `tariff_name_translations` VALUES (1,1,'ru','Безлим Соцсети'),(2,2,'ru','Тарифный план «Сделай сам»'),(3,3,'ru','Безвиз уикенд');
 /*!40000 ALTER TABLE `tariff_name_translations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -700,7 +700,7 @@ CREATE TABLE `tariff_names` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -709,7 +709,7 @@ CREATE TABLE `tariff_names` (
 
 LOCK TABLES `tariff_names` WRITE;
 /*!40000 ALTER TABLE `tariff_names` DISABLE KEYS */;
-INSERT INTO `tariff_names` VALUES (1,1,'2018-03-19 13:07:15','2018-03-19 13:07:15');
+INSERT INTO `tariff_names` VALUES (1,1,'2018-03-19 13:07:15','2018-03-19 21:58:41'),(2,1,'2018-03-19 22:01:53','2018-03-19 22:01:53'),(3,1,'2018-03-19 22:02:39','2018-03-19 22:02:39');
 /*!40000 ALTER TABLE `tariff_names` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -736,7 +736,7 @@ CREATE TABLE `tariff_region` (
 
 LOCK TABLES `tariff_region` WRITE;
 /*!40000 ALTER TABLE `tariff_region` DISABLE KEYS */;
-INSERT INTO `tariff_region` VALUES (1,1);
+INSERT INTO `tariff_region` VALUES (1,1),(3,1),(2,2),(3,2),(3,3);
 /*!40000 ALTER TABLE `tariff_region` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -780,7 +780,7 @@ CREATE TABLE `tariffs` (
   CONSTRAINT `tariffs_other_call_id_foreign` FOREIGN KEY (`other_call_id`) REFERENCES `calls` (`id`) ON DELETE CASCADE,
   CONSTRAINT `tariffs_regular_payment_id_foreign` FOREIGN KEY (`regular_payment_id`) REFERENCES `regular_payments` (`id`) ON DELETE CASCADE,
   CONSTRAINT `tariffs_tariff_name_id_foreign` FOREIGN KEY (`tariff_name_id`) REFERENCES `tariff_names` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -789,7 +789,7 @@ CREATE TABLE `tariffs` (
 
 LOCK TABLES `tariffs` WRITE;
 /*!40000 ALTER TABLE `tariffs` DISABLE KEYS */;
-INSERT INTO `tariffs` VALUES (1,1,1,1,1,1,1,'111',1,1,122,0,NULL,'2018-03-19 13:07:57','2018-03-19 13:39:21');
+INSERT INTO `tariffs` VALUES (1,1,2,1,1,1,1,'111',1,1,122,0,NULL,'2018-03-19 13:07:57','2018-03-19 22:01:08'),(2,1,1,1,1,1,2,'qq',2,1,33,1,NULL,'2018-03-19 21:37:28','2018-03-19 22:03:30'),(3,2,1,2,1,1,3,'лкуук',3,1,22,1,NULL,'2018-03-19 22:04:15','2018-03-19 22:04:15');
 /*!40000 ALTER TABLE `tariffs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -922,4 +922,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-03-19 17:11:07
+-- Dump completed on 2018-03-20  0:07:14
