@@ -16,6 +16,36 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `calls`
+--
+
+DROP TABLE IF EXISTS `calls`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `calls` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `unlimited` tinyint(1) NOT NULL,
+  `tariff_minute` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `quantity` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `price` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `calls`
+--
+
+LOCK TABLES `calls` WRITE;
+/*!40000 ALTER TABLE `calls` DISABLE KEYS */;
+INSERT INTO `calls` VALUES (1,'Безлим',1,'0','0','0','2018-03-19 10:34:55','2018-03-19 10:34:55');
+/*!40000 ALTER TABLE `calls` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `guest_book`
 --
 
@@ -102,6 +132,36 @@ INSERT INTO `home_content_translations` VALUES (1,4,'ru','ЕКОНОМНЫЙ Т�
 UNLOCK TABLES;
 
 --
+-- Table structure for table `internet_packages`
+--
+
+DROP TABLE IF EXISTS `internet_packages`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `internet_packages` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `unlimited` tinyint(1) NOT NULL,
+  `tariff_package` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `quantity` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `price` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `internet_packages`
+--
+
+LOCK TABLES `internet_packages` WRITE;
+/*!40000 ALTER TABLE `internet_packages` DISABLE KEYS */;
+INSERT INTO `internet_packages` VALUES (1,'Безлим пакетов',1,'0','0','0','2018-03-19 10:38:40','2018-03-19 10:39:22');
+/*!40000 ALTER TABLE `internet_packages` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `locales`
 --
 
@@ -127,6 +187,36 @@ LOCK TABLES `locales` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `messages`
+--
+
+DROP TABLE IF EXISTS `messages`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `messages` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `unlimited` tinyint(1) NOT NULL,
+  `tariff_message` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `quantity` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `price` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `messages`
+--
+
+LOCK TABLES `messages` WRITE;
+/*!40000 ALTER TABLE `messages` DISABLE KEYS */;
+INSERT INTO `messages` VALUES (1,'Безлим СМС и ММС',1,'0','0','0','2018-03-19 10:38:26','2018-03-19 10:39:40');
+/*!40000 ALTER TABLE `messages` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -138,7 +228,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -147,7 +237,7 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES (1,'2014_10_12_000000_create_users_table',1),(2,'2014_10_12_100000_create_password_resets_table',1),(3,'2017_02_22_131814_entrust_setup_tables',1),(4,'2017_03_10_220240_create_slider_table',1),(5,'2017_03_11_093507_create_guest_book',1),(6,'2017_03_11_172340_create_locales_table',1),(7,'2017_03_12_000501_create_random_text_header_table',1),(8,'2017_03_12_150436_create_home_content_table',1),(9,'2017_03_12_185756_create_news_table',1),(10,'2017_03_14_220353_create_operators_table',1),(11,'2017_03_19_170504_create_region_table',1);
+INSERT INTO `migrations` VALUES (1,'2014_10_12_000000_create_users_table',1),(2,'2014_10_12_100000_create_password_resets_table',1),(3,'2017_02_22_131814_entrust_setup_tables',1),(4,'2017_03_10_220240_create_slider_table',1),(5,'2017_03_11_093507_create_guest_book',1),(6,'2017_03_11_172340_create_locales_table',1),(7,'2017_03_12_000501_create_random_text_header_table',1),(8,'2017_03_12_150436_create_home_content_table',1),(9,'2017_03_12_185756_create_news_table',1),(10,'2017_03_14_220353_create_operators_table',1),(11,'2017_03_19_170504_create_region_table',1),(12,'2018_03_13_162638_create_call_table',2),(13,'2018_03_14_103740_create_message_table',2),(14,'2018_03_14_104944_create_internet_package_table',3),(25,'2018_03_19_095709_create_tariff_names_table',4),(26,'2018_03_19_095711_create_regular_payments_table',4),(27,'2018_03_19_095827_create_tariffs_table',4);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -239,7 +329,7 @@ CREATE TABLE `operators` (
 
 LOCK TABLES `operators` WRITE;
 /*!40000 ALTER TABLE `operators` DISABLE KEYS */;
-INSERT INTO `operators` VALUES (1,'Киевстар','images/uploads/80808c1c0c232763172948d0d1a4f933.jpg','1',1,'2018-03-13 12:12:58','2018-03-13 12:13:02');
+INSERT INTO `operators` VALUES (1,'Киевстар','images/uploads/80808c1c0c232763172948d0d1a4f933.jpg','#6899D3',1,'2018-03-13 12:12:58','2018-03-19 14:28:35');
 /*!40000 ALTER TABLE `operators` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -338,7 +428,7 @@ CREATE TABLE `region_translations` (
   UNIQUE KEY `region_translations_region_id_locale_unique` (`region_id`,`locale`),
   KEY `region_translations_locale_index` (`locale`),
   CONSTRAINT `region_translations_region_id_foreign` FOREIGN KEY (`region_id`) REFERENCES `regions` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -347,6 +437,7 @@ CREATE TABLE `region_translations` (
 
 LOCK TABLES `region_translations` WRITE;
 /*!40000 ALTER TABLE `region_translations` DISABLE KEYS */;
+INSERT INTO `region_translations` VALUES (1,1,'ru','Киевская'),(2,2,'ru','Хмельницкая');
 /*!40000 ALTER TABLE `region_translations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -363,7 +454,7 @@ CREATE TABLE `regions` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -372,7 +463,63 @@ CREATE TABLE `regions` (
 
 LOCK TABLES `regions` WRITE;
 /*!40000 ALTER TABLE `regions` DISABLE KEYS */;
+INSERT INTO `regions` VALUES (1,1,'2018-03-19 11:01:49','2018-03-19 11:01:49'),(2,1,'2018-03-19 11:02:04','2018-03-19 11:02:04');
 /*!40000 ALTER TABLE `regions` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `regular_payment_translations`
+--
+
+DROP TABLE IF EXISTS `regular_payment_translations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `regular_payment_translations` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `regular_payment_id` int(10) unsigned NOT NULL,
+  `locale` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `name_payment` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `regular_payment_translations_regular_payment_id_locale_unique` (`regular_payment_id`,`locale`),
+  KEY `regular_payment_translations_locale_index` (`locale`),
+  CONSTRAINT `regular_payment_translations_regular_payment_id_foreign` FOREIGN KEY (`regular_payment_id`) REFERENCES `regular_payments` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `regular_payment_translations`
+--
+
+LOCK TABLES `regular_payment_translations` WRITE;
+/*!40000 ALTER TABLE `regular_payment_translations` DISABLE KEYS */;
+INSERT INTO `regular_payment_translations` VALUES (1,1,'ru','Месячный платёж');
+/*!40000 ALTER TABLE `regular_payment_translations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `regular_payments`
+--
+
+DROP TABLE IF EXISTS `regular_payments`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `regular_payments` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `active` tinyint(1) NOT NULL DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `regular_payments`
+--
+
+LOCK TABLES `regular_payments` WRITE;
+/*!40000 ALTER TABLE `regular_payments` DISABLE KEYS */;
+INSERT INTO `regular_payments` VALUES (1,1,'2018-03-19 13:07:25','2018-03-19 13:07:25');
+/*!40000 ALTER TABLE `regular_payments` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -398,6 +545,7 @@ CREATE TABLE `role_user` (
 
 LOCK TABLES `role_user` WRITE;
 /*!40000 ALTER TABLE `role_user` DISABLE KEYS */;
+INSERT INTO `role_user` VALUES (1,1);
 /*!40000 ALTER TABLE `role_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -417,7 +565,7 @@ CREATE TABLE `roles` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `roles_name_unique` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -426,6 +574,7 @@ CREATE TABLE `roles` (
 
 LOCK TABLES `roles` WRITE;
 /*!40000 ALTER TABLE `roles` DISABLE KEYS */;
+INSERT INTO `roles` VALUES (1,'admin','Администратор','Доступ к админ панели','2018-03-19 11:05:29','2018-03-19 11:05:29');
 /*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -455,6 +604,193 @@ LOCK TABLES `slider` WRITE;
 /*!40000 ALTER TABLE `slider` DISABLE KEYS */;
 INSERT INTO `slider` VALUES (1,1,1,'images/uploads/442beb041adbd10cfe195072f28d028c.jpg','2018-03-12 13:52:05','2018-03-12 13:52:05'),(2,2,1,'images/uploads/b3ee81a1019d93803fd22c45ae351b51.jpg','2018-03-12 13:52:17','2018-03-12 13:52:17'),(3,3,1,'images/uploads/68a7cb60e8bbf27bb15f284b3575d65b.jpg','2018-03-12 13:52:32','2018-03-12 13:52:32'),(4,4,1,'images/uploads/c7645c99888838fb3ed9ba3ff532ef77.jpg','2018-03-12 13:52:35','2018-03-12 13:52:51');
 /*!40000 ALTER TABLE `slider` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `social_networks`
+--
+
+DROP TABLE IF EXISTS `social_networks`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `social_networks` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `social_networks_name_unique` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `social_networks`
+--
+
+LOCK TABLES `social_networks` WRITE;
+/*!40000 ALTER TABLE `social_networks` DISABLE KEYS */;
+/*!40000 ALTER TABLE `social_networks` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `social_package`
+--
+
+DROP TABLE IF EXISTS `social_package`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `social_package` (
+  `social_id` int(10) unsigned NOT NULL,
+  `package_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`social_id`,`package_id`),
+  KEY `social_package_package_id_foreign` (`package_id`),
+  CONSTRAINT `social_package_package_id_foreign` FOREIGN KEY (`package_id`) REFERENCES `internet_packages` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `social_package_social_id_foreign` FOREIGN KEY (`social_id`) REFERENCES `social_networks` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `social_package`
+--
+
+LOCK TABLES `social_package` WRITE;
+/*!40000 ALTER TABLE `social_package` DISABLE KEYS */;
+/*!40000 ALTER TABLE `social_package` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tariff_name_translations`
+--
+
+DROP TABLE IF EXISTS `tariff_name_translations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tariff_name_translations` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `tariff_name_id` int(10) unsigned NOT NULL,
+  `locale` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `tariff_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `tariff_name_translations_tariff_name_id_locale_unique` (`tariff_name_id`,`locale`),
+  KEY `tariff_name_translations_locale_index` (`locale`),
+  CONSTRAINT `tariff_name_translations_tariff_name_id_foreign` FOREIGN KEY (`tariff_name_id`) REFERENCES `tariff_names` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tariff_name_translations`
+--
+
+LOCK TABLES `tariff_name_translations` WRITE;
+/*!40000 ALTER TABLE `tariff_name_translations` DISABLE KEYS */;
+INSERT INTO `tariff_name_translations` VALUES (1,1,'ru','для простих члоловіків');
+/*!40000 ALTER TABLE `tariff_name_translations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tariff_names`
+--
+
+DROP TABLE IF EXISTS `tariff_names`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tariff_names` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `active` tinyint(1) NOT NULL DEFAULT '1',
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tariff_names`
+--
+
+LOCK TABLES `tariff_names` WRITE;
+/*!40000 ALTER TABLE `tariff_names` DISABLE KEYS */;
+INSERT INTO `tariff_names` VALUES (1,1,'2018-03-19 13:07:15','2018-03-19 13:07:15');
+/*!40000 ALTER TABLE `tariff_names` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tariff_region`
+--
+
+DROP TABLE IF EXISTS `tariff_region`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tariff_region` (
+  `tariff_id` int(10) unsigned NOT NULL,
+  `region_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`tariff_id`,`region_id`),
+  KEY `tariff_region_region_id_foreign` (`region_id`),
+  CONSTRAINT `tariff_region_region_id_foreign` FOREIGN KEY (`region_id`) REFERENCES `regions` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `tariff_region_tariff_id_foreign` FOREIGN KEY (`tariff_id`) REFERENCES `tariffs` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tariff_region`
+--
+
+LOCK TABLES `tariff_region` WRITE;
+/*!40000 ALTER TABLE `tariff_region` DISABLE KEYS */;
+INSERT INTO `tariff_region` VALUES (1,1);
+/*!40000 ALTER TABLE `tariff_region` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tariffs`
+--
+
+DROP TABLE IF EXISTS `tariffs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tariffs` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `network_call_id` int(10) unsigned NOT NULL,
+  `other_call_id` int(10) unsigned NOT NULL,
+  `fixed_call_id` int(10) unsigned NOT NULL,
+  `message_id` int(10) unsigned NOT NULL,
+  `internet_package_id` int(10) unsigned NOT NULL,
+  `tariff_name_id` int(10) unsigned NOT NULL,
+  `link` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `operator_id` int(10) unsigned NOT NULL,
+  `regular_payment_id` int(10) unsigned NOT NULL,
+  `price` int(11) NOT NULL,
+  `active` tinyint(1) NOT NULL DEFAULT '0',
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `tariffs_network_call_id_foreign` (`network_call_id`),
+  KEY `tariffs_other_call_id_foreign` (`other_call_id`),
+  KEY `tariffs_fixed_call_id_foreign` (`fixed_call_id`),
+  KEY `tariffs_message_id_foreign` (`message_id`),
+  KEY `tariffs_internet_package_id_foreign` (`internet_package_id`),
+  KEY `tariffs_tariff_name_id_foreign` (`tariff_name_id`),
+  KEY `tariffs_operator_id_foreign` (`operator_id`),
+  KEY `tariffs_regular_payment_id_foreign` (`regular_payment_id`),
+  CONSTRAINT `tariffs_fixed_call_id_foreign` FOREIGN KEY (`fixed_call_id`) REFERENCES `calls` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `tariffs_internet_package_id_foreign` FOREIGN KEY (`internet_package_id`) REFERENCES `internet_packages` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `tariffs_message_id_foreign` FOREIGN KEY (`message_id`) REFERENCES `messages` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `tariffs_network_call_id_foreign` FOREIGN KEY (`network_call_id`) REFERENCES `calls` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `tariffs_operator_id_foreign` FOREIGN KEY (`operator_id`) REFERENCES `operators` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `tariffs_other_call_id_foreign` FOREIGN KEY (`other_call_id`) REFERENCES `calls` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `tariffs_regular_payment_id_foreign` FOREIGN KEY (`regular_payment_id`) REFERENCES `regular_payments` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `tariffs_tariff_name_id_foreign` FOREIGN KEY (`tariff_name_id`) REFERENCES `tariff_names` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tariffs`
+--
+
+LOCK TABLES `tariffs` WRITE;
+/*!40000 ALTER TABLE `tariffs` DISABLE KEYS */;
+INSERT INTO `tariffs` VALUES (1,1,1,1,1,1,1,'111',1,1,122,0,NULL,'2018-03-19 13:07:57','2018-03-19 13:39:21');
+/*!40000 ALTER TABLE `tariffs` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -569,7 +905,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Простий','Чоловік','porsche839@gmail.com','$2y$10$5JD4Kwz5B8vDxZID93Dul.3pAnFTEFtwEO7bRfIEJ6bEOW3NUo1lm','aygXXy5fXTO9sqQb2DBxy8iDO9FWVgWEOei4N2KDXNfigEjaQmle3aY2RPpT',1,0,'127.0.0.1','2018-03-12 10:49:38','2018-03-12 10:49:38');
+INSERT INTO `users` VALUES (1,'Простий','Чоловік','porsche839@gmail.com','$2y$10$5JD4Kwz5B8vDxZID93Dul.3pAnFTEFtwEO7bRfIEJ6bEOW3NUo1lm','grnOIVOjFcCB8vUGnl3sLFyDnkQewQvYAfw9fhChQxccDz6lRQVFvbXAl1VS',1,0,'127.0.0.1','2018-03-12 10:49:38','2018-03-12 10:49:38');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -586,4 +922,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-03-13 16:39:53
+-- Dump completed on 2018-03-19 17:11:07
