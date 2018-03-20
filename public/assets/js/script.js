@@ -309,3 +309,18 @@ function is_object(mixed_var){
         return (mixed_var !== null) && (typeof( mixed_var ) == 'object');
     }
 }
+
+$('input[type=checkbox]').on("change", function() {
+    var inputs = $('input:checkbox:checked');
+    var numberOfChecked = inputs.length;
+    var url = '';
+    if(numberOfChecked == 2) {
+        $.each(inputs, function(index, value){
+            url += $(value).val() + '/';
+        });
+        var fullUrl = 'http://'+location.hostname +'/tariffs/compare/'+url;
+        $('#compare').show().attr('href', fullUrl);
+    } else {
+        $('#compare').hide()
+    }
+});

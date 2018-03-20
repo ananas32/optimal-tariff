@@ -29,6 +29,7 @@ Route::get('/skip-user-manual', 'SelectTariffController@skipUserManual');
 
 Route::get('/tariffs', 'TariffController@index');
 Route::get('/tariffs/{operator}', 'TariffController@operatorTariffs');
+Route::get('/tariffs/compare/{t1}/{t2}', 'TariffController@compare');
 
 Route::get('/guest-book', 'GuestBookController@index');
 Route::post('/guest-book-message', 'GuestBookController@create');

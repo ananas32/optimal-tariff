@@ -79,4 +79,9 @@ class Tariff extends Eloquent
 	{
 		return $this->tariffs()->get();
 	}
+
+	public function getTariff($id)
+	{
+		return $this->tariffs()->where('tariffs.id', $id)->firstOrFail();
+	}
 }
