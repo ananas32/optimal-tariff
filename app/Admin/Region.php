@@ -18,7 +18,8 @@ AdminSection::registerModel(Region::class, function (ModelConfiguration $model) 
             AdminColumn::custom()->setLabel('Активность')->setCallback(function ($instance) {
                 return $instance->active ? '<i class="fa fa-check bg-success"></i>' : '<i class="fa fa-minus text-danger bg-danger"></i>';
             })->setWidth('50px')->setHtmlAttribute('class', 'text-center'),
-            AdminColumn::text('name_region')->setLabel('Название региона')
+            AdminColumn::text('name_region')->setLabel('Название региона'),
+            AdminColumn::text('code')->setLabel('Код региона')
         ]);
         return $display;
     });
@@ -26,6 +27,7 @@ AdminSection::registerModel(Region::class, function (ModelConfiguration $model) 
     $model->onCreateAndEdit(function() {
         return $form = AdminForm::panel()->addBody(
             AdminFormElement::checkbox('active', 'Активность'),
+            AdminFormElement::text('code', 'Код региона')->setValidationRules(['code' => 'required|string|min:2|max:10|unique:regions']),
             AdminFormElement::text('name_region', 'Название регона')->required()
         );
     });

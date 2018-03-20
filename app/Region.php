@@ -25,4 +25,14 @@ class Region extends Eloquent
 //            ->orderBy('home_content.id', 'ASC')
 //            ->get();
     }
+
+    public function getRegionCodes() {
+        $codes = Language::select('code')->get();
+        $codes = $codes->toArray();
+        $codesArray = [];
+        foreach ($codes as $code) {
+            $codesArray[] = array_shift($code);
+        }
+        return $codesArray;
+    }
 }

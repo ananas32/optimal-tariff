@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.6.23, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.21, for Linux (x86_64)
 --
--- Host: 127.0.0.1    Database: optimal_tariff
+-- Host: localhost    Database: optimal_tariff
 -- ------------------------------------------------------
--- Server version	5.7.20
+-- Server version	5.7.21-0ubuntu0.16.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -157,7 +157,7 @@ CREATE TABLE `internet_packages` (
 
 LOCK TABLES `internet_packages` WRITE;
 /*!40000 ALTER TABLE `internet_packages` DISABLE KEYS */;
-INSERT INTO `internet_packages` VALUES (1,'Безлим пакетов',1,'0','0','0','2018-03-19 10:38:40','2018-03-19 10:39:22');
+INSERT INTO `internet_packages` VALUES (1,'Безлим пакетов',0,'120','0','0','2018-03-19 10:38:40','2018-03-20 08:41:58');
 /*!40000 ALTER TABLE `internet_packages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -329,7 +329,7 @@ CREATE TABLE `operators` (
 
 LOCK TABLES `operators` WRITE;
 /*!40000 ALTER TABLE `operators` DISABLE KEYS */;
-INSERT INTO `operators` VALUES (1,'Киевстар','images/uploads/ae91989a48bff4190460c55256f971f7.jpg','#00A0FF',1,'2018-03-13 12:12:58','2018-03-19 21:26:26'),(2,'lifecell','images/uploads/78fc9511231a7245a7418ef94483a283.jpg','#FFCB05',1,'2018-03-19 21:27:18','2018-03-19 21:27:18'),(3,'vodafone','images/uploads/1218b871f5fa45fd08a5313deacebd5e.png','#F0001F',1,'2018-03-19 21:36:53','2018-03-19 21:36:53');
+INSERT INTO `operators` VALUES (1,'kyivstar','images/uploads/ae91989a48bff4190460c55256f971f7.jpg','#00A0FF',1,'2018-03-13 12:12:58','2018-03-20 08:15:28'),(2,'lifecell','images/uploads/78fc9511231a7245a7418ef94483a283.jpg','#FFCB05',1,'2018-03-19 21:27:18','2018-03-19 21:27:18'),(3,'vodafone','images/uploads/1218b871f5fa45fd08a5313deacebd5e.png','#F0001F',1,'2018-03-19 21:36:53','2018-03-19 21:36:53');
 /*!40000 ALTER TABLE `operators` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -451,6 +451,7 @@ DROP TABLE IF EXISTS `regions`;
 CREATE TABLE `regions` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `active` tinyint(1) NOT NULL DEFAULT '1',
+  `code` varchar(10) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -463,7 +464,7 @@ CREATE TABLE `regions` (
 
 LOCK TABLES `regions` WRITE;
 /*!40000 ALTER TABLE `regions` DISABLE KEYS */;
-INSERT INTO `regions` VALUES (1,1,'2018-03-19 11:01:49','2018-03-19 11:01:49'),(2,1,'2018-03-19 11:02:04','2018-03-19 21:39:23'),(3,1,'2018-03-19 21:39:41','2018-03-19 21:39:41');
+INSERT INTO `regions` VALUES (1,1,'kv','2018-03-19 11:01:49','2018-03-20 15:39:55'),(2,1,'hm','2018-03-19 11:02:04','2018-03-20 15:40:06'),(3,1,'tr','2018-03-19 21:39:41','2018-03-20 15:41:31');
 /*!40000 ALTER TABLE `regions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -565,7 +566,7 @@ CREATE TABLE `roles` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `roles_name_unique` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -789,7 +790,7 @@ CREATE TABLE `tariffs` (
 
 LOCK TABLES `tariffs` WRITE;
 /*!40000 ALTER TABLE `tariffs` DISABLE KEYS */;
-INSERT INTO `tariffs` VALUES (1,1,2,1,1,1,1,'111',1,1,122,0,NULL,'2018-03-19 13:07:57','2018-03-19 22:01:08'),(2,1,1,1,1,1,2,'qq',2,1,33,1,NULL,'2018-03-19 21:37:28','2018-03-19 22:03:30'),(3,2,1,2,1,1,3,'лкуук',3,1,22,1,NULL,'2018-03-19 22:04:15','2018-03-19 22:04:15');
+INSERT INTO `tariffs` VALUES (1,1,2,1,1,1,1,'http://php.net/manual/ru/function.ucfirst.php',1,1,122,1,NULL,'2018-03-19 13:07:57','2018-03-20 08:29:01'),(2,1,1,1,1,1,2,'qq',2,1,33,1,NULL,'2018-03-19 21:37:28','2018-03-19 22:03:30'),(3,2,1,2,1,1,3,'лкуук',3,1,22,1,NULL,'2018-03-19 22:04:15','2018-03-19 22:04:15');
 /*!40000 ALTER TABLE `tariffs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -905,7 +906,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Простий','Чоловік','porsche839@gmail.com','$2y$10$5JD4Kwz5B8vDxZID93Dul.3pAnFTEFtwEO7bRfIEJ6bEOW3NUo1lm','grnOIVOjFcCB8vUGnl3sLFyDnkQewQvYAfw9fhChQxccDz6lRQVFvbXAl1VS',1,0,'127.0.0.1','2018-03-12 10:49:38','2018-03-12 10:49:38');
+INSERT INTO `users` VALUES (1,'Простий','Чоловік','porsche839@gmail.com','$2y$10$5JD4Kwz5B8vDxZID93Dul.3pAnFTEFtwEO7bRfIEJ6bEOW3NUo1lm','K67dNMpoqcaSFC3eoVvWN9iV9lWzszw3JD2DCsA1WQ2Emxp0PbQMArmmroM6',1,0,'127.0.0.1','2018-03-12 10:49:38','2018-03-12 10:49:38');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -922,4 +923,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-03-20  0:07:14
+-- Dump completed on 2018-03-20 17:45:34
