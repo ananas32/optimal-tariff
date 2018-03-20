@@ -19,6 +19,7 @@ class CreateTariffsTable extends Migration
             $table->integer('other_call_id')->unsigned();
             $table->integer('fixed_call_id')->unsigned();
             $table->integer('message_id')->unsigned();
+            $table->integer('mms_message_id')->unsigned();
             $table->integer('internet_package_id')->unsigned();
             $table->integer('tariff_name_id')->unsigned();
             $table->string('link', 255);
@@ -33,6 +34,7 @@ class CreateTariffsTable extends Migration
             $table->foreign('other_call_id')->references('id')->on('calls')->onDelete('cascade');
             $table->foreign('fixed_call_id')->references('id')->on('calls')->onDelete('cascade');
             $table->foreign('message_id')->references('id')->on('messages')->onDelete('cascade');
+            $table->foreign('mms_message_id')->references('id')->on('messages')->onDelete('cascade');
             $table->foreign('internet_package_id')->references('id')->on('internet_packages')->onDelete('cascade');
             $table->foreign('tariff_name_id')->references('id')->on('tariff_names')->onDelete('cascade');
             $table->foreign('operator_id')->references('id')->on('operators')->onDelete('cascade');

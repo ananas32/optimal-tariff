@@ -445,7 +445,7 @@ body .content-block .kyivstar {
 body .content-block .lifecell {
   color: #C7CD43;
 }
-body .content-block .mts {
+body .content-block .vodafone {
   color: #ED1C24;
 }
 body .content-block .info,
@@ -491,7 +491,7 @@ body .content-block .tariff .label.kyivstar {
   background: #239FFF;
   color: #FFFFFF;
 }
-body .content-block .tariff .label.mts {
+body .content-block .tariff .label.vodafone {
   background: #ED1C24;
   color: #FFFFFF;
 }
@@ -689,4 +689,8 @@ body .developers a:hover {
   animation: rota 4s infinite normal;
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
+}
+
+.compare{
+  float: left;
 }

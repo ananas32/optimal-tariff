@@ -39,13 +39,44 @@ class Tariff extends Eloquent
 		return $this->belongsTo(Call::class, 'other_call_id', 'id');
 	}
 
+	public function networkCalls()
+	{
+		return $this->belongsTo(Call::class, 'network_call_id', 'id');
+	}
+
 	public function internetPackages()
 	{
 		return $this->belongsTo(InternetPackage::class, 'internet_package_id', 'id');
 	}
 
+	public function messages()
+	{
+		return $this->belongsTo(Message::class, 'message_id', 'id');
+	}
+
 	public function operators()
 	{
 		return $this->belongsTo(Operator::class, 'operator_id', 'id');
+	}
+
+	public function regularPayments()
+	{
+		return $this->belongsTo(RegularPayment::class, 'regular_payment_id', 'id');
+	}
+
+	public function tariffs()
+	{
+		return $this->join('operators', 'operators.id', '=', 'tariffs.operator_id')
+			->where('active', '=', 1);
+	}
+
+	public function getOperatorTariff($operator)
+	{
+		return $this->tariffs()->where('operators.operator_name', '=', $operator)->get();
+	}
+
+	public function getTariffs()
+	{
+		return $this->tariffs()->get();
 	}
 }
