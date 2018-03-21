@@ -1,5 +1,6 @@
 <?php
 
+namespace App\Http\Controllers\Parser;
 /*************************************************
  *
  * Snoopy - the PHP net client

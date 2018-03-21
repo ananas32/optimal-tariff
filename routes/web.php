@@ -34,6 +34,8 @@ Route::get('/tariffs/compare/{t1}/{t2}', 'TariffController@compare');
 Route::get('/guest-book', 'GuestBookController@index');
 Route::post('/guest-book-message', 'GuestBookController@create');
 
+Route::get('/spider', 'ParserController@index');
+
 #Locale
 Route::get('/locale/{code}', 'LocaleController@setLocale');
 
