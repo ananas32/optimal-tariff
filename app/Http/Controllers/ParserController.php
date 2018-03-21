@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Http\Controllers\Parser\PhpQuery;
 use App\Http\Controllers\Parser\Snoopy;
 
 class ParserController extends Controller
@@ -37,7 +38,7 @@ class ParserController extends Controller
 
 
 		# Принимаем перекодированый контент в phpQuery для парсинга
-		$document = phpQuery::newDocumentHTML($snoopyContent);
+		$document = PhpQuery::newDocumentHTML($snoopyContent);
 		echo $snoopyContent;
 	}
 }
