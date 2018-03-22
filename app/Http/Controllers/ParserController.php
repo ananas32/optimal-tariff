@@ -50,7 +50,6 @@ class ParserController extends Controller
 		// Тарифи которые есть
 		$dbTariffs = Tariff::where('operator_id', 2)->get();
 		$dbTariffsLinks = [];
-		$siteTariffsLinks = [];
 
 		foreach($dbTariffs as $tariff){
 			$dbTariffsLinks[] = $tariff->link;
@@ -81,9 +80,33 @@ class ParserController extends Controller
 
 	public function vodafone()
 	{
+        $operator = 'https://new.vodafone.ua';
+        $operatorTariff = 'https://new.vodafone.ua/ru/privatnim-klientam/rates/';
+
+        // Тарифи которые есть
 		$dbTariffs = Tariff::where('operator_id', 3)->get();
 
-		$data = [
+        $dbTariffsLinks = [];
+        $siteTariffsLinks = [];
+
+        foreach($dbTariffs as $tariff){
+            $dbTariffsLinks[] = $tariff->link;
+        }
+
+        $html = HtmlDomParser::file_get_html('https://new.vodafone.ua');
+        dd($html);
+        die;
+        // Ссылки всех новых тарифов
+        $links = $html->find('title');
+        dd($links);
+        foreach ($links as $link) {
+            $siteTariffsLinks[] = $operator.$link->href;
+        }
+
+        $result = array_diff($siteTariffsLinks, $dbTariffsLinks);
+
+
+        $data = [
 			'listLinks' => [],
 			'tariffs' => $dbTariffs
 		];
