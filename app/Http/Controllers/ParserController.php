@@ -45,7 +45,7 @@ class ParserController extends Controller
 	public function lifecell()
 	{
 		$operator = 'https://www.lifecell.ua';
-		$operatorTariff = 'https://www.lifecell.ua/ru/';
+		$operatorTariff = 'https://www.lifecell.ua/ru/mobilnaya-svyaz/tarify/';
 
 		// Тарифи которые есть
 		$dbTariffs = Tariff::where('operator_id', 2)->get();
@@ -60,22 +60,20 @@ class ParserController extends Controller
 
 		// Ссылки всех новых тарифов
 		$links = $html->find('.js-batch-container a');
-
+        $arrayLinks = [];
 		foreach ($links as $link) {
-			echo $link->href.'<br>';
+            if(stristr($link->href, 'ustrojstva') === FALSE) {
+                $arrayLinks[] = $operator.$link->href;
+            }
 		}
-		die;
-		dd($links);
 
-		foreach ($links as $link) {
-			$siteTariffsLinks[] = $operator.$link->href;
-		}
+        $siteTariffsLinks = array_unique($arrayLinks);
 
 		$result = array_diff($siteTariffsLinks, $dbTariffsLinks);
 
 		$data = [
-			'listLinks' => [],
-			'tariffs' => $result
+			'listLinks' => $result,
+			'tariffs' => $dbTariffs
 		];
 
 		return AdminSection::view(view('admin.parser', $data), 'Lifecell парсер');
