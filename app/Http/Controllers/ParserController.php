@@ -2,43 +2,68 @@
 
 namespace App\Http\Controllers;
 
+use App\Tariff;
 use Illuminate\Http\Request;
-
-use App\Http\Controllers\Parser\PhpQuery;
-use App\Http\Controllers\Parser\Snoopy;
+use Sunra\PhpSimple\HtmlDomParser;
+use AdminSection;
 
 class ParserController extends Controller
 {
-	public function index()
+	public function kyivstar()
 	{
-		$link = 'https://kyivstar.ua/ru/mm';
-		$referer = "www.kyivstar.ua/ru/mm";
-		$rawheaders = "kyivstar.ua/ru/mm";//www.neizvestniy-geniy.ru
-		$fetchlinks = "www.kyivstar.ua/ru/mm";//http://www.neizvestniy-geniy.ru/cat/all/
+		$operator = 'https://kyivstar.ua';
+		$operatorTariff = 'https://kyivstar.ua/mm/tariffs';
+		
+		// Тарифи которые есть
+		$dbTariffs = Tariff::where('operator_id', 1)->get();
+		$dbTariffsLinks = [];
+		$siteTariffsLinks = [];
+		
+		foreach($dbTariffs as $tariff){
+			$dbTariffsLinks[] = $tariff->link;
+		}
 
-		$snoopy = new Snoopy();
-		# Извлечение содержимого веб-страницы
-		$snoopy->fetch($link);
-		$snoopyContent = $snoopy->results;
+		$html = HtmlDomParser::file_get_html($operatorTariff);
+		
+		// Ссылки всех новых тарифов
+		$links = $html->find('.gsm-tariffs-gallery a.gsm-tariff__head');
 
-		@$snoopy->agent = "Mozilla/5.0 (Windows; U; Windows NT 6.1; uk; rv:1.9.2.13) Gecko/20101203 Firefox/3.6.13 Some plugins";
-		$snoopy->referer = $referer;
+		foreach ($links as $link) {
+			$siteTariffsLinks[] = $operator.$link->href;
+		}
 
-		# Если сервер проверяет Host
-		$snoopy->rawheaders["Host"] = $rawheaders;
+		$result = array_diff($siteTariffsLinks, $dbTariffsLinks);
 
-		# Максимальное количество редиректов
-		$snoopy->maxredirs = 3;
+		$data = [
+			'listLinks' => $result, 
+			'tariffs' => $dbTariffs
+		];
 
-		# Извлечение ссылок со страницы
-//		$snoopy->fetchlinks($link);
-//		$links = $snoopy->results;
-
- 		echo $snoopyContent;
-
-
-		# Принимаем перекодированый контент в phpQuery для парсинга
-		$document = PhpQuery::newDocumentHTML($snoopyContent);
-		echo $snoopyContent;
+		return AdminSection::view(view('admin.parser', $data), 'Киевстар парсер');
 	}
+
+	public function lifecell()
+	{
+		$dbTariffs = Tariff::where('operator_id', 2)->get();
+
+		$data = [
+			'listLinks' => [],
+			'tariffs' => $dbTariffs
+		];
+
+		return AdminSection::view(view('admin.parser', $data), 'Lifecell парсер');
+	}
+
+	public function vodafone()
+	{
+		$dbTariffs = Tariff::where('operator_id', 3)->get();
+
+		$data = [
+			'listLinks' => [],
+			'tariffs' => $dbTariffs
+		];
+
+		return AdminSection::view(view('admin.parser', $data), 'Vodafone парсер');
+	}
+
 }

@@ -84,6 +84,27 @@ return [
                 ->setPriority(106)
         ]
     ],
+    [
+        'title' => "Работа с парсером",
+        'icon' => 'fa fa-spinner',
+        'pages' => [
+            [
+                'title' => 'Kyivstar',
+                'icon'  => 'fa fa-bullseye',
+                'url'   => route('admin.parser.kyivstar'),
+            ],
+            [
+                'title' => 'Lifecell',
+                'icon'  => 'fa fa-bullseye',
+                'url'   => route('admin.parser.lifecell'),
+            ],
+            [
+                'title' => 'Vodafone',
+                'icon'  => 'fa fa-bullseye',
+                'url'   => route('admin.parser.vodafone'),
+            ],
+        ]
+    ],
     // Examples
     // [
     //    'title' => 'Content',
