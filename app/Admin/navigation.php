@@ -105,6 +105,16 @@ return [
             ],
         ]
     ],
+    [
+        'title' => "Работа с формой",
+        'icon' => 'fa fa-align-justify',
+        'pages' => [
+            (new Page(\App\DropdownText::class))
+                ->setPriority(103),
+            (new Page(\App\FormDropdown::class))
+                ->setPriority(106)
+        ]
+    ],
     // Examples
     // [
     //    'title' => 'Content',

@@ -13,13 +13,16 @@ class SelectTariffController extends Controller
     public function index(Operator $operator, Request $request)
     {
         $data = [
+            'RefPacket' => [],
+            'FreUse' => [],
+            'LengthCall' => [],
+            'CountCall' => [],
             'operatorList' => $operator->getListOperator()
         ];
 
-        if($request->cookie('user_manual'))
-        {
+        if($request->cookie('user_manual')) {
             $data['user_manual'] = $request->cookie('user_manual');
-        }else $data['user_manual'] = 0;
+        } else $data['user_manual'] = 0;
 
         return view('pages.select-tariff', $data);
     }

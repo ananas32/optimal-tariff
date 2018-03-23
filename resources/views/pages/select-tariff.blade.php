@@ -77,7 +77,7 @@
     <div class="row">
         <div class="col-xs-12 col-xsm-12 col-sm-3" style="text-align: center">
             <hr>
-            <div class="title kyivstar">kurwaSTAR</div>
+            <div class="title kyivstar">Kyivstar</div>
         </div>
         <div class="col-xs-12 col-xsm-4 col-sm-3">
             <div class="form-group" id="select_1_1">
@@ -179,7 +179,7 @@
 <div class="col-xs-12 col-md-offset-2 col-md-8">
     <div class="row">
         <div class="col-xs-12 col-xsm-12 col-sm-3" style="text-align: center">
-            <div class="title mts">MTS</div>
+            <div class="title vodafone">Vodafone</div>
         </div>
         <div class="col-xs-12 col-xsm-4 col-sm-3">
             <div class="form-group" id="select_3_1">
@@ -228,7 +228,7 @@
 <div class="col-xs-12 col-md-offset-2 col-md-8">
     <div class="row">
         <div class="col-xs-12 col-xsm-12 col-sm-3" style="text-align: center">
-            <div class="title">Fixit number</div>
+            <div class="title">{{ __('фиксированная связь') }}</div>
         </div>
         <div class="col-xs-12 col-xsm-4 col-sm-3">
             <div class="form-group" id="select_4_1">
