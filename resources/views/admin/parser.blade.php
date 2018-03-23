@@ -6,7 +6,10 @@
 @else
     <h4>Новых тарифов не обнаружено!</h4>
 @endif
-
+@if(isset($tarifLink))
+    <h4>Произошла ошыбка! Все тарифы нахотятся здесь:</h4>
+    <a href="{{ $tarifLink }}" target="_blank">{{ $tarifLink }}</a>
+@endif
 <br>
 <br>
 

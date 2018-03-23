@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Tariff;
+use App\Http\Controllers\Traits\Snoopy;
 use Illuminate\Http\Request;
 use Sunra\PhpSimple\HtmlDomParser;
 use AdminSection;
@@ -93,20 +94,37 @@ class ParserController extends Controller
             $dbTariffsLinks[] = $tariff->link;
         }
 
-        $html = HtmlDomParser::file_get_html('https://new.vodafone.ua');
-        dd($html);
-        die;
-        // Ссылки всех новых тарифов
-        $links = $html->find('title');
-        dd($links);
-        foreach ($links as $link) {
-            $siteTariffsLinks[] = $operator.$link->href;
-        }
+		$referer = "new.vodafone.ua/ru/privatnim-klientam/rates/";//http://www.neizvestniy-geniy.ru/
+		$rawheaders = "new.vodafone.ua";
 
-        $result = array_diff($siteTariffsLinks, $dbTariffsLinks);
+		$snoopy = new Snoopy();
+		# Извлечение содержимого веб-страницы
+		$snoopy->fetch($operator);
+		$snoopyContent = $snoopy->results;
+//		echo $snoopyContent;
+		@$snoopy->agent = "Mozilla/5.0 (Windows; U; Windows NT 6.1; uk; rv:1.9.2.13) Gecko/20101203 Firefox/3.6.13 Some plugins";
+		$snoopy->referer = $referer;
+
+		# Если сервер проверяет Host
+		$snoopy->rawheaders["Host"] = $rawheaders;
+
+		# Максимальное количество редиректов
+		$snoopy->maxredirs = 3;
+
+        $html = HtmlDomParser::file_get_html('http://new.vodafone.ua');
+
+        // Ссылки всех новых тарифов
+//        $links = $html->find('title');
+
+//        foreach ($links as $link) {
+//            $siteTariffsLinks[] = $operator.$link->href;
+//        }
+//
+//        $result = array_diff($siteTariffsLinks, $dbTariffsLinks);
 
 
         $data = [
+			'tarifLink' => 'https://new.vodafone.ua/ru/privatnim-klientam/rates/',
 			'listLinks' => [],
 			'tariffs' => $dbTariffs
 		];
