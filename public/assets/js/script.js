@@ -293,6 +293,7 @@ $('#list_operator').on('change', function(e){
             //success data
             $('#list_operator_2').empty();
             $('select#list_operator_2').append('Please choose one');
+            $('#list_operator_2').append('<option value="0">--------------</option>');
             $.each(data, function(index, operatorObj){
                 $('#list_operator_2').append('<option value="'+ operatorObj.id +'">'
                     + operatorObj.operator_name + '</option>');

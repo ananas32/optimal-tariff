@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\FormDropdown;
 use App\Operator;
+use App\Http\Controllers\Traits\Calculate;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
@@ -12,11 +14,25 @@ class SelectTariffController extends Controller
 {
     public function index(Operator $operator, Request $request)
     {
+        $formDropdowns = FormDropdown::get();
+
+        $countCall = $formDropdowns->where('dropdown_text_id', 1)->pluck('text_dropdown', 'id');
+        $countCall->prepend ('---------------', '');
+
+        $lengthCall = $formDropdowns->where('dropdown_text_id', 2)->pluck('text_dropdown', 'id');
+        $lengthCall->prepend ('---------------', '');
+
+        $freUse = $formDropdowns->where('dropdown_text_id', 3)->pluck('text_dropdown', 'id');
+        $freUse->prepend ('---------------', '');
+
+        $refPacket = $formDropdowns->where('dropdown_text_id', 4)->pluck('text_dropdown', 'id');
+        $refPacket->prepend ('---------------', '');
+
         $data = [
-            'RefPacket' => [],
-            'FreUse' => [],
-            'LengthCall' => [],
-            'CountCall' => [],
+            'refPacket' => $refPacket,
+            'freUse' => $freUse,
+            'lengthCall' => $lengthCall,
+            'countCall' => $countCall,
             'operatorList' => $operator->getListOperator()
         ];
 
@@ -38,6 +54,7 @@ class SelectTariffController extends Controller
     {
         $id = Input::get('list_operator');
         $selectList = $operator->getSelectListOperator($id);
+        $selectList->pluck('operator_name', 'id');
 
         return Response::json($selectList);
     }
@@ -80,6 +97,15 @@ class SelectTariffController extends Controller
                 'message' => $validator->messages()
             ]);
         } else {
+            $calculate = new Calculate;
+            $calculate->test();
+            die($calculate->test());
+            if($request->list_operator_2){
+                die ($request->list_operator_2);
+                // поиск на 2 тарифа
+            } else {
+                // поиск на 1 тариф
+            }
             $tariffInfo = [
                 'one' => 'Найкращий тариф',
                 'two' => 'Нічо так тариф',
