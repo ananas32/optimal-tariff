@@ -7,18 +7,12 @@ use App\GuestBook;
 use App\HomeContent;
 use App\News;
 
+use App\Tariff;
+use App\Http\Controllers\Traits\Calculate;
+
+
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-//        $this->middleware(.'auth');
-    }
-
     /**
      * Show the application dashboard.
      *
@@ -27,10 +21,9 @@ class HomeController extends Controller
     public function index(News $news, GuestBook $guestBook, Slider $slider, HomeContent $homeContent)
     {
         $sliderImageList = $slider->getSliderImage();
-//        dd($textHeader->getHeaderText());
+
         $data = [
             'countMessage' => $guestBook->getCountGuestBookMessage(),
-
             'sliderImageList' => $sliderImageList,
             'blockContent' => $homeContent->getBlockContent(),
             'siteNews' => $news->getBlockContent(1),
@@ -38,5 +31,13 @@ class HomeController extends Controller
         ];
 
         return view('pages.index', $data);
+    }
+
+    public function test()
+    {
+        $tariff = Tariff::find(3);
+        $calculate = new Calculate;
+        // Звонки в сети
+        $calculate->calls($tariff, $tariff->networkCalls);
     }
 }
