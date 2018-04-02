@@ -38,6 +38,11 @@ class HomeController extends Controller
         $tariff = Tariff::find(3);
         $calculate = new Calculate;
         // Звонки в сети
-        $calculate->calls($tariff, $tariff->networkCalls);
+        $networkCall = $calculate->calls($tariff->networkCalls, 51);
+        $internetPackages = $calculate->package($tariff->internetPackages, 121);
+        $messages = $calculate->message($tariff->messages, 3333);
+        $regularPayments = $calculate->tariffPayment($tariff, 35);
+
+        dd($regularPayments);
     }
 }
