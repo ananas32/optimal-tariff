@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\FormDropdown;
 use App\Operator;
+use App\Tariff;
 use App\Http\Controllers\Traits\Calculate;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Input;
@@ -97,15 +98,89 @@ class SelectTariffController extends Controller
                 'message' => $validator->messages()
             ]);
         } else {
+            $list_operator = $request->list_operator;
+            $list_operator_2 = $request->list_operator_2;
+            $select_1_1 = $request->select_1_1;
+            $select_1_2 = $request->select_1_2;
+            $select_1_3 = $request->select_1_3;
+            $select_2_1 = $request->select_2_1;
+            $select_2_2 = $request->select_2_2;
+            $select_2_3 = $request->select_2_3;
+            $select_3_1 = $request->select_3_1;
+            $select_3_2 = $request->select_3_2;
+            $select_3_3 = $request->select_3_3;
+            $select_4_1 = $request->select_4_1;
+            $select_4_2 = $request->select_4_2;
+            $select_4_3 = $request->select_4_3;
+            $select_5_1 = $request->select_5_1;
+            $select_5_2 = $request->select_5_2;
+            $select_6_1 = $request->select_6_1;
+            $select_6_2 = $request->select_6_2;
+            $select_7_1 = $request->select_7_1;
+            $select_7_2 = $request->select_7_2;
+            $costs = $request->costs;
+
+            $kyivstar = $lifecell = $vodafone = $fixNumber = $megabute = $sms = $mms = 0;
+
+            if ($select_1_1){
+                $kyivstar = $select_1_1 * $select_1_2 * $select_1_3;
+            }
+
+            if ($select_2_1) {
+                $lifecell = $select_2_1 * $select_2_2 * $select_2_3;
+            }
+
+            if ($select_3_1) {
+                $vodafone = $select_3_1 * $select_3_2 * $select_3_3;
+            }
+
+            if ($select_4_1) {
+                $fixNumber = $select_4_1 * $select_4_2 * $select_4_3;
+            }
+
+            if ($select_5_1) {
+                $megabute = $select_5_1 * $select_5_2;
+            }
+
+            if ($select_6_1) {
+                $sms = $select_6_1 * $select_6_2;
+            }
+
+            if($select_7_1) {
+                $mms = $select_7_1 * $select_7_2;
+            }
+
             $calculate = new Calculate;
-            $calculate->test();
-            die($calculate->test());
-            if($request->list_operator_2){
-                die ($request->list_operator_2);
+
+            if($list_operator_2){
                 // поиск на 2 тарифа
+                die ($list_operator_2);
             } else {
                 // поиск на 1 тариф
+                $tariffs = Tariff::where('operator_id', $list_operator)->get();
+
+                switch ($list_operator) {
+                    case 1:
+                        $kyivstarLine = true;
+                        break;
+                    case 2:
+                        $lifecellLine = true;
+                        break;
+                    case 3:
+                        $vodafoneLine = true;
+                        break;
+                }
+
+                $networkCalls = 'networkCalls';
+                foreach ($tariffs as $tariff) {
+                    if ($select_1_1) {
+                        $calculate->calls($tariff->$networkCalls, 51);
+                    }
+
+
+                }
             }
+            //dd($tariffs);
             $tariffInfo = [
                 'one' => 'Найкращий тариф',
                 'two' => 'Нічо так тариф',
