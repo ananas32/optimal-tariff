@@ -47,7 +47,7 @@ Route::get('/config-cache', function() {
     return '<h1>Clear Config cleared</h1>';
 });
 
-Route::get('/test', 'HomeController@test');
+//Route::get('/test', 'HomeController@test');
 
 Auth::routes();
 

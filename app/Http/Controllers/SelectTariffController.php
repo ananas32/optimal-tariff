@@ -17,16 +17,16 @@ class SelectTariffController extends Controller
     {
         $formDropdowns = FormDropdown::get();
 
-        $countCall = $formDropdowns->where('dropdown_text_id', 1)->pluck('text_dropdown', 'id');
+        $countCall = $formDropdowns->where('dropdown_text_id', 1)->pluck('text_dropdown', 'value');
         $countCall->prepend ('---------------', '');
 
-        $lengthCall = $formDropdowns->where('dropdown_text_id', 2)->pluck('text_dropdown', 'id');
+        $lengthCall = $formDropdowns->where('dropdown_text_id', 2)->pluck('text_dropdown', 'value');
         $lengthCall->prepend ('---------------', '');
 
-        $freUse = $formDropdowns->where('dropdown_text_id', 3)->pluck('text_dropdown', 'id');
+        $freUse = $formDropdowns->where('dropdown_text_id', 3)->pluck('text_dropdown', 'value');
         $freUse->prepend ('---------------', '');
 
-        $refPacket = $formDropdowns->where('dropdown_text_id', 4)->pluck('text_dropdown', 'id');
+        $refPacket = $formDropdowns->where('dropdown_text_id', 4)->pluck('text_dropdown', 'value');
         $refPacket->prepend ('---------------', '');
 
         $data = [
@@ -158,6 +158,7 @@ class SelectTariffController extends Controller
             } else {
                 // поиск на 1 тариф
                 $tariffs = Tariff::where('operator_id', $list_operator)->get();
+                $kyivstarLine = $lifecellLine = $vodafoneLine = false;
 
                 switch ($list_operator) {
                     case 1:
@@ -171,27 +172,73 @@ class SelectTariffController extends Controller
                         break;
                 }
 
-                $networkCalls = 'networkCalls';
                 foreach ($tariffs as $tariff) {
+
+                    $interimAmount = 0;
+
                     if ($select_1_1) {
-                        $calculate->calls($tariff->$networkCalls, 51);
+                        if ($kyivstarLine) {
+                            $arr = $calculate->calls($tariff->networkCalls, $kyivstar);
+                            $interimAmount += (int) $arr['price_by_tariff_minute'];
+                        } else {
+                            $arr = $calculate->calls($tariff->otherCalls, $kyivstar);
+                            $interimAmount += (int) $arr['price_by_tariff_minute'];
+                        }
                     }
 
+                    if ($select_2_1) {
+                        if ($lifecellLine) {
+                            $arr = $calculate->calls($tariff->networkCalls, $lifecell);
+                            $interimAmount += (int) $arr['price_by_tariff_minute'];
+                        } else {
+                            $arr = $calculate->calls($tariff->otherCalls, $lifecell);
+                            $interimAmount += (int) $arr['price_by_tariff_minute'];
+                        }
+                    }
 
+                    if ($select_3_1) {
+                        if ($vodafoneLine) {
+                            $arr = $calculate->calls($tariff->networkCalls, $vodafone);
+                            $interimAmount += (int) $arr['price_by_tariff_minute'];
+                        } else {
+                            $arr = $calculate->calls($tariff->otherCalls, $vodafone);
+                            $interimAmount += (int) $arr['price_by_tariff_minute'];
+                        }
+                    }
+
+                    if ($select_4_1) {
+                        $interimAmount += $calculate->calls($tariff->fixedCall, $fixNumber);
+                    }
+
+                    if ($select_5_1) {
+                        $interimAmount += $calculate->package($tariff->internetPackages, $megabute);
+                    }
+
+                    if ($select_6_1) {
+                        $interimAmount += $calculate->message($tariff->messages, $sms);
+                    }
+
+                    if ($select_7_1) {
+                        $interimAmount += $calculate->message($tariff->mmsMessage, $mms);
+                    }
+                    $tariff->interimAmount = $interimAmount + $tariff->price;
+
+                    if($request->costs < $tariff->interimAmount){
+                        $tariff->class = 'label-warning';
+                        $tariff->recommendation = 'Не советуем';
+                    } elseif ($request->costs > $tariff->interimAmount + 10) {
+                        $tariff->class = 'label-success';
+                        $tariff->recommendation = 'Рекомендуем';
+                    } else {
+                        $tariff->class = 'label-info';
+                        $tariff->recommendation = 'Будет луче';
+                    }
                 }
             }
-            //dd($tariffs);
-            $tariffInfo = [
-                'one' => 'Найкращий тариф',
-                'two' => 'Нічо так тариф',
-                'tru' => 'Тож нічо такий тариф',
-                'four' => 'Хєроватінький тариф'
-            ];
 
             $html = view('layouts.includes.result-search')
                 ->with([
-                    'tariffInfo' => $tariffInfo,
-                    'costs' => $request->costs
+                    'tariffs' => $tariffs
                 ])
                 ->render();
 

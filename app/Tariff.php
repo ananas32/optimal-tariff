@@ -43,7 +43,12 @@ class Tariff extends Eloquent
 	{
 		return $this->belongsTo(Call::class, 'network_call_id', 'id');
 	}
-
+	
+	public function fixedCall()
+	{
+		return $this->belongsTo(Call::class, 'fixed_call_id', 'id');
+	}
+	
 	public function internetPackages()
 	{
 		return $this->belongsTo(InternetPackage::class, 'internet_package_id', 'id');
@@ -52,6 +57,11 @@ class Tariff extends Eloquent
 	public function messages()
 	{
 		return $this->belongsTo(Message::class, 'message_id', 'id');
+	}
+
+	public function mmsMessage()
+	{
+		return $this->belongsTo(Message::class, 'mms_message_id', 'id');
 	}
 
 	public function operators()
