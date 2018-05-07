@@ -70,26 +70,14 @@ class SelectTariffController extends Controller
                 'select_1_1' => 'required_without_all:select_2_1,select_3_1,select_4_1,select_5_1,select_6_1,select_7_1',
                 'select_1_2' => 'required_unless:select_1_1,',
                 'select_1_3' => 'required_unless:select_1_2,',
-
-//                'select_2_1' => '',
                 'select_2_2' => 'required_unless:select_2_1,',
                 'select_2_3' => 'required_unless:select_2_2,',
-
-//                'select_3_1' => '',
                 'select_3_2' => 'required_unless:select_3_1,',
                 'select_3_3' => 'required_unless:select_3_2,',
-
-//                'select_4_1' => '',
                 'select_4_2' => 'required_unless:select_4_1,',
                 'select_4_3' => 'required_unless:select_4_2,',
-
-//                'select_5_1' => '',
                 'select_5_2' => 'required_unless:select_5_1,',
-
-//                'select_6_1' => '',
                 'select_6_2' => 'required_unless:select_6_1,',
-
-//                'select_7_1' => '',
                 'select_7_2' => 'required_unless:select_7_1,'
             )
         );
@@ -153,16 +141,178 @@ class SelectTariffController extends Controller
             }
 
             $calculate = new Calculate;
+            $operators = Operator::where('visible', 1)->get();
+            $networkCall = false;
+            $otherCalls = false;
 
             if($list_operator_2){
                 // поиск на 2 тарифа
-                die ($list_operator_2);
+                $networkCalls1 = $networkCalls2 = 0;
+                foreach ($operators as $operator) {
+                    if($operator->id == $list_operator) {
+                        $networkCalls1 = (isset($arrayValue[$operator->id])) ? $arrayValue[$operator->id] : false;
+                    } else if($operator->id == $list_operator_2) {
+                        $networkCalls2 = (isset($arrayValue[$operator->id])) ? $arrayValue[$operator->id] : false;
+                    } else {
+                        $otherCalls += (isset($arrayValue[$operator->id])) ? $arrayValue[$operator->id] : false ;
+                    }
+                }
+                $operator1s = Tariff::where('operator_id', $list_operator)->get();
+                $operator2s = Tariff::where('operator_id', $list_operator_2)->get();
+                $tariffs = [];
+                foreach ($operator1s as $operator1) {
+                    foreach ($operator2s as $operator2) {
+                        $interimAmount = 0;
+
+                        if ($networkCalls1) {
+                            $result = $calculate->calls($operator1->networkCalls, $networkCalls1);
+                            if($result['unlimited']) {
+                                $interimAmount += 0;
+                            } else {
+                                $interimAmount += $result['price_by_tariff_minute'];
+                            }
+                        }
+
+                        if ($networkCalls2) {
+                            $result = $calculate->calls($operator2->networkCalls, $networkCalls2);
+                            if($result['unlimited']) {
+                                $interimAmount += 0;
+                            } else {
+                                $interimAmount += $result['price_by_tariff_minute'];
+                            }
+                        }
+
+                        if ($otherCalls) {
+                            $tmpSum = 0;
+                            $result1 = $calculate->calls($operator1->otherCalls, $otherCalls);
+                            $result2 = $calculate->calls($operator2->otherCalls, $otherCalls);
+
+                            if($result1['unlimited'] || $result2['unlimited']) {
+                                $interimAmount += 0;
+                            } else {
+                                if($result1['price_by_tariff_minute'] > $result2['price_by_tariff_minute']) {
+                                    $tmp = $otherCalls - $result1['tariff_minute'];
+                                    $tmpSum = $calculate->calls($operator2->otherCalls, $tmp);
+                                } else {
+                                    $tmp = $otherCalls - $result2['tariff_minute'];
+                                    $tmpSum = $calculate->calls($operator1->otherCalls, $tmp);
+                                }
+                                $interimAmount += $tmpSum;
+                            }
+                        }
+
+                        if ($select_4_1) {
+                            $tmpSum = 0;
+                            $result1 = $calculate->calls($operator1->fixedCall, $fixNumber);
+                            $result2 = $calculate->calls($operator2->fixedCall, $fixNumber);
+
+                            if($result1['unlimited'] || $result2['unlimited']) {
+                                $interimAmount += 0;
+                            } else {
+                                if($result1['price_by_tariff_minute'] > $result2['price_by_tariff_minute']) {
+                                    $tmp = $fixNumber - $result1['tariff_minute'];
+                                    $tmpSum = $calculate->calls($operator2->fixedCall, $tmp);
+                                } else {
+                                    $tmp = $fixNumber - $result2['tariff_minute'];
+                                    $tmpSum = $calculate->calls($operator1->fixedCall, $tmp);
+                                }
+                                $interimAmount += $tmpSum;
+                            }
+                        }
+
+                        if ($select_5_1) {
+                            $tmpSum = 0;
+                            $result1 = $calculate->package($operator1->internetPackages, $megabute);
+                            $result2 = $calculate->package($operator2->internetPackages, $megabute);
+
+                            if($result1['unlimited'] || $result2['unlimited']) {
+                                $interimAmount += 0;
+                            } else {
+                                if($result1['price_by_tariff_package'] > $result2['price_by_tariff_package']) {
+                                    $tmp = $megabute - $result1['tariff_package'];
+                                    $tmpSum = $calculate->package($operator2->internetPackages, $tmp);
+                                } else {
+                                    $tmp = $megabute - $result2['tariff_package'];
+                                    $tmpSum = $calculate->package($operator1->internetPackages, $tmp);
+                                }
+                                $interimAmount += $tmpSum;
+                            }
+                        }
+
+                        if ($select_6_1) {
+                            $tmpSum = 0;
+                            $result1 = $calculate->message($operator1->messages, $sms);
+                            $result2 = $calculate->message($operator2->messages, $sms);
+
+                            if($result1['unlimited'] || $result2['unlimited']) {
+                                $interimAmount += 0;
+                            } else {
+                                if($result1['price_by_tariff_message'] > $result2['price_by_tariff_message']) {
+                                    $tmp = $sms - $result1['tariff_message'];
+                                    $tmpSum = $calculate->message($operator2->messages, $tmp);
+                                } else {
+                                    $tmp = $sms - $result2['tariff_message'];
+                                    $tmpSum = $calculate->message($operator1->messages, $tmp);
+                                }
+                                $interimAmount += $tmpSum['price_by_tariff_message'];
+                            }
+                        }
+
+                        if ($select_7_1) {
+                            $tmpSum = 0;
+                            $result1 = $calculate->message($operator1->mmsMessage, $mms);
+                            $result2 = $calculate->message($operator2->mmsMessage, $mms);
+
+                            if($result1['unlimited'] || $result2['unlimited']) {
+                                $interimAmount += 0;
+                            } else {
+                                if($result1['price_by_tariff_message'] > $result2['price_by_tariff_message']) {
+                                    $tmp = $mms - $result1['tariff_message'];
+                                    $tmpSum = $calculate->message($operator2->mmsMessage, $tmp);
+                                } else {
+                                    $tmp = $mms - $result2['tariff_message'];
+                                    $tmpSum = $calculate->message($operator1->mmsMessage, $tmp);
+                                }
+                                $interimAmount += $tmpSum;
+                            }
+                        }
+
+                        $price = $interimAmount + $operator1->price + $operator2->price;
+                        $price = round($price, 2);
+
+                        $data = [
+                            'operator1' => $operator1,
+                            'operator2' => $operator2,
+                            'price' => $price
+                        ];
+
+                        if($request->costs < $price){
+                            $data['class'] = 'label-warning';
+                            $data['recommendation'] = 'Не советуем';
+                        } elseif ($request->costs > $price + 10) {
+                            $data['class'] = 'label-success';
+                            $data['recommendation'] = 'Рекомендуем';
+                        } else {
+                            $data['class'] = 'label-info';
+                            $data['recommendation'] = 'Будет луче';
+                        }
+
+                        $tariffs[] = $data;
+                    }
+                }
+
+                $html = view('layouts.includes.result-search-2')
+                    ->with([
+                        'tariffs' => $tariffs
+                    ])
+                    ->render();
+
+                return response()->json([
+                    'html' => $html
+                ]);
             } else {
                 // поиск на 1 тариф
                 $tariffs = Tariff::where('operator_id', $list_operator)->get();
-                $operators = Operator::where('visible', 1)->get();
-                $networkCall = false;
-                $otherCalls = false;
 
                 foreach ($operators as $operator) {
                     if($operator->id == $request->list_operator) {
@@ -233,7 +383,7 @@ class SelectTariffController extends Controller
                     $price = $interimAmount + $tariff->price;
 
                     $tariff->interimAmount = round($price, 2);
-                    
+
                     if($request->costs < $tariff->interimAmount){
                         $tariff->class = 'label-warning';
                         $tariff->recommendation = 'Не советуем';
