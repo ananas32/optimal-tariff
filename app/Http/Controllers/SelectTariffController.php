@@ -122,16 +122,18 @@ class SelectTariffController extends Controller
 
             $kyivstar = $lifecell = $vodafone = $fixNumber = $megabute = $sms = $mms = 0;
 
+            $arrayValue = [];
+
             if ($select_1_1){
-                $kyivstar = $select_1_1 * $select_1_2 * $select_1_3;
+                $arrayValue[1] = $select_1_1 * $select_1_2 * $select_1_3;
             }
 
             if ($select_2_1) {
-                $lifecell = $select_2_1 * $select_2_2 * $select_2_3;
+                $arrayValue[2] = $select_2_1 * $select_2_2 * $select_2_3;
             }
 
             if ($select_3_1) {
-                $vodafone = $select_3_1 * $select_3_2 * $select_3_3;
+                $arrayValue[3] = $select_3_1 * $select_3_2 * $select_3_3;
             }
 
             if ($select_4_1) {
@@ -158,71 +160,80 @@ class SelectTariffController extends Controller
             } else {
                 // поиск на 1 тариф
                 $tariffs = Tariff::where('operator_id', $list_operator)->get();
-                $kyivstarLine = $lifecellLine = $vodafoneLine = false;
+                $operators = Operator::where('visible', 1)->get();
+                $networkCall = false;
+                $otherCalls = false;
 
-                switch ($list_operator) {
-                    case 1:
-                        $kyivstarLine = true;
-                        break;
-                    case 2:
-                        $lifecellLine = true;
-                        break;
-                    case 3:
-                        $vodafoneLine = true;
-                        break;
+                foreach ($operators as $operator) {
+                    if($operator->id == $request->list_operator) {
+                        $networkCall = (isset($arrayValue[$operator->id])) ? $arrayValue[$operator->id] : false;
+                    } else {
+                        $otherCalls += (isset($arrayValue[$operator->id])) ? $arrayValue[$operator->id] : false ;
+                    }
                 }
 
                 foreach ($tariffs as $tariff) {
 
                     $interimAmount = 0;
 
-                    if ($select_1_1) {
-                        if ($kyivstarLine) {
-                            $arr = $calculate->calls($tariff->networkCalls, $kyivstar);
-                            $interimAmount += (int) $arr['price_by_tariff_minute'];
+                    if ($networkCall) {
+                        $result = $calculate->calls($tariff->networkCalls, $networkCall);
+                        if($result['unlimited']) {
+                            $interimAmount += 0;
                         } else {
-                            $arr = $calculate->calls($tariff->otherCalls, $kyivstar);
-                            $interimAmount += (int) $arr['price_by_tariff_minute'];
+                            $interimAmount += $result['price_by_tariff_minute'];
                         }
                     }
 
-                    if ($select_2_1) {
-                        if ($lifecellLine) {
-                            $arr = $calculate->calls($tariff->networkCalls, $lifecell);
-                            $interimAmount += (int) $arr['price_by_tariff_minute'];
+                    if ($otherCalls) {
+                        $result = $calculate->calls($tariff->otherCalls, $otherCalls);
+                        if($result['unlimited']) {
+                            $interimAmount += 0;
                         } else {
-                            $arr = $calculate->calls($tariff->otherCalls, $lifecell);
-                            $interimAmount += (int) $arr['price_by_tariff_minute'];
-                        }
-                    }
-
-                    if ($select_3_1) {
-                        if ($vodafoneLine) {
-                            $arr = $calculate->calls($tariff->networkCalls, $vodafone);
-                            $interimAmount += (int) $arr['price_by_tariff_minute'];
-                        } else {
-                            $arr = $calculate->calls($tariff->otherCalls, $vodafone);
-                            $interimAmount += (int) $arr['price_by_tariff_minute'];
+                            $interimAmount += $result['price_by_tariff_minute'];
                         }
                     }
 
                     if ($select_4_1) {
-                        $interimAmount += $calculate->calls($tariff->fixedCall, $fixNumber);
+                        $result = $calculate->calls($tariff->fixedCall, $fixNumber);
+                        if($result['unlimited']) {
+                            $interimAmount += 0;
+                        } else {
+                            $interimAmount += $result['price_by_tariff_minute'];
+                        }
                     }
 
                     if ($select_5_1) {
-                        $interimAmount += $calculate->package($tariff->internetPackages, $megabute);
+                        $result = $calculate->package($tariff->internetPackages, $megabute);
+                        if($result['unlimited']) {
+                            $interimAmount += 0;
+                        } else {
+                            $interimAmount += $result['price_by_tariff_package'];
+                        }
                     }
 
                     if ($select_6_1) {
-                        $interimAmount += $calculate->message($tariff->messages, $sms);
+                        $result = $calculate->message($tariff->messages, $sms);
+                        if($result['unlimited']) {
+                            $interimAmount += 0;
+                        } else {
+                            $interimAmount += $result['price_by_tariff_message'];
+                        }
                     }
 
                     if ($select_7_1) {
-                        $interimAmount += $calculate->message($tariff->mmsMessage, $mms);
+                        $result = $calculate->message($tariff->mmsMessage, $mms);
+                        if($result['unlimited']) {
+                            $interimAmount += 0;
+                        } else {
+                            $interimAmount += $result['price_by_tariff_message'];
+                        }
                     }
-                    $tariff->interimAmount = $interimAmount + $tariff->price;
 
+                    $price = $interimAmount + $tariff->price;
+
+                    $tariff->interimAmount = round($price, 2);
+                    
                     if($request->costs < $tariff->interimAmount){
                         $tariff->class = 'label-warning';
                         $tariff->recommendation = 'Не советуем';
