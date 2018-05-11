@@ -24,7 +24,7 @@ class ParserController extends Controller
 			$dbTariffsLinks[] = $tariff->link;
 		}
 
-		$html = HtmlDomParser::file_get_html($operatorTariff);
+		$html = HtmlDomParser::file_get_html($operatorTariff, TRUE, NULL, 0, 999999999999);
 		
 		// Ссылки всех новых тарифов
 		$links = $html->find('.gsm-tariffs-gallery a.gsm-tariff__head');
@@ -56,7 +56,7 @@ class ParserController extends Controller
 			$dbTariffsLinks[] = $tariff->link;
 		}
 
-		$html = HtmlDomParser::file_get_html($operatorTariff);
+		$html = HtmlDomParser::file_get_html($operatorTariff, TRUE, NULL, 0, 999999999999);
 
 		// Ссылки всех новых тарифов
 		$links = $html->find('.js-batch-container a');

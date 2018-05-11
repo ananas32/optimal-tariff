@@ -11,7 +11,7 @@ AdminSection::registerModel(Tariff::class, function (ModelConfiguration $model) 
 
     $model->onDisplay(function () {
 
-        $display = AdminDisplay::table()->with('listRegions');
+        $display = AdminDisplay::datatables()->with('listRegions');
 
         $display->setColumns([
             AdminColumn::text('id')->setLabel('ID'),
@@ -55,18 +55,23 @@ AdminSection::registerModel(Tariff::class, function (ModelConfiguration $model) 
                 ->setDisplay('name')
                 ->required(),
 
-            AdminFormElement::select('fixed_call_id', 'Звонки в сети')
+            AdminFormElement::select('fixed_call_id', 'Звонки на городские номера')
                 ->setModelForOptions('App\Call')
                 ->setDisplay('name')
                 ->required(),
 
 
-            AdminFormElement::select('message_id', 'Сообщения')
+            AdminFormElement::select('message_id', 'Сообщения СМС')
                 ->setModelForOptions('App\Message')
                 ->setDisplay('name')
                 ->required(),
 
-            AdminFormElement::select('internet_package_id', 'Пакеты (торбы)')
+            AdminFormElement::select('mms_message_id', 'Сообщения ММС')
+                ->setModelForOptions('App\Message')
+                ->setDisplay('name')
+                ->required(),
+
+            AdminFormElement::select('internet_package_id', 'Пакеты (MByte)')
                 ->setModelForOptions('App\InternetPackage')
                 ->setDisplay('name')
                 ->required(),

@@ -29,7 +29,7 @@ AdminSection::registerModel(InternetPackage::class, function (ModelConfiguration
             AdminFormElement::text('name', 'Название')->setValidationRules(['name' => 'required|string|min:2|max:190']),
             AdminFormElement::checkbox('unlimited', 'Безлимит'),
             AdminFormElement::text('tariff_package', 'Мегабайт в тарифе')->setValidationRules(['tariff_package' => 'numeric']),
-            AdminFormElement::text('quantity', 'Количество минут')->setValidationRules(['quantity' => 'numeric']),
+            AdminFormElement::text('quantity', 'Количество мегабайт')->setValidationRules(['quantity' => 'numeric']),
             AdminFormElement::text('price', 'Цена')->setValidationRules(['price' => 'numeric'])
 		);
 	});

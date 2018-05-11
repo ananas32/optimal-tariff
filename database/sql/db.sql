@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.21, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.22, for Linux (x86_64)
 --
 -- Host: localhost    Database: optimal_tariff
 -- ------------------------------------------------------
--- Server version	5.7.21-0ubuntu0.16.04.1
+-- Server version	5.7.22-0ubuntu0.16.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -32,7 +32,7 @@ CREATE TABLE `calls` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,8 +41,62 @@ CREATE TABLE `calls` (
 
 LOCK TABLES `calls` WRITE;
 /*!40000 ALTER TABLE `calls` DISABLE KEYS */;
-INSERT INTO `calls` VALUES (1,'Безлим',1,'0','0','0','2018-03-19 10:34:55','2018-03-19 10:34:55'),(2,'Звонки на другие сети 50 минут, после использования 50 минут  0,60 грн/мин',0,'50','0.6','1','2018-03-19 22:00:12','2018-03-19 22:01:01');
+INSERT INTO `calls` VALUES (1,'Безлим',1,'0','0','0','2018-03-19 10:34:55','2018-03-19 10:34:55'),(2,'Звонки на другие сети 30 мин, звонки на другие мобильные, после использования 30 минут - 0,60 грн/мин',0,'30','1','0.6','2018-03-19 22:00:12','2018-05-08 08:48:11'),(3,'Звонки на городские номера по Украине - 1,50 грн/мин',0,'0','1','1.5','2018-05-08 08:48:51','2018-05-08 08:48:51'),(4,'Звонки на другие сети 60 мин, звонки на другие мобильные, после использования 60 минут - 0,60 грн/мин',0,'60','1','0.6','2018-05-08 09:01:37','2018-05-08 09:01:37'),(5,'Звонки на другие сети 150 мин, звонки на другие мобильные, после использования 150 минут - 0,60 грн/ми',0,'150','1','0.6','2018-05-08 09:08:24','2018-05-08 09:08:24'),(6,'Звонки на другие сети 300 мин, звонки на другие мобильные, после использования 300 минут - 0,60 грн/ми',0,'300','1','0.6','2018-05-08 09:17:26','2018-05-08 09:17:26'),(7,'Звонки на другие сети 400 мин, звонки на другие мобильные, после использования 400 минут - 0,60 грн/ми',0,'400','1','0.6','2018-05-08 09:31:44','2018-05-08 09:31:44');
 /*!40000 ALTER TABLE `calls` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `dropdown_texts`
+--
+
+DROP TABLE IF EXISTS `dropdown_texts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `dropdown_texts` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` text COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `dropdown_texts`
+--
+
+LOCK TABLES `dropdown_texts` WRITE;
+/*!40000 ALTER TABLE `dropdown_texts` DISABLE KEYS */;
+INSERT INTO `dropdown_texts` VALUES (1,'Середня кількість дзвінків на день','2018-03-23 10:17:46','2018-03-23 10:17:46'),(2,'Середня довжина дзвінків','2018-03-23 10:18:01','2018-03-23 10:18:01'),(3,'Частота використань в місяць','2018-03-23 10:18:13','2018-03-23 10:18:13'),(4,'Пакети (в середньому на день)','2018-03-23 10:18:24','2018-03-23 10:18:24');
+/*!40000 ALTER TABLE `dropdown_texts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `form_dropdowns`
+--
+
+DROP TABLE IF EXISTS `form_dropdowns`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `form_dropdowns` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `dropdown_text_id` int(10) unsigned NOT NULL,
+  `text_dropdown` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `value` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `form_dropdowns_dropdown_text_id_foreign` (`dropdown_text_id`),
+  CONSTRAINT `form_dropdowns_dropdown_text_id_foreign` FOREIGN KEY (`dropdown_text_id`) REFERENCES `dropdown_texts` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `form_dropdowns`
+--
+
+LOCK TABLES `form_dropdowns` WRITE;
+/*!40000 ALTER TABLE `form_dropdowns` DISABLE KEYS */;
+INSERT INTO `form_dropdowns` VALUES (1,1,'1-5','6'),(2,2,'4-5','4'),(3,3,'Каждий день','30'),(4,4,'Торба','55'),(5,1,'4-5','33');
+/*!40000 ALTER TABLE `form_dropdowns` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -148,7 +202,7 @@ CREATE TABLE `internet_packages` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -157,7 +211,7 @@ CREATE TABLE `internet_packages` (
 
 LOCK TABLES `internet_packages` WRITE;
 /*!40000 ALTER TABLE `internet_packages` DISABLE KEYS */;
-INSERT INTO `internet_packages` VALUES (1,'Безлим пакетов',0,'120','0','0','2018-03-19 10:38:40','2018-03-20 08:41:58');
+INSERT INTO `internet_packages` VALUES (1,'Интернет мобильный - 500 МБ Мобильный интернет, после использования тарифных 500 МБ 50 МБ - 5,00 грн',0,'500','50','5','2018-03-19 10:38:40','2018-05-08 08:51:35'),(2,'Интернет мобильный - 3000 МБ Мобильный интернет, после использования тарифных 3000 МБ 50 МБ - 5,00 грн',0,'3000','50','5','2018-05-08 09:04:48','2018-05-08 09:04:48'),(3,'Интернет мобильный - 6000 МБ Мобильный интернет, после использования тарифных 6000 МБ 100 МБ - 10,00 грн',0,'6000','100','10','2018-05-08 09:11:32','2018-05-08 09:11:32'),(4,'Безлим',1,'0','0','0','2018-05-08 09:17:56','2018-05-08 09:17:56');
 /*!40000 ALTER TABLE `internet_packages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -203,7 +257,7 @@ CREATE TABLE `messages` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -212,7 +266,7 @@ CREATE TABLE `messages` (
 
 LOCK TABLES `messages` WRITE;
 /*!40000 ALTER TABLE `messages` DISABLE KEYS */;
-INSERT INTO `messages` VALUES (1,'Безлим СМС и ММС',1,'0','0','0','2018-03-19 10:38:26','2018-03-19 10:39:40');
+INSERT INTO `messages` VALUES (1,'SMS по Украине, пакет 100 SMS - 2,00 грн/пакет',0,'0','100','2','2018-03-19 10:38:26','2018-05-08 08:52:29'),(2,'MMS по Украине 100 пакетов по 10 MMS в сутки, 10 MMS в сутки - 2,00 грн',0,'0','10','2','2018-05-07 13:24:47','2018-05-08 08:53:54'),(3,'SMS на украинские номера - 150, SMS по Украине, пакет 100 SMS - 2,00 грн/пакет',0,'150','100','2','2018-05-08 09:10:19','2018-05-08 09:10:19'),(4,'SMS на украинские номера - 300, SMS по Украине, пакет 100 SMS - 2,00 грн/паке',0,'300','100','2','2018-05-08 09:18:56','2018-05-08 09:18:56'),(5,'SMS на украинские номера - 400, SMS по Украине, пакет 100 SMS - 2,00 грн/паке',0,'400','100','2','2018-05-08 09:30:59','2018-05-08 09:30:59');
 /*!40000 ALTER TABLE `messages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -228,7 +282,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -237,7 +291,7 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES (1,'2014_10_12_000000_create_users_table',1),(2,'2014_10_12_100000_create_password_resets_table',1),(3,'2017_02_22_131814_entrust_setup_tables',1),(4,'2017_03_10_220240_create_slider_table',1),(5,'2017_03_11_093507_create_guest_book',1),(6,'2017_03_11_172340_create_locales_table',1),(7,'2017_03_12_000501_create_random_text_header_table',1),(8,'2017_03_12_150436_create_home_content_table',1),(9,'2017_03_12_185756_create_news_table',1),(10,'2017_03_14_220353_create_operators_table',1),(11,'2017_03_19_170504_create_region_table',1),(12,'2018_03_13_162638_create_call_table',2),(13,'2018_03_14_103740_create_message_table',2),(14,'2018_03_14_104944_create_internet_package_table',3),(25,'2018_03_19_095709_create_tariff_names_table',4),(26,'2018_03_19_095711_create_regular_payments_table',4),(27,'2018_03_19_095827_create_tariffs_table',4);
+INSERT INTO `migrations` VALUES (1,'2014_10_12_000000_create_users_table',1),(2,'2014_10_12_100000_create_password_resets_table',1),(3,'2017_02_22_131814_entrust_setup_tables',1),(4,'2017_03_10_220240_create_slider_table',1),(5,'2017_03_11_093507_create_guest_book',1),(6,'2017_03_11_172340_create_locales_table',1),(7,'2017_03_12_000501_create_random_text_header_table',1),(8,'2017_03_12_150436_create_home_content_table',1),(9,'2017_03_12_185756_create_news_table',1),(10,'2017_03_14_220353_create_operators_table',1),(11,'2017_03_19_170504_create_region_table',1),(12,'2018_03_13_162638_create_call_table',2),(13,'2018_03_14_103740_create_message_table',2),(14,'2018_03_14_104944_create_internet_package_table',3),(25,'2018_03_19_095709_create_tariff_names_table',4),(26,'2018_03_19_095711_create_regular_payments_table',4),(27,'2018_03_19_095827_create_tariffs_table',4),(29,'2018_03_23_114426_create_form_dropdown_table',5);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -675,7 +729,7 @@ CREATE TABLE `tariff_name_translations` (
   UNIQUE KEY `tariff_name_translations_tariff_name_id_locale_unique` (`tariff_name_id`,`locale`),
   KEY `tariff_name_translations_locale_index` (`locale`),
   CONSTRAINT `tariff_name_translations_tariff_name_id_foreign` FOREIGN KEY (`tariff_name_id`) REFERENCES `tariff_names` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -684,7 +738,7 @@ CREATE TABLE `tariff_name_translations` (
 
 LOCK TABLES `tariff_name_translations` WRITE;
 /*!40000 ALTER TABLE `tariff_name_translations` DISABLE KEYS */;
-INSERT INTO `tariff_name_translations` VALUES (1,1,'ru','Безлим Соцсети'),(2,2,'ru','Тарифный план «Сделай сам»'),(3,3,'ru','Безвиз уикенд');
+INSERT INTO `tariff_name_translations` VALUES (1,1,'ru','Безлим Разговоры'),(2,2,'ru','Тарифный план «Сделай сам»'),(3,3,'ru','Безвиз уикенд'),(4,4,'ru','Безлим Соцсети'),(5,5,'ru','Безлим Видео'),(6,6,'ru','Максимальный Безлим'),(7,7,'ru','Киевстар 4G'),(8,8,'ru','Киевстар 4G Extra'),(9,9,'ru','Киевстар 4G Ultra'),(10,10,'ru','Лайфхак начальный'),(11,11,'ru','Лайфхак Плюс');
 /*!40000 ALTER TABLE `tariff_name_translations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -701,7 +755,7 @@ CREATE TABLE `tariff_names` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -710,7 +764,7 @@ CREATE TABLE `tariff_names` (
 
 LOCK TABLES `tariff_names` WRITE;
 /*!40000 ALTER TABLE `tariff_names` DISABLE KEYS */;
-INSERT INTO `tariff_names` VALUES (1,1,'2018-03-19 13:07:15','2018-03-19 21:58:41'),(2,1,'2018-03-19 22:01:53','2018-03-19 22:01:53'),(3,1,'2018-03-19 22:02:39','2018-03-19 22:02:39');
+INSERT INTO `tariff_names` VALUES (1,1,'2018-03-19 13:07:15','2018-05-08 08:54:25'),(2,1,'2018-03-19 22:01:53','2018-03-19 22:01:53'),(3,1,'2018-03-19 22:02:39','2018-03-19 22:02:39'),(4,1,'2018-05-08 09:00:30','2018-05-08 09:00:30'),(5,1,'2018-05-08 09:11:54','2018-05-08 09:13:09'),(6,1,'2018-05-08 09:19:18','2018-05-08 09:19:18'),(7,1,'2018-05-08 09:25:12','2018-05-08 09:25:12'),(8,1,'2018-05-08 09:27:58','2018-05-08 09:27:58'),(9,1,'2018-05-08 09:30:25','2018-05-08 09:30:25'),(10,1,'2018-05-08 09:38:29','2018-05-08 09:38:29'),(11,1,'2018-05-08 09:38:42','2018-05-08 09:38:42');
 /*!40000 ALTER TABLE `tariff_names` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -737,7 +791,7 @@ CREATE TABLE `tariff_region` (
 
 LOCK TABLES `tariff_region` WRITE;
 /*!40000 ALTER TABLE `tariff_region` DISABLE KEYS */;
-INSERT INTO `tariff_region` VALUES (1,1),(3,1),(2,2),(3,2),(3,3);
+INSERT INTO `tariff_region` VALUES (1,1),(3,1),(4,1),(5,1),(6,1),(7,1),(8,1),(9,1),(2,2),(3,2),(3,3);
 /*!40000 ALTER TABLE `tariff_region` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -764,6 +818,7 @@ CREATE TABLE `tariffs` (
   `deleted_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
+  `mms_message_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `tariffs_network_call_id_foreign` (`network_call_id`),
   KEY `tariffs_other_call_id_foreign` (`other_call_id`),
@@ -781,7 +836,7 @@ CREATE TABLE `tariffs` (
   CONSTRAINT `tariffs_other_call_id_foreign` FOREIGN KEY (`other_call_id`) REFERENCES `calls` (`id`) ON DELETE CASCADE,
   CONSTRAINT `tariffs_regular_payment_id_foreign` FOREIGN KEY (`regular_payment_id`) REFERENCES `regular_payments` (`id`) ON DELETE CASCADE,
   CONSTRAINT `tariffs_tariff_name_id_foreign` FOREIGN KEY (`tariff_name_id`) REFERENCES `tariff_names` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -790,7 +845,7 @@ CREATE TABLE `tariffs` (
 
 LOCK TABLES `tariffs` WRITE;
 /*!40000 ALTER TABLE `tariffs` DISABLE KEYS */;
-INSERT INTO `tariffs` VALUES (1,1,2,1,1,1,1,'http://php.net/manual/ru/function.ucfirst.php',1,1,122,1,NULL,'2018-03-19 13:07:57','2018-03-20 08:29:01'),(2,1,1,1,1,1,2,'qq',2,1,33,1,NULL,'2018-03-19 21:37:28','2018-03-19 22:03:30'),(3,2,1,2,1,1,3,'лкуук',3,1,22,1,NULL,'2018-03-19 22:04:15','2018-03-19 22:04:15');
+INSERT INTO `tariffs` VALUES (1,1,2,3,1,1,1,'https://kyivstar.ua/ru/mm/tariffs/prepaid/unlimtalks',1,1,55,1,NULL,'2018-03-19 13:07:57','2018-05-08 08:59:46',2),(2,1,1,1,2,1,2,'qq',2,1,20,1,NULL,'2018-03-19 21:37:28','2018-05-07 13:25:04',NULL),(3,2,1,2,1,1,3,'лкуук',3,1,22,1,NULL,'2018-03-19 22:04:15','2018-03-19 22:04:15',NULL),(4,1,4,3,1,2,4,'https://kyivstar.ua/ru/mm/tariffs/prepaid/unlimsocial',1,1,75,1,NULL,'2018-05-08 09:03:58','2018-05-08 09:05:11',2),(5,1,5,3,3,3,5,'https://kyivstar.ua/ru/mm/tariffs/prepaid/unlimvideo',1,1,95,1,NULL,'2018-05-08 09:14:54','2018-05-08 09:14:54',2),(6,1,6,3,4,4,6,'https://kyivstar.ua/ru/mm/tariffs/prepaid/maxunlim',1,1,155,1,NULL,'2018-05-08 09:20:53','2018-05-08 09:20:53',2),(7,1,5,3,3,4,7,'https://kyivstar.ua/ru/mm/tariffs/contract/ks4g',1,1,95,1,NULL,'2018-05-08 09:26:52','2018-05-08 09:26:52',2),(8,1,6,6,4,4,8,'https://kyivstar.ua/ru/mm/tariffs/contract/ks4gextra',1,1,95,1,NULL,'2018-05-08 09:29:40','2018-05-08 09:29:40',2),(9,1,7,7,5,4,8,'https://kyivstar.ua/ru/mm/tariffs/contract/ks4gultra',1,1,275,1,NULL,'2018-05-08 09:33:06','2018-05-08 09:33:06',2);
 /*!40000 ALTER TABLE `tariffs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -906,7 +961,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Простий','Чоловік','porsche839@gmail.com','$2y$10$5JD4Kwz5B8vDxZID93Dul.3pAnFTEFtwEO7bRfIEJ6bEOW3NUo1lm','K67dNMpoqcaSFC3eoVvWN9iV9lWzszw3JD2DCsA1WQ2Emxp0PbQMArmmroM6',1,0,'127.0.0.1','2018-03-12 10:49:38','2018-03-12 10:49:38');
+INSERT INTO `users` VALUES (1,'Простий','Чоловік','porsche839@gmail.com','$2y$10$5JD4Kwz5B8vDxZID93Dul.3pAnFTEFtwEO7bRfIEJ6bEOW3NUo1lm','eWKClSWdy48haqfBYG29o82kn9Cn50ng5vYTKrEkl9ts2FtcYJ4PvgWVWshw',1,0,'127.0.0.1','2018-03-12 10:49:38','2018-03-12 10:49:38');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -923,4 +978,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-03-20 17:45:34
+-- Dump completed on 2018-05-11 14:53:52
