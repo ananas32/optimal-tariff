@@ -32,7 +32,7 @@ CREATE TABLE `calls` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -41,7 +41,7 @@ CREATE TABLE `calls` (
 
 LOCK TABLES `calls` WRITE;
 /*!40000 ALTER TABLE `calls` DISABLE KEYS */;
-INSERT INTO `calls` VALUES (1,'Безлим',1,'0','0','0','2018-03-19 10:34:55','2018-03-19 10:34:55'),(2,'Звонки на другие сети 30 мин, звонки на другие мобильные, после использования 30 минут - 0,60 грн/мин',0,'30','1','0.6','2018-03-19 22:00:12','2018-05-08 08:48:11'),(3,'Звонки на городские номера по Украине - 1,50 грн/мин',0,'0','1','1.5','2018-05-08 08:48:51','2018-05-08 08:48:51'),(4,'Звонки на другие сети 60 мин, звонки на другие мобильные, после использования 60 минут - 0,60 грн/мин',0,'60','1','0.6','2018-05-08 09:01:37','2018-05-08 09:01:37'),(5,'Звонки на другие сети 150 мин, звонки на другие мобильные, после использования 150 минут - 0,60 грн/ми',0,'150','1','0.6','2018-05-08 09:08:24','2018-05-08 09:08:24'),(6,'Звонки на другие сети 300 мин, звонки на другие мобильные, после использования 300 минут - 0,60 грн/ми',0,'300','1','0.6','2018-05-08 09:17:26','2018-05-08 09:17:26'),(7,'Звонки на другие сети 400 мин, звонки на другие мобильные, после использования 400 минут - 0,60 грн/ми',0,'400','1','0.6','2018-05-08 09:31:44','2018-05-08 09:31:44');
+INSERT INTO `calls` VALUES (1,'Безлим',1,'0','0','0','2018-03-19 10:34:55','2018-03-19 10:34:55'),(2,'Звонки на другие сети 30 мин, звонки на другие мобильные, после использования 30 минут - 0,60 грн/мин',0,'30','1','0.6','2018-03-19 22:00:12','2018-05-08 08:48:11'),(3,'Звонки на городские номера по Украине - 1,50 грн/мин',0,'0','1','1.5','2018-05-08 08:48:51','2018-05-08 08:48:51'),(4,'Звонки на другие сети 60 мин, звонки на другие мобильные, после использования 60 минут - 0,60 грн/мин',0,'60','1','0.6','2018-05-08 09:01:37','2018-05-08 09:01:37'),(5,'Звонки на другие сети 150 мин, звонки на другие мобильные, после использования 150 минут - 0,60 грн/ми',0,'150','1','0.6','2018-05-08 09:08:24','2018-05-08 09:08:24'),(6,'Звонки на другие сети 300 мин, звонки на другие мобильные, после использования 300 минут - 0,60 грн/ми',0,'300','1','0.6','2018-05-08 09:17:26','2018-05-08 09:17:26'),(7,'Звонки на другие сети 400 мин, звонки на другие мобильные, после использования 400 минут - 0,60 грн/ми',0,'400','1','0.6','2018-05-08 09:31:44','2018-05-08 09:31:44'),(8,'Звонки на другие сети 750 мин, звонки на другие мобильные, после использования 750 минут - 0,50 грн/ми',0,'750','1','0.5','2018-05-16 07:57:26','2018-05-16 08:02:33'),(9,'Звонки на другие сети 80 мин, звонки на другие мобильные, после использования 5 минут - 3 грн/ми',0,'80','5','3','2018-05-16 08:12:12','2018-05-16 08:12:12'),(10,'Звонки на другие сети - 0,60 грн/мин',0,'0','1','0.6','2018-05-16 08:27:41','2018-05-16 08:27:41'),(11,'Звонки на другие сети 75 мин, звонки на другие мобильные, после использования 75 минут - 0,60 грн/ми',0,'75','1','0.6','2018-05-16 08:33:05','2018-05-16 08:33:05'),(12,'Звонки на другие сети 100 мин, звонки на другие мобильные, после использования 100 минут - 0,60 грн/мин',0,'100','1','0.5','2018-05-16 08:43:21','2018-05-16 08:43:21'),(13,'Звонки на другие сети 100 мин, звонки на другие мобильные, после использования 100 минут - 0,50 грн/мин',0,'100','1','0.5','2018-05-16 08:45:11','2018-05-16 08:45:11'),(14,'Звонки на другие сети 75 мин, звонки на другие мобильные, после использования 75 минут - 0,60 грн/мин',0,'75','1','0.6','2018-05-16 09:11:14','2018-05-16 09:11:14'),(15,'Звонки на другие сети 100 мин, звонки на другие мобильные, после использования 0,20 грн/мин',0,'100','100','0.20','2018-05-16 10:06:42','2018-05-16 10:06:42'),(16,'Звонки на другие сети 300 мин, звонки на другие мобильные, после использования 0,50 грн/мин',0,'300','1','0.5','2018-05-16 10:11:15','2018-05-16 10:11:15'),(17,'Звонки на другие сети 75 мин, звонки на другие мобильные, после использования 75 минут - 0,50 грн/ми',0,'75','1','0.5','2018-05-16 11:26:42','2018-05-16 11:26:42'),(18,'Звонки на другие сети 60 мин, звонки на другие мобильные, после использования 60 минут - 0,50 грн/мин',0,'60','1','0.5','2018-05-16 11:33:54','2018-05-16 11:33:54'),(19,'Звонки на другие сети 105 мин, звонки на другие мобильные, после использования 105 минут - 0,50 грн/мин',0,'105','1','0.5','2018-05-16 11:45:51','2018-05-16 11:45:51');
 /*!40000 ALTER TABLE `calls` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -202,7 +202,7 @@ CREATE TABLE `internet_packages` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -211,7 +211,7 @@ CREATE TABLE `internet_packages` (
 
 LOCK TABLES `internet_packages` WRITE;
 /*!40000 ALTER TABLE `internet_packages` DISABLE KEYS */;
-INSERT INTO `internet_packages` VALUES (1,'Интернет мобильный - 500 МБ Мобильный интернет, после использования тарифных 500 МБ 50 МБ - 5,00 грн',0,'500','50','5','2018-03-19 10:38:40','2018-05-08 08:51:35'),(2,'Интернет мобильный - 3000 МБ Мобильный интернет, после использования тарифных 3000 МБ 50 МБ - 5,00 грн',0,'3000','50','5','2018-05-08 09:04:48','2018-05-08 09:04:48'),(3,'Интернет мобильный - 6000 МБ Мобильный интернет, после использования тарифных 6000 МБ 100 МБ - 10,00 грн',0,'6000','100','10','2018-05-08 09:11:32','2018-05-08 09:11:32'),(4,'Безлим',1,'0','0','0','2018-05-08 09:17:56','2018-05-08 09:17:56');
+INSERT INTO `internet_packages` VALUES (1,'Интернет мобильный - 500 МБ Мобильный интернет, после использования тарифных 500 МБ 50 МБ - 5,00 грн',0,'500','50','5','2018-03-19 10:38:40','2018-05-08 08:51:35'),(2,'Интернет мобильный - 3000 МБ Мобильный интернет, после использования тарифных 3000 МБ 50 МБ - 5,00 грн',0,'3000','50','5','2018-05-08 09:04:48','2018-05-08 09:04:48'),(3,'Интернет мобильный - 6000 МБ Мобильный интернет, после использования тарифных 6000 МБ 100 МБ - 10,00 грн',0,'6000','100','10','2018-05-08 09:11:32','2018-05-08 09:11:32'),(4,'Безлим',1,'0','0','0','2018-05-08 09:17:56','2018-05-08 09:17:56'),(5,'Интернет мобильный - 7000 МБ Мобильный интернет, после использования тарифных 7000 МБ 50 МБ - 5,00 грн',0,'7000','50','5','2018-05-16 07:59:31','2018-05-16 07:59:31'),(6,'Интернет мобильный - 3000 МБ Мобильный интернет, после использования тарифных 3000 МБ 1 МБ - 0,4 грн',0,'3000','1','0.4','2018-05-16 08:13:31','2018-05-16 08:13:31'),(7,'Интернет мобильный - 2000 МБ Мобильный интернет, после использования тарифных 2000 МБ 250 МБ - 10,00 грн',0,'2000','250','10','2018-05-16 08:30:34','2018-05-16 08:30:34'),(8,'Интернет мобильный  250 МБ - 10,00 грн',0,'0','250','10','2018-05-16 08:36:51','2018-05-16 08:36:51'),(9,'Интернет мобильный - 300 МБ Мобильный интернет, после использования тарифных 300 МБ 1 МБ - 0,25 грн',0,'300','1','0.25','2018-05-16 08:46:35','2018-05-16 08:46:35'),(10,'Интернет мобильный - 10000 МБ Мобильный интернет, после использования тарифных 10000 МБ 250 МБ - 10,00 грн',0,'10000','250','10','2018-05-16 09:20:30','2018-05-16 09:20:30'),(11,'Интернет мобильный - 14000 МБ Мобильный интернет, после использования тарифных 10000 МБ каждые 100 МБ за 5 грн',0,'14000','100','5','2018-05-16 10:10:16','2018-05-16 10:10:16'),(12,'Интернет мобильный - 5000 МБ Мобильный интернет, после использования тарифных 5000 МБ 100 МБ - 5,00 грн',0,'5000','100','5','2018-05-16 11:27:57','2018-05-16 11:27:57'),(13,'Интернет мобильный - 2000 МБ Мобильный интернет, после использования тарифных 2000 МБ 100 МБ - 5,00 грн',0,'2000','100','5','2018-05-16 11:35:29','2018-05-16 11:35:29'),(14,'Интернет мобильный - 10000 МБ Мобильный интернет, после использования тарифных 10000 МБ 100 МБ - 5,00 грн',0,'10000','100','5','2018-05-16 11:45:03','2018-05-16 11:45:03');
 /*!40000 ALTER TABLE `internet_packages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -257,7 +257,7 @@ CREATE TABLE `messages` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -266,7 +266,7 @@ CREATE TABLE `messages` (
 
 LOCK TABLES `messages` WRITE;
 /*!40000 ALTER TABLE `messages` DISABLE KEYS */;
-INSERT INTO `messages` VALUES (1,'SMS по Украине, пакет 100 SMS - 2,00 грн/пакет',0,'0','100','2','2018-03-19 10:38:26','2018-05-08 08:52:29'),(2,'MMS по Украине 100 пакетов по 10 MMS в сутки, 10 MMS в сутки - 2,00 грн',0,'0','10','2','2018-05-07 13:24:47','2018-05-08 08:53:54'),(3,'SMS на украинские номера - 150, SMS по Украине, пакет 100 SMS - 2,00 грн/пакет',0,'150','100','2','2018-05-08 09:10:19','2018-05-08 09:10:19'),(4,'SMS на украинские номера - 300, SMS по Украине, пакет 100 SMS - 2,00 грн/паке',0,'300','100','2','2018-05-08 09:18:56','2018-05-08 09:18:56'),(5,'SMS на украинские номера - 400, SMS по Украине, пакет 100 SMS - 2,00 грн/паке',0,'400','100','2','2018-05-08 09:30:59','2018-05-08 09:30:59');
+INSERT INTO `messages` VALUES (1,'SMS по Украине, пакет 100 SMS - 2,00 грн/пакет',0,'0','100','2','2018-03-19 10:38:26','2018-05-08 08:52:29'),(2,'MMS по Украине 100 пакетов по 10 MMS в сутки, 10 MMS в сутки - 2,00 грн',0,'0','10','2','2018-05-07 13:24:47','2018-05-08 08:53:54'),(3,'SMS на украинские номера - 150, SMS по Украине, пакет 100 SMS - 2,00 грн/пакет',0,'150','100','2','2018-05-08 09:10:19','2018-05-08 09:10:19'),(4,'SMS на украинские номера - 300, SMS по Украине, пакет 100 SMS - 2,00 грн/паке',0,'300','100','2','2018-05-08 09:18:56','2018-05-08 09:18:56'),(5,'SMS на украинские номера - 400, SMS по Украине, пакет 100 SMS - 2,00 грн/паке',0,'400','100','2','2018-05-08 09:30:59','2018-05-08 09:30:59'),(6,'SMS на украинские номера - 3000, SMS по Украине, 1 SMS - 1,00 грн',0,'3000','1','1','2018-05-16 08:01:36','2018-05-16 08:01:36'),(7,'MMS по Украине, 1 MMS - 1,30 грн',0,'0','1','1.3','2018-05-16 08:05:29','2018-05-16 08:18:03'),(8,'SMS по Украине 80, после использования тарифных - 1 SMS 1,00 грн',0,'80','1','1','2018-05-16 08:16:46','2018-05-16 08:16:46'),(9,'SMS на украинские номера - 50, SMS по Украине, пакет 50 SMS - 100 SMS за 2 грн',0,'50','100','50','2018-05-16 08:48:11','2018-05-16 08:48:11'),(10,'SMS на украинские номера - 100, SMS по Украине, 1 SMS - 1,00 грн',0,'100','1','1','2018-05-16 08:59:05','2018-05-16 08:59:05'),(11,'SMS по Украине, 0,20 грн/шт.',0,'0','1','0.2','2018-05-16 10:07:16','2018-05-16 10:07:16'),(12,'SMS и ММS на украинские номера - 150, SMS и MMS по Украине, после использования тарифных 0,50 грн/шт.',0,'150','1','0.5','2018-05-16 10:12:46','2018-05-16 10:12:46'),(13,'SMS на украинские номера - 50, SMS по Украине, 0,50 грн/шт.',0,'50','1','0.5','2018-05-16 11:30:11','2018-05-16 11:30:11'),(14,'SMS на украинские номера - 30, SMS по Украине, 0,50 грн/шт.',0,'30','1','0.5','2018-05-16 11:34:36','2018-05-16 11:34:36'),(15,'SMS на украинские номера - 70, SMS по Украине, 0,50 грн/шт.',0,'70','1','0.5','2018-05-16 11:46:39','2018-05-16 11:46:39');
 /*!40000 ALTER TABLE `messages` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -282,7 +282,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -291,7 +291,7 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES (1,'2014_10_12_000000_create_users_table',1),(2,'2014_10_12_100000_create_password_resets_table',1),(3,'2017_02_22_131814_entrust_setup_tables',1),(4,'2017_03_10_220240_create_slider_table',1),(5,'2017_03_11_093507_create_guest_book',1),(6,'2017_03_11_172340_create_locales_table',1),(7,'2017_03_12_000501_create_random_text_header_table',1),(8,'2017_03_12_150436_create_home_content_table',1),(9,'2017_03_12_185756_create_news_table',1),(10,'2017_03_14_220353_create_operators_table',1),(11,'2017_03_19_170504_create_region_table',1),(12,'2018_03_13_162638_create_call_table',2),(13,'2018_03_14_103740_create_message_table',2),(14,'2018_03_14_104944_create_internet_package_table',3),(25,'2018_03_19_095709_create_tariff_names_table',4),(26,'2018_03_19_095711_create_regular_payments_table',4),(27,'2018_03_19_095827_create_tariffs_table',4),(29,'2018_03_23_114426_create_form_dropdown_table',5);
+INSERT INTO `migrations` VALUES (1,'2014_10_12_000000_create_users_table',1),(2,'2014_10_12_100000_create_password_resets_table',1),(3,'2017_02_22_131814_entrust_setup_tables',1),(4,'2017_03_10_220240_create_slider_table',1),(5,'2017_03_11_093507_create_guest_book',1),(6,'2017_03_11_172340_create_locales_table',1),(7,'2017_03_12_000501_create_random_text_header_table',1),(8,'2017_03_12_150436_create_home_content_table',1),(9,'2017_03_12_185756_create_news_table',1),(10,'2017_03_14_220353_create_operators_table',1),(11,'2017_03_19_170504_create_region_table',1),(12,'2018_03_13_162638_create_call_table',2),(13,'2018_03_14_103740_create_message_table',2),(14,'2018_03_14_104944_create_internet_package_table',3),(25,'2018_03_19_095709_create_tariff_names_table',4),(26,'2018_03_19_095711_create_regular_payments_table',4),(27,'2018_03_19_095827_create_tariffs_table',4),(29,'2018_03_23_114426_create_form_dropdown_table',5),(30,'2018_05_16_160229_create_pages_table',6);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -323,7 +323,7 @@ CREATE TABLE `news` (
 
 LOCK TABLES `news` WRITE;
 /*!40000 ALTER TABLE `news` DISABLE KEYS */;
-INSERT INTO `news` VALUES (1,'4g-svyaz-v-ukraine-chto-eto-takoe-i-kogda-zarabotaet',1,1,3,'images/uploads/02d7d2f2da257ef6f9ce7373c2b424e0.jpg','2018-03-12 11:22:21','2018-03-19 21:45:19'),(2,'fiskalnaya-sluzhba-prokommentirovala-obyski-v-kievstare',2,1,2,'images/uploads/24850cf445db2ad87caf322e6025047b.jpg','2018-03-12 12:54:19','2018-03-19 21:53:06');
+INSERT INTO `news` VALUES (1,'4g-svyaz-v-ukraine-chto-eto-takoe-i-kogda-zarabotaet',1,1,4,'images/uploads/02d7d2f2da257ef6f9ce7373c2b424e0.jpg','2018-03-12 11:22:21','2018-05-16 12:51:56'),(2,'fiskalnaya-sluzhba-prokommentirovala-obyski-v-kievstare',2,1,15,'images/uploads/24850cf445db2ad87caf322e6025047b.jpg','2018-03-12 12:54:19','2018-05-16 14:14:49');
 /*!40000 ALTER TABLE `news` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -385,6 +385,66 @@ LOCK TABLES `operators` WRITE;
 /*!40000 ALTER TABLE `operators` DISABLE KEYS */;
 INSERT INTO `operators` VALUES (1,'kyivstar','images/uploads/ae91989a48bff4190460c55256f971f7.jpg','#00A0FF',1,'2018-03-13 12:12:58','2018-03-20 08:15:28'),(2,'lifecell','images/uploads/78fc9511231a7245a7418ef94483a283.jpg','#FFCB05',1,'2018-03-19 21:27:18','2018-03-19 21:27:18'),(3,'vodafone','images/uploads/1218b871f5fa45fd08a5313deacebd5e.png','#F0001F',1,'2018-03-19 21:36:53','2018-03-19 21:36:53');
 /*!40000 ALTER TABLE `operators` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `page_translations`
+--
+
+DROP TABLE IF EXISTS `page_translations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `page_translations` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `page_id` int(10) unsigned NOT NULL,
+  `locale` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `body` text COLLATE utf8_unicode_ci NOT NULL,
+  `meta_title` text COLLATE utf8_unicode_ci NOT NULL,
+  `meta_keywords` text COLLATE utf8_unicode_ci NOT NULL,
+  `meta_description` text COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `page_translations_page_id_locale_unique` (`page_id`,`locale`),
+  KEY `page_translations_locale_index` (`locale`),
+  CONSTRAINT `page_translations_page_id_foreign` FOREIGN KEY (`page_id`) REFERENCES `pages` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `page_translations`
+--
+
+LOCK TABLES `page_translations` WRITE;
+/*!40000 ALTER TABLE `page_translations` DISABLE KEYS */;
+INSERT INTO `page_translations` VALUES (1,1,'ru','Новости','','Последние новости мобильных операторов. Свежие новости операторов Украины optimal-tariff.kp.city!','последние новости мобильных операторов, новости мобильных операторов на сегодня','Свежие новости украинских мобильных операторов на сегодня. Самые последние новости мобильных операторов на сайте optimal-tariff.'),(2,2,'ru','Поиск тарифа','','Поиск тарифа на optimal-tariff.kp.city','поиск тарифа optimal-tariff, мобильная связь, тариф для мобильной связи','С помощью нашей системы вы найдете себе более выгодный тариф'),(3,3,'ru','Таривные планы','','Все тарифы мобильной связи','оптимальный тариф, все тарифы Украины, тарифы','Список новый тарифов'),(4,4,'ru','Оставить отзыв','','Оставить отзыв optimal-tariff.kp.city','контакты optimal-tariff, Оставить отзыв optimal-tariff, контактная информация','Вся информация для связи с optimal-tariff, обратная связь'),(5,5,'ru','Главная','','Optimal-tariff - лучший ресурс новостей мобильной связи.','Optimal-tariff, оптимальный тариф мобильно связи, новости optimal-tariff','Эксклюзивные новости');
+/*!40000 ALTER TABLE `page_translations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pages`
+--
+
+DROP TABLE IF EXISTS `pages`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pages` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `slug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `order` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pages`
+--
+
+LOCK TABLES `pages` WRITE;
+/*!40000 ALTER TABLE `pages` DISABLE KEYS */;
+INSERT INTO `pages` VALUES (1,'news',1,'2018-05-16 13:18:58','2018-05-16 13:27:59'),(2,'select-tariff',2,'2018-05-16 13:36:10','2018-05-16 13:36:10'),(3,'tariffs',3,'2018-05-16 13:38:48','2018-05-16 13:38:48'),(4,'guest-book',4,'2018-05-16 13:41:12','2018-05-16 13:41:12'),(5,'home',5,'2018-05-16 14:18:53','2018-05-16 14:19:42');
+/*!40000 ALTER TABLE `pages` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -729,7 +789,7 @@ CREATE TABLE `tariff_name_translations` (
   UNIQUE KEY `tariff_name_translations_tariff_name_id_locale_unique` (`tariff_name_id`,`locale`),
   KEY `tariff_name_translations_locale_index` (`locale`),
   CONSTRAINT `tariff_name_translations_tariff_name_id_foreign` FOREIGN KEY (`tariff_name_id`) REFERENCES `tariff_names` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -738,7 +798,7 @@ CREATE TABLE `tariff_name_translations` (
 
 LOCK TABLES `tariff_name_translations` WRITE;
 /*!40000 ALTER TABLE `tariff_name_translations` DISABLE KEYS */;
-INSERT INTO `tariff_name_translations` VALUES (1,1,'ru','Безлим Разговоры'),(2,2,'ru','Тарифный план «Сделай сам»'),(3,3,'ru','Безвиз уикенд'),(4,4,'ru','Безлим Соцсети'),(5,5,'ru','Безлим Видео'),(6,6,'ru','Максимальный Безлим'),(7,7,'ru','Киевстар 4G'),(8,8,'ru','Киевстар 4G Extra'),(9,9,'ru','Киевстар 4G Ultra'),(10,10,'ru','Лайфхак начальный'),(11,11,'ru','Лайфхак Плюс');
+INSERT INTO `tariff_name_translations` VALUES (1,1,'ru','Безлим Разговоры'),(2,2,'ru','ТАРИФНЫЙ ПЛАН \"ОПТИМАЛЬНЫЙ СМАРТФОН\" S'),(3,3,'ru','Безвиз уикенд'),(4,4,'ru','Безлим Соцсети'),(5,5,'ru','Безлим Видео'),(6,6,'ru','Максимальный Безлим'),(7,7,'ru','Киевстар 4G'),(8,8,'ru','Киевстар 4G Extra'),(9,9,'ru','Киевстар 4G Ultra'),(10,10,'ru','Лайфхак начальный'),(11,11,'ru','Лайфхак Плюс'),(12,12,'ru','ТАРИФНЫЙ ПЛАН «АБСОЛЮТНАЯ СВОБОДА» S'),(13,13,'ru','ТАРИФНЫЙ ПЛАН «ЗАЧЁТНЫЙ» S'),(14,14,'ru','ТАРИФНЫЙ ПЛАН «ЗВОНКИ ВСЕМ» S'),(15,15,'ru','ТАРИФНЫЙ ПЛАН «ЛЬГОТНЫЙ»'),(16,16,'ru','ТАРИФНЫЙ ПЛАН «СМАРТФОН 3G+»'),(17,17,'ru','ТАРИФНЫЙ ПЛАН «ХАЙП»'),(18,18,'ru','Vodafone Unlim 3G Plus'),(19,19,'ru','Vodafone RED EXTRA L'),(20,20,'ru','Vodafone RED EXTRA S'),(21,21,'ru','Vodafone RED EXTRA XS'),(22,22,'ru','Vodafone RED EXT');
 /*!40000 ALTER TABLE `tariff_name_translations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -755,7 +815,7 @@ CREATE TABLE `tariff_names` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -764,7 +824,7 @@ CREATE TABLE `tariff_names` (
 
 LOCK TABLES `tariff_names` WRITE;
 /*!40000 ALTER TABLE `tariff_names` DISABLE KEYS */;
-INSERT INTO `tariff_names` VALUES (1,1,'2018-03-19 13:07:15','2018-05-08 08:54:25'),(2,1,'2018-03-19 22:01:53','2018-03-19 22:01:53'),(3,1,'2018-03-19 22:02:39','2018-03-19 22:02:39'),(4,1,'2018-05-08 09:00:30','2018-05-08 09:00:30'),(5,1,'2018-05-08 09:11:54','2018-05-08 09:13:09'),(6,1,'2018-05-08 09:19:18','2018-05-08 09:19:18'),(7,1,'2018-05-08 09:25:12','2018-05-08 09:25:12'),(8,1,'2018-05-08 09:27:58','2018-05-08 09:27:58'),(9,1,'2018-05-08 09:30:25','2018-05-08 09:30:25'),(10,1,'2018-05-08 09:38:29','2018-05-08 09:38:29'),(11,1,'2018-05-08 09:38:42','2018-05-08 09:38:42');
+INSERT INTO `tariff_names` VALUES (1,1,'2018-03-19 13:07:15','2018-05-08 08:54:25'),(2,1,'2018-03-19 22:01:53','2018-05-16 08:07:57'),(3,1,'2018-03-19 22:02:39','2018-03-19 22:02:39'),(4,1,'2018-05-08 09:00:30','2018-05-08 09:00:30'),(5,1,'2018-05-08 09:11:54','2018-05-08 09:13:09'),(6,1,'2018-05-08 09:19:18','2018-05-08 09:19:18'),(7,1,'2018-05-08 09:25:12','2018-05-08 09:25:12'),(8,1,'2018-05-08 09:27:58','2018-05-08 09:27:58'),(9,1,'2018-05-08 09:30:25','2018-05-08 09:30:25'),(10,1,'2018-05-08 09:38:29','2018-05-08 09:38:29'),(11,1,'2018-05-08 09:38:42','2018-05-08 09:38:42'),(12,1,'2018-05-16 07:55:34','2018-05-16 07:55:34'),(13,1,'2018-05-16 08:21:20','2018-05-16 08:25:01'),(14,1,'2018-05-16 08:34:04','2018-05-16 08:34:04'),(15,1,'2018-05-16 08:42:12','2018-05-16 08:42:12'),(16,1,'2018-05-16 08:54:56','2018-05-16 08:54:56'),(17,1,'2018-05-16 09:09:31','2018-05-16 09:09:31'),(18,1,'2018-05-16 10:02:27','2018-05-16 10:02:27'),(19,1,'2018-05-16 10:13:27','2018-05-16 10:13:27'),(20,1,'2018-05-16 10:23:31','2018-05-16 10:23:31'),(21,1,'2018-05-16 11:32:21','2018-05-16 11:32:21'),(22,1,'2018-05-16 11:38:36','2018-05-16 11:38:36');
 /*!40000 ALTER TABLE `tariff_names` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -791,7 +851,7 @@ CREATE TABLE `tariff_region` (
 
 LOCK TABLES `tariff_region` WRITE;
 /*!40000 ALTER TABLE `tariff_region` DISABLE KEYS */;
-INSERT INTO `tariff_region` VALUES (1,1),(3,1),(4,1),(5,1),(6,1),(7,1),(8,1),(9,1),(2,2),(3,2),(3,3);
+INSERT INTO `tariff_region` VALUES (1,1),(2,1),(3,1),(4,1),(5,1),(6,1),(7,1),(8,1),(9,1),(10,1),(11,1),(12,1),(13,1),(14,1),(15,1),(16,1),(17,1),(18,1),(19,1);
 /*!40000 ALTER TABLE `tariff_region` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -836,7 +896,7 @@ CREATE TABLE `tariffs` (
   CONSTRAINT `tariffs_other_call_id_foreign` FOREIGN KEY (`other_call_id`) REFERENCES `calls` (`id`) ON DELETE CASCADE,
   CONSTRAINT `tariffs_regular_payment_id_foreign` FOREIGN KEY (`regular_payment_id`) REFERENCES `regular_payments` (`id`) ON DELETE CASCADE,
   CONSTRAINT `tariffs_tariff_name_id_foreign` FOREIGN KEY (`tariff_name_id`) REFERENCES `tariff_names` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -845,7 +905,7 @@ CREATE TABLE `tariffs` (
 
 LOCK TABLES `tariffs` WRITE;
 /*!40000 ALTER TABLE `tariffs` DISABLE KEYS */;
-INSERT INTO `tariffs` VALUES (1,1,2,3,1,1,1,'https://kyivstar.ua/ru/mm/tariffs/prepaid/unlimtalks',1,1,55,1,NULL,'2018-03-19 13:07:57','2018-05-08 08:59:46',2),(2,1,1,1,2,1,2,'qq',2,1,20,1,NULL,'2018-03-19 21:37:28','2018-05-07 13:25:04',NULL),(3,2,1,2,1,1,3,'лкуук',3,1,22,1,NULL,'2018-03-19 22:04:15','2018-03-19 22:04:15',NULL),(4,1,4,3,1,2,4,'https://kyivstar.ua/ru/mm/tariffs/prepaid/unlimsocial',1,1,75,1,NULL,'2018-05-08 09:03:58','2018-05-08 09:05:11',2),(5,1,5,3,3,3,5,'https://kyivstar.ua/ru/mm/tariffs/prepaid/unlimvideo',1,1,95,1,NULL,'2018-05-08 09:14:54','2018-05-08 09:14:54',2),(6,1,6,3,4,4,6,'https://kyivstar.ua/ru/mm/tariffs/prepaid/maxunlim',1,1,155,1,NULL,'2018-05-08 09:20:53','2018-05-08 09:20:53',2),(7,1,5,3,3,4,7,'https://kyivstar.ua/ru/mm/tariffs/contract/ks4g',1,1,95,1,NULL,'2018-05-08 09:26:52','2018-05-08 09:26:52',2),(8,1,6,6,4,4,8,'https://kyivstar.ua/ru/mm/tariffs/contract/ks4gextra',1,1,95,1,NULL,'2018-05-08 09:29:40','2018-05-08 09:29:40',2),(9,1,7,7,5,4,8,'https://kyivstar.ua/ru/mm/tariffs/contract/ks4gultra',1,1,275,1,NULL,'2018-05-08 09:33:06','2018-05-08 09:33:06',2);
+INSERT INTO `tariffs` VALUES (1,1,2,3,1,1,1,'https://kyivstar.ua/ru/mm/tariffs/prepaid/unlimtalks',1,1,55,1,NULL,'2018-03-19 13:07:57','2018-05-08 08:59:46',2),(2,1,9,9,8,1,2,'https://www.lifecell.ua/ru/mobilnaya-svyaz/tarify/optimal-smartfon/',2,1,80,1,NULL,'2018-03-19 21:37:28','2018-05-16 08:17:24',7),(3,1,15,15,11,4,3,'https://new.vodafone.ua/ru/privatnim-klientam/rates/vodafone-unlim-3g-plus',3,1,90,1,NULL,'2018-03-19 22:04:15','2018-05-16 10:08:17',11),(4,1,4,3,1,2,4,'https://kyivstar.ua/ru/mm/tariffs/prepaid/unlimsocial',1,1,75,1,NULL,'2018-05-08 09:03:58','2018-05-08 09:05:11',2),(5,1,5,3,3,3,5,'https://kyivstar.ua/ru/mm/tariffs/prepaid/unlimvideo',1,1,95,1,NULL,'2018-05-08 09:14:54','2018-05-08 09:14:54',2),(6,1,6,3,4,4,6,'https://kyivstar.ua/ru/mm/tariffs/prepaid/maxunlim',1,1,155,1,NULL,'2018-05-08 09:20:53','2018-05-08 09:20:53',2),(7,1,5,3,3,4,7,'https://kyivstar.ua/ru/mm/tariffs/contract/ks4g',1,1,95,1,NULL,'2018-05-08 09:26:52','2018-05-08 09:26:52',2),(8,1,6,6,4,4,8,'https://kyivstar.ua/ru/mm/tariffs/contract/ks4gextra',1,1,95,1,NULL,'2018-05-08 09:29:40','2018-05-08 09:29:40',2),(9,1,7,7,5,4,8,'https://kyivstar.ua/ru/mm/tariffs/contract/ks4gultra',1,1,275,1,NULL,'2018-05-08 09:33:06','2018-05-08 09:33:06',2),(10,1,8,8,6,5,12,'https://www.lifecell.ua/ru/mobilnaya-svyaz/tarify/absolute-freedom/',2,1,85,1,NULL,'2018-05-16 08:04:36','2018-05-16 08:05:57',7),(11,1,10,10,1,7,13,'https://www.lifecell.ua/ru/mobilnaya-svyaz/tarify/zachotnyy/',2,1,50,1,NULL,'2018-05-16 08:29:14','2018-05-16 08:30:56',7),(12,1,11,11,7,8,14,'https://www.lifecell.ua/ru/mobilnaya-svyaz/tarify/zvonki_vsem/',2,1,50,1,NULL,'2018-05-16 08:36:19','2018-05-16 08:37:37',1),(13,1,13,13,9,9,15,'https://www.lifecell.ua/ru/mobilnaya-svyaz/tarify/subsidy/',2,1,25,1,NULL,'2018-05-16 08:50:32','2018-05-16 08:50:32',7),(14,1,13,13,10,7,16,'https://www.lifecell.ua/ru/mobilnaya-svyaz/tarify/smartfon_3g_plus/',2,1,60,1,NULL,'2018-05-16 08:58:44','2018-05-16 08:59:55',7),(15,1,14,14,1,10,17,'https://www.lifecell.ua/ru/mobilnaya-svyaz/tarify/hayp/',2,1,75,1,NULL,'2018-05-16 09:24:08','2018-05-16 09:24:08',7),(16,1,16,16,12,11,19,'https://new.vodafone.ua/ru/privatnim-klientam/rates/vodafone-red-l',3,1,170,1,NULL,'2018-05-16 10:20:42','2018-05-16 10:20:42',12),(17,1,17,17,13,12,20,'https://new.vodafone.ua/ru/privatnim-klientam/rates/vodafone-red-s',3,1,65,1,NULL,'2018-05-16 11:26:04','2018-05-16 11:31:30',13),(18,1,18,18,14,13,21,'https://new.vodafone.ua/ru/privatnim-klientam/rates/vodafone-red-xs',3,1,55,1,NULL,'2018-05-16 11:37:00','2018-05-16 11:37:00',14),(19,1,19,19,15,14,22,'https://new.vodafone.ua/ru/privatnim-klientam/rates/vodafone-red-xs',3,1,105,1,NULL,'2018-05-16 11:40:26','2018-05-16 11:48:01',15);
 /*!40000 ALTER TABLE `tariffs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -961,7 +1021,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Простий','Чоловік','porsche839@gmail.com','$2y$10$5JD4Kwz5B8vDxZID93Dul.3pAnFTEFtwEO7bRfIEJ6bEOW3NUo1lm','eWKClSWdy48haqfBYG29o82kn9Cn50ng5vYTKrEkl9ts2FtcYJ4PvgWVWshw',1,0,'127.0.0.1','2018-03-12 10:49:38','2018-03-12 10:49:38');
+INSERT INTO `users` VALUES (1,'Простий','Чоловік','porsche839@gmail.com','$2y$10$5JD4Kwz5B8vDxZID93Dul.3pAnFTEFtwEO7bRfIEJ6bEOW3NUo1lm','0ylBvG2noy5ZyofDWBg1XTHICoJvDDaxdKaamQEwT6BSfhFDbtKWuVvFVY2K',1,0,'127.0.0.1','2018-03-12 10:49:38','2018-03-12 10:49:38');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -978,4 +1038,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-14 17:17:20
+-- Dump completed on 2018-05-16 17:22:10
