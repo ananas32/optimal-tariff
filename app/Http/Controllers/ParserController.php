@@ -111,7 +111,7 @@ class ParserController extends Controller
 		# Максимальное количество редиректов
 		$snoopy->maxredirs = 3;
 
-        $html = HtmlDomParser::file_get_html('http://new.vodafone.ua');
+        $html = HtmlDomParser::file_get_html('http://new.vodafone.ua', TRUE, NULL, 0, 999999999999);
 
         // Ссылки всех новых тарифов
 //        $links = $html->find('title');

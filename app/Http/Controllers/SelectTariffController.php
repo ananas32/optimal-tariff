@@ -160,6 +160,7 @@ class SelectTariffController extends Controller
                 $operator1s = Tariff::where('operator_id', $list_operator)->get();
                 $operator2s = Tariff::where('operator_id', $list_operator_2)->get();
                 $tariffs = [];
+                $iteration = 0;
                 foreach ($operator1s as $operator1) {
                     foreach ($operator2s as $operator2) {
                         $interimAmount = 0;
@@ -197,7 +198,7 @@ class SelectTariffController extends Controller
                                     $tmp = $otherCalls - $result2['tariff_minute'];
                                     $tmpSum = $calculate->calls($operator1->otherCalls, $tmp);
                                 }
-                                $interimAmount += $tmpSum;
+                                $interimAmount += $tmpSum['price_by_tariff_minute'];
                             }
                         }
 
@@ -216,7 +217,7 @@ class SelectTariffController extends Controller
                                     $tmp = $fixNumber - $result2['tariff_minute'];
                                     $tmpSum = $calculate->calls($operator1->fixedCall, $tmp);
                                 }
-                                $interimAmount += $tmpSum;
+                                $interimAmount += $tmpSum['price_by_tariff_minute'];
                             }
                         }
 
@@ -235,7 +236,7 @@ class SelectTariffController extends Controller
                                     $tmp = $megabute - $result2['tariff_package'];
                                     $tmpSum = $calculate->package($operator1->internetPackages, $tmp);
                                 }
-                                $interimAmount += $tmpSum;
+                                $interimAmount += $tmpSum['price_by_tariff_package'];
                             }
                         }
 
@@ -273,7 +274,7 @@ class SelectTariffController extends Controller
                                     $tmp = $mms - $result2['tariff_message'];
                                     $tmpSum = $calculate->message($operator1->mmsMessage, $tmp);
                                 }
-                                $interimAmount += $tmpSum;
+                                $interimAmount += $tmpSum['price_by_tariff_message'];
                             }
                         }
 
@@ -297,10 +298,11 @@ class SelectTariffController extends Controller
                             $data['recommendation'] = 'Будет луче';
                         }
 
-                        $tariffs[] = $data;
+                        $tariffs[$price] = $data;
                     }
                 }
-
+                ksort($tariffs);
+                $tariffs = array_slice($tariffs, 0, 8);
                 $html = view('layouts.includes.result-search-2')
                     ->with([
                         'tariffs' => $tariffs
@@ -399,7 +401,7 @@ class SelectTariffController extends Controller
 
             $html = view('layouts.includes.result-search')
                 ->with([
-                    'tariffs' => $tariffs
+                    'tariffs' => $tariffs->sortBy('interimAmount')
                 ])
                 ->render();
 

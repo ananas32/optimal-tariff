@@ -54,7 +54,6 @@
             <li><a href="/news">{{ trans('menu.news') }}</a></li>
             <li><a href="/select-tariff">{{ trans('menu.search') }}</a></li>
             <li><a href="/tariffs">{{ trans('menu.tariff') }}</a></li>
-            <li><a href="#">Тарифні пакети</a></li>
             <li><a href="/guest-book">{{ __('menu.guestbook') }}</a></li>
             <li class="set-region"><a href="#">{{ trans('menu.choose_region') }} <i class="fa fa-caret-down" aria-hidden="true"></i></a>
             </li>

@@ -77,6 +77,7 @@ class Tariff extends Eloquent
 	public function tariffs()
 	{
 		return $this->join('operators', 'operators.id', '=', 'tariffs.operator_id')
+			->select('*', 'tariffs.id as t_id')
 			->where('active', '=', 1);
 	}
 

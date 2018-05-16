@@ -11,7 +11,6 @@ class TariffController extends Controller
     {
         $tariff = new Tariff;
         $tariffs = $tariff->getTariffs();
-
         $data = [
             'title' => trans('page.tariffs'),
             'tariffs' => $tariffs,

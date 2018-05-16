@@ -35,7 +35,7 @@
         <div class="col-xs-12 col-xsm-6 col-sm-4 col-md-3">
             <div class="tariff">
                 <div class="content">
-                    <input type="checkbox" class="compare" name="{{ $tariff->tariffNames->tariff_name }}" value="{{ $tariff->id }}">
+                    <input type="checkbox" class="compare" name="{{ $tariff->tariffNames->tariff_name }}" value="{{ $tariff->t_id }}">
                     <div class="recommendation">
                         <span class="label {{ $tariff->operator_name }}">{{ ucfirst($tariff->operator_name) }}</span>
                     </div>
