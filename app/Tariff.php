@@ -87,7 +87,7 @@ class Tariff extends Eloquent
 
 	public function getTariffs()
 	{
-		return $this->tariffs()->get();
+		return $this->tariffs()->orderBy('operator_id', 'ASC')->get();
 	}
 
 	public function getTariff($id)

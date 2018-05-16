@@ -95,7 +95,7 @@
                                 <div class="info-item">
                                     <i class="fa fa-h-square" aria-hidden="true"></i>
                                     {{ trans('pages.total') }} {{ trans('pages.tariffs') }}
-                                    <div class="count">20 {{ trans('pages.tariffs') }}</div>
+                                    <div class="count">{{ $countTariff }} {{ trans('pages.tariffs') }}</div>
                                 </div>
                             </div>
                             <div class="col-xs-6 col-xsm-4 col-sm-3 col-lg-3">
