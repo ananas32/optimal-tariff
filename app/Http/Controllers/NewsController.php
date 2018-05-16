@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\News;
-//use Illuminate\Http\Request;
-//use Illuminate\Support\Facades\Validator;
+use App\Page;
 
 class NewsController extends Controller
 {
@@ -12,8 +11,8 @@ class NewsController extends Controller
     {
         $data = [
             'listNews' => $news->getListNews(),
+            'page' => Page::where('slug', 'news')->firstOrFail()
         ];
-//        dd($news->getListNews());
         return view('pages.news', $data);
     }
 

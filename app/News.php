@@ -49,7 +49,7 @@ class News extends Eloquent
 
     public function getNewsById($id)
     {
-        return $this->listNews()->where('news.id', "$id")->get();
+        return $this->listNews()->where('news.id', "$id")->first();
     }
 
     public function setIncrementNewsViews($id)

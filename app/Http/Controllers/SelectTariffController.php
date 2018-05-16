@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\FormDropdown;
 use App\Operator;
 use App\Tariff;
+use App\Page;
 use App\Http\Controllers\Traits\Calculate;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Input;
@@ -34,7 +35,8 @@ class SelectTariffController extends Controller
             'freUse' => $freUse,
             'lengthCall' => $lengthCall,
             'countCall' => $countCall,
-            'operatorList' => $operator->getListOperator()
+            'operatorList' => $operator->getListOperator(),
+            'page' => Page::where('slug', 'select-tariff')->firstOrFail()
         ];
 
         if($request->cookie('user_manual')) {

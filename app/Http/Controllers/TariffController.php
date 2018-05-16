@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Operator;
 use App\Tariff;
+use App\Page;
 
 class TariffController extends Controller
 {
@@ -14,7 +15,8 @@ class TariffController extends Controller
         $data = [
             'title' => trans('page.tariffs'),
             'tariffs' => $tariffs,
-            'operators' => $operator->getListOperator()
+            'operators' => $operator->getListOperator(),
+            'page' => Page::where('slug', 'tariffs')->firstOrFail()
         ];
 
         return view('pages.tariffs', $data);

@@ -5,13 +5,10 @@
 
 <meta name="_token" content="{!! csrf_token() !!}"/>
 
-<title>
-@if(isset($title))
-    {!! $title !!}
-@else
-    optimal
-@endif
-</title>
+<title>@yield('meta_title')</title>
+<meta name="description" content="@yield('meta_description')">
+<meta name="keywords" content="@yield('meta_keywords')">
+<link rel="canonical" href="{{ url(Request::path()) }}"/>
 
 <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.css') }}">
 <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">

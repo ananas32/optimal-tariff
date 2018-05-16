@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\GuestBook;
+use App\Page;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -17,7 +18,7 @@ class GuestBookController extends Controller
 
         $data = [
             'guestBookList' => $guestBookList,
-            'title' => trans('pages.guest_book')
+            'page' => Page::where('slug', 'guest-book')->firstOrFail()
         ];
 
         return view('pages.guest-book', $data);
