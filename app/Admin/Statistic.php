@@ -7,7 +7,7 @@ AdminSection::registerModel(Statistic::class, function (ModelConfiguration $mode
 
 //    $model->enableAccessCheck();
 
-	$model->setTitle('Статистика');
+	$model->setTitle('Таблична статистика');
 
 	$model->onDisplay(function () {
 
@@ -109,6 +109,4 @@ AdminSection::registerModel(Statistic::class, function (ModelConfiguration $mode
 		return $form;
 	});
 
-})
-	->addMenuPage(Statistic::class, 350)
-	->setIcon('fa fa-line-chart');
+});

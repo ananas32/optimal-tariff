@@ -115,6 +115,18 @@ return [
                 ->setPriority(106)
         ]
     ],
+    [
+        'title' => "Статистика",
+        'icon' => 'fa fa-line-chart',
+        'pages' => [
+                (new Page(\App\Statistic::class))
+                    ->setPriority(103),
+            [
+                'title' => 'График',
+                'url'   => route('admin.chart')
+            ],
+        ]
+    ],
     // Examples
     // [
     //    'title' => 'Content',

@@ -13,3 +13,5 @@ Route::get('information', ['as' => 'admin.information', function () {
 Route::get('/spider/kyivstar',['as' => 'admin.parser.kyivstar','uses' => '\App\Http\Controllers\ParserController@kyivstar']);
 Route::get('/spider/lifecell',['as' => 'admin.parser.lifecell','uses' => '\App\Http\Controllers\ParserController@lifecell']);
 Route::get('/spider/vodafone',['as' => 'admin.parser.vodafone','uses' => '\App\Http\Controllers\ParserController@vodafone']);
+
+Route::get('/chart',['as' => 'admin.chart','uses' => '\App\Http\Controllers\ChartController@index']);
