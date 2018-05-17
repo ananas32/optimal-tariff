@@ -46,9 +46,9 @@ class TariffController extends Controller
         $data = [
             'op1' => $operator->getTariff($t1),
             'op2' => $operator->getTariff($t2),
+            'page' => Page::where('slug', 'home')->firstOrFail()
         ];
-//        echo $t1. ' | ' .$t2;
-//        echo "kurwa";
+
         return view('pages.compare', $data);
     }
 

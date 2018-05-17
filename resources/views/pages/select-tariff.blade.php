@@ -13,7 +13,7 @@
 <div class="col-xs-12">
 <div class="content-block">
 <h3><span>{{ trans('pages.search_tariff_plan') }}</span></h3>
-<div class="info">{{ trans('pages.error_site') }}"<a href="/gbook">{{ trans('menu.guestbook') }}</a>".
+<div class="info">{{ trans('pages.error_site') }}"<a href="/guest-book">{{ trans('menu.guestbook') }}</a>".
     {{ trans('pages.line') }}
 </div>
 

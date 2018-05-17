@@ -55,12 +55,12 @@
             <td>{{ ($op1->internetPackages->unlimited) ? '&infin;' : $op1->internetPackages->tariff_package }}</td>
         </tr>
         <tr>
-            <td class="color">{{ __('mesyats') }}</td>
+            <td class="color">{{ __('Ежемесячный платеж') }}</td>
             <td>{{ $op2->regularPayments->name_payment }}: {{ $op2->price }} UAH</td>
             <td>{{ $op1->regularPayments->name_payment }}: {{ $op1->price }} UAH</td>
         </tr>
         <tr>
-            <td class="color">{{ __('postachalnik') }}</td>
+            <td class="color">{{ __('Сайт поставщика') }}</td>
             <td><a href="{{ $op2->link }}" target="_blank">{{ __('Сайт поставщика') }}</a></td>
             <td><a href="{{ $op1->link }}" target="_blank">{{ __('Сайт поставщика') }}</a></td>
         </tr>
