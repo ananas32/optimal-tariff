@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\FormDropdown;
 use App\Operator;
+use App\Statistic;
 use App\Tariff;
 use App\Page;
 use App\Http\Controllers\Traits\Calculate;
@@ -305,6 +306,19 @@ class SelectTariffController extends Controller
                 }
                 ksort($tariffs);
                 $tariffs = array_slice($tariffs, 0, 8);
+                $tariff = array_shift($tariffs);
+
+                $statistic = new Statistic();
+                $statistic->operator1 = (int) $list_operator;
+                $statistic->operator1 = (int) $list_operator_2;
+                $statistic->tariff1 = $tariff['operator1']->id;
+                $statistic->tariff2 = $tariff['operator2']->id;
+                $statistic->region = 1;
+                $statistic->estimated_costs = $tariff['price'];
+                $statistic->current_expenses = $costs;
+                $statistic->user_agent = mb_strimwidth($request->header('User-Agent'), 0, 300, '');
+                $statistic->ip_address = $request->ip();
+                $statistic->save();
                 $html = view('layouts.includes.result-search-2')
                     ->with([
                         'tariffs' => $tariffs
@@ -400,10 +414,21 @@ class SelectTariffController extends Controller
                     }
                 }
             }
+            $tariffs = $tariffs->sortBy('interimAmount');
+            $statisticTariff = $tariffs->first();
+            $statistic = new Statistic();
+            $statistic->operator1 = (int) $list_operator;
+            $statistic->tariff1 = $statisticTariff->id;
+            $statistic->region = 1;
+            $statistic->estimated_costs = $statisticTariff->interimAmount;
+            $statistic->current_expenses = $costs;
+            $statistic->user_agent = mb_strimwidth($request->header('User-Agent'), 0, 300, '');
+            $statistic->ip_address = $request->ip();
+            $statistic->save();
 
             $html = view('layouts.includes.result-search')
                 ->with([
-                    'tariffs' => $tariffs->sortBy('interimAmount')
+                    'tariffs' => $tariffs
                 ])
                 ->render();
 
