@@ -126,7 +126,7 @@ CREATE TABLE `guest_book` (
 
 LOCK TABLES `guest_book` WRITE;
 /*!40000 ALTER TABLE `guest_book` DISABLE KEYS */;
-INSERT INTO `guest_book` VALUES (1,1,'Инокентий','developer@developer.com','Я простой человек который пришол на сайта, что бы оставить свой коментарий','','127.0.0.1','2018-03-13 13:47:41','2018-03-13 13:52:00');
+INSERT INTO `guest_book` VALUES (1,0,'Инокентий','developer@developer.com','Я простой человек который пришол на сайта, что бы оставить свой коментарий','','127.0.0.1','2018-03-13 13:47:41','2018-05-17 10:08:45');
 /*!40000 ALTER TABLE `guest_book` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -282,7 +282,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -291,7 +291,7 @@ CREATE TABLE `migrations` (
 
 LOCK TABLES `migrations` WRITE;
 /*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES (1,'2014_10_12_000000_create_users_table',1),(2,'2014_10_12_100000_create_password_resets_table',1),(3,'2017_02_22_131814_entrust_setup_tables',1),(4,'2017_03_10_220240_create_slider_table',1),(5,'2017_03_11_093507_create_guest_book',1),(6,'2017_03_11_172340_create_locales_table',1),(7,'2017_03_12_000501_create_random_text_header_table',1),(8,'2017_03_12_150436_create_home_content_table',1),(9,'2017_03_12_185756_create_news_table',1),(10,'2017_03_14_220353_create_operators_table',1),(11,'2017_03_19_170504_create_region_table',1),(12,'2018_03_13_162638_create_call_table',2),(13,'2018_03_14_103740_create_message_table',2),(14,'2018_03_14_104944_create_internet_package_table',3),(25,'2018_03_19_095709_create_tariff_names_table',4),(26,'2018_03_19_095711_create_regular_payments_table',4),(27,'2018_03_19_095827_create_tariffs_table',4),(29,'2018_03_23_114426_create_form_dropdown_table',5),(30,'2018_05_16_160229_create_pages_table',6);
+INSERT INTO `migrations` VALUES (1,'2014_10_12_000000_create_users_table',1),(2,'2014_10_12_100000_create_password_resets_table',1),(3,'2017_02_22_131814_entrust_setup_tables',1),(4,'2017_03_10_220240_create_slider_table',1),(5,'2017_03_11_093507_create_guest_book',1),(6,'2017_03_11_172340_create_locales_table',1),(7,'2017_03_12_000501_create_random_text_header_table',1),(8,'2017_03_12_150436_create_home_content_table',1),(9,'2017_03_12_185756_create_news_table',1),(10,'2017_03_14_220353_create_operators_table',1),(11,'2017_03_19_170504_create_region_table',1),(12,'2018_03_13_162638_create_call_table',2),(13,'2018_03_14_103740_create_message_table',2),(14,'2018_03_14_104944_create_internet_package_table',3),(25,'2018_03_19_095709_create_tariff_names_table',4),(26,'2018_03_19_095711_create_regular_payments_table',4),(27,'2018_03_19_095827_create_tariffs_table',4),(29,'2018_03_23_114426_create_form_dropdown_table',5),(30,'2018_05_16_160229_create_pages_table',6),(33,'2018_05_17_102613_create_statistics_table',7);
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -774,6 +774,40 @@ LOCK TABLES `social_package` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `statistics`
+--
+
+DROP TABLE IF EXISTS `statistics`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `statistics` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `operator1` int(11) NOT NULL,
+  `operator2` int(11) NOT NULL,
+  `tariff1` int(11) NOT NULL,
+  `tariff2` int(11) NOT NULL,
+  `region` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `estimated_costs` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `current_expenses` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `user_agent` text COLLATE utf8_unicode_ci NOT NULL,
+  `ip_address` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `statistics`
+--
+
+LOCK TABLES `statistics` WRITE;
+/*!40000 ALTER TABLE `statistics` DISABLE KEYS */;
+INSERT INTO `statistics` VALUES (1,1,0,4,0,'1','75','100','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.117 Safari/537.36','127.0.0.1','2018-05-17 10:16:51','2018-05-17 10:16:51'),(2,1,0,8,0,'1','347','155','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.117 Safari/537.36','127.0.0.1','2018-05-17 10:17:07','2018-05-17 10:17:07'),(3,1,0,4,0,'1','75','140','Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.117 Safari/537.36','127.0.0.1','2018-05-17 10:22:12','2018-05-17 10:22:12');
+/*!40000 ALTER TABLE `statistics` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tariff_name_translations`
 --
 
@@ -1021,7 +1055,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Простий','Чоловік','porsche839@gmail.com','$2y$10$5JD4Kwz5B8vDxZID93Dul.3pAnFTEFtwEO7bRfIEJ6bEOW3NUo1lm','0ylBvG2noy5ZyofDWBg1XTHICoJvDDaxdKaamQEwT6BSfhFDbtKWuVvFVY2K',1,0,'127.0.0.1','2018-03-12 10:49:38','2018-03-12 10:49:38');
+INSERT INTO `users` VALUES (1,'Простий','Чоловік','porsche839@gmail.com','$2y$10$5JD4Kwz5B8vDxZID93Dul.3pAnFTEFtwEO7bRfIEJ6bEOW3NUo1lm','qGm3ObvHTLlK4t7gB0n8uivgcoTh1Efvkni5TRmnmef5ygS4wv5zHUpcSqwx',1,0,'127.0.0.1','2018-03-12 10:49:38','2018-03-12 10:49:38');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1038,4 +1072,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-05-16 17:22:10
+-- Dump completed on 2018-05-17 13:25:18
