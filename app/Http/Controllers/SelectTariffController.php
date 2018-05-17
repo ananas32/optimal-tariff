@@ -310,7 +310,7 @@ class SelectTariffController extends Controller
 
                 $statistic = new Statistic();
                 $statistic->operator1 = (int) $list_operator;
-                $statistic->operator1 = (int) $list_operator_2;
+                $statistic->operator2 = (int) $list_operator_2;
                 $statistic->tariff1 = $tariff['operator1']->id;
                 $statistic->tariff2 = $tariff['operator2']->id;
                 $statistic->region = 1;
